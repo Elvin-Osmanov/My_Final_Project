@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AEAA,AAAA,IAAI,CAAA;EACA,WAAW,EDDF,kBAAkB,EAAE,KAAK;CCErC;;ACFD,AAGQ,OAHD,CAEH,EAAE,CACE,EAAE,CAAA;EACE,WAAW,EFHR,SAAS,EAAE,UAAU;EEIxB,cAAc,EAAE,SAAS;EACzB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;EACjB,YAAY,EAAE,IAAI;CACrB",
+    "sources": [
+        "style.scss",
+        "partials/_variables.scss",
+        "partials/_baseFeatures.scss",
+        "partials/_navbar.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}
