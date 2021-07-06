@@ -1,0 +1,60 @@
+.prenavbar{
+    background-color: transparent;
+    padding: 12px 0;
+    max-width: 90%;
+    .languages{
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 0px;
+        a{
+            font-size: 14px;
+            text-decoration:none;
+            cursor: pointer;
+        }
+
+        span{
+            color: white;
+        }
+        a.first-language{
+            color: $mainColor;
+            font-weight: 600;
+        }
+
+        a.second-language{
+            color: white;
+            font-weight: 600;
+            @include transition(.5s);
+
+            &:hover{
+                color: $mainColor;
+                @include transition(.5s);
+            }
+        }
+    }
+
+    .info{
+        a{
+            color: $mainColor!important;
+            font-weight: 600;
+            text-decoration:none;
+            cursor: pointer;
+            @include transition(.5s);
+
+            span{
+                color:white;
+            }
+
+            &:hover{
+                
+                    color: white!important;
+    
+                    span{
+                        color: $mainColor!important;
+                    }
+                @include transition(.5s)
+            }
+        }
+
+        
+    }
+}

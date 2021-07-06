@@ -1,3 +1,14 @@
 body{
     font-family: $primaryFont;
 }
+
+header{
+    position: fixed;
+    top: 0;
+    left: 10%;
+    right: 0;
+    z-index: 1030;
+   justify-content: center;
+   
+}
+
