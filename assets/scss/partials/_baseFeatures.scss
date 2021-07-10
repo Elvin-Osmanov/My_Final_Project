@@ -12,3 +12,52 @@ header{
    
 }
 
+.container{
+    max-width: 1260px!important;
+}
+
+
+%mainbtn{
+    padding: 13px 28px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid $mainColor;;
+    color: #fff;
+    margin-top: 40px;
+   text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+   transition: all .3s;
+   border-radius: 0;
+   outline: 0;
+   
+
+   .icon{
+    margin-left: 15px;
+  
+   }
+
+    &:hover{
+        background: #fff;
+        color: #666;
+        border-color: transparent;
+        transform: rotateX(0deg);
+        transition: all .5s ;
+
+        &:hover{
+                 
+            .icon{
+        
+                transform: rotateX(360deg);
+                transition: all .5s;
+                   
+            }
+        }
+       
+    }
+}
+
+.title{
+    @include title
+}
+
+.dots{@include dots}
