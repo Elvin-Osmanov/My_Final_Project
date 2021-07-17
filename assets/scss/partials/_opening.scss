@@ -1,38 +1,170 @@
 #opening{
-    padding: 125px 0;
+   
     overflow: hidden;
 
     .plate{
-        background-size: cover;
+        background-size: 50% 100%;
         background-repeat: no-repeat;
-        background-position: center;
+        background-attachment:fixed;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 245px 100px;
 
-     
+     .quote{
+         margin-bottom: 5%;
+         font-size: 50px;
+         color: $mainColor;
+         z-index: 10;
+     }
 
         span{
             font-family: $secondaryFont;
             font-weight: 700;
+            z-index: 10;
+            margin-top: 10%;
         }
 
-        &::before{
-            content: "";
-            background-color: rgba(0, 0, 0, 0.308);
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+        p{
+            z-index: 10;
         }
+        // &::before{
+        //     content: "";
+        //     background-color: rgba(0, 0, 0, 0.308);
+        //     background-attachment: fixed;
+        //     width: 100%;
+        //     height: 86.4%;
+        //     position: absolute;
+        //     top: 30px;
+        //     left: 0;
+        // }
     }
 
     .hours{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        padding: 161px 0;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-color: #292929;
+       
+
+       &::after{
+        content: '';
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        right: 50px;
+        bottom: 50px;
+        border: 1px dashed rgba(255,255,255,0.2);
+        z-index: 2;
+         box-shadow: 0px 0px 0px 50px rgba(114, 113, 113, 0.089);
+        }
+        .dots{
+            color: $mainColor;
+            
+           
+        }
+
+        .opening-info{
+            position: relative;
+            
+            h6{
+                font-size: 14px;
+                font-family: $secondaryFont;
+                color: $mainColor;
+            }
+
+            span{
+
+                font-size: 30px;
+                font-weight: 600;
+                font-family: $secondaryFont;
+            }
+
+            margin-bottom: 10%;
+
+            &::before{
+
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 49.5%;
+                width: 10px;
+                bottom: 20px;
+                background-image: url(../images/opening/ver-separator.png);
+                background-repeat:repeat-y;
+                z-index: 10000;
+
+            }
+
+            
+        }
+
+        .white-separator{
+
+            position: absolute;
+            top: 380px;
+            font-size: 50px;
+            
+        
+
+            &::before{
+
+                position: absolute;
+                content: "";
+                width: 110px;
+                left: -240px;
+                top:55px;
+                height: 1px;
+                opacity: .5;
+                background-color: $mainColor;
+
+            }
+            
+            &::after{
+                position: absolute;
+                content: "";
+                width: 110px;
+                left: 145px;
+                top:55px;
+                height: 1px;
+                opacity: .5;
+                background-color: $mainColor;
+            }
+            
+            
+        }
+        .call-number{
+
+            z-index: 3;
+            a{
+                font-size: 28px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                padding: 10px 20px;
+                text-decoration: none;
+                @include transition(.5s);
+                border: 1px solid $mainColor;
+                color: #fff;
+
+                &:hover{
+
+                   
+                        color: $mainColor!important;
+                        @include transition(.5s);
+                   
+                   
+                }
+                
+            }
+
+            
+
+            margin-top:9.6%;
+        }
     }
 }
