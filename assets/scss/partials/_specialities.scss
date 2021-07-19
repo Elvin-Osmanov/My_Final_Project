@@ -93,4 +93,50 @@
             }
         }
     }
+
+    .menus{
+        padding-top: 27px;
+
+        ul{
+
+            li{
+                span{
+                    color: $mainColor;
+                    margin-right: 40px;
+                    margin-top:-5px;
+                }
+
+                .item{
+                     
+                    h6{
+                        font-family: $secondaryFont;
+                    }
+
+                    p{
+                        font-family: $secondaryFont;
+                        font-weight: 200;
+                        font-size: 13px;
+                    }
+                }
+
+                .price{
+                    color: $mainColor;
+                }
+
+                .details{
+                    position: relative;
+
+                    &::after{
+                        content: "";
+                        width: 600px;
+                        height: 1px;
+                        position: absolute;
+                        border-bottom: 1px dotted rgba(204, 204, 204, 0.2);
+                        top: 10px;
+                        left: 245px;
+                    }
+                }
+            }
+        }
+    }
 }

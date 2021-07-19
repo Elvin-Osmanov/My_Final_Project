@@ -995,6 +995,44 @@ header {
   margin-left: 50px;
 }
 
+#specialities .menus {
+  padding-top: 27px;
+}
+
+#specialities .menus ul li span {
+  color: #C19D60;
+  margin-right: 40px;
+  margin-top: -5px;
+}
+
+#specialities .menus ul li .item h6 {
+  font-family: "Poppins", sans-serif;
+}
+
+#specialities .menus ul li .item p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 13px;
+}
+
+#specialities .menus ul li .price {
+  color: #C19D60;
+}
+
+#specialities .menus ul li .details {
+  position: relative;
+}
+
+#specialities .menus ul li .details::after {
+  content: "";
+  width: 600px;
+  height: 1px;
+  position: absolute;
+  border-bottom: 1px dotted rgba(204, 204, 204, 0.2);
+  top: 10px;
+  left: 245px;
+}
+
 #chefs {
   padding: 25px 0;
 }
