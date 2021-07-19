@@ -10,5 +10,13 @@ $('.carousel').slick({
  
 });
 
-   console.log($(".slick-list"))
+
+$('#store .slider').slick({
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 2
+
+});
+
+ 
 });

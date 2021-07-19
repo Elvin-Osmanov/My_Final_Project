@@ -17,7 +17,7 @@ header {
   max-width: 1245px !important;
 }
 
-#intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #chefs .recipe-box a, #store .buy a.onlineBtn {
+#intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn {
   padding: 13px 28px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid #C19D60;
@@ -32,11 +32,11 @@ header {
   outline: 0;
 }
 
-#intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #chefs .recipe-box a .icon, #store .buy a.onlineBtn .icon {
+#intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon {
   margin-left: 15px;
 }
 
-#intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #chefs .recipe-box a:hover, #store .buy a.onlineBtn:hover {
+#intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover {
   background: #fff;
   color: #666;
   border-color: transparent;
@@ -46,7 +46,7 @@ header {
   transition: all .5s;
 }
 
-#intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon {
+#intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   -webkit-transition: all .9s;
@@ -914,6 +914,87 @@ header {
   bottom: 0;
 }
 
+#specialities {
+  padding: 105px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#specialities::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.708);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#specialities .dots {
+  color: #C19D60;
+}
+
+#specialities .section-header-special {
+  height: 40px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -5px;
+}
+
+#specialities .section-footer-special {
+  height: 40px;
+  position: absolute;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  bottom: 0;
+}
+
+#specialities .pdf a.pdfbtn {
+  font-size: 14px;
+  margin-top: 6px;
+  position: relative;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+  padding-bottom: 4px;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+  color: #C19D60;
+  text-decoration: none;
+}
+
+#specialities .pdf a.pdfbtn:hover {
+  color: white;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+#specialities .menu-tabs {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 25px  20px 25px  0px;
+}
+
+#specialities .menu-tabs .tabs li a {
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#specialities .menu-tabs .tabs li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#specialities .menu-tabs .tabs li .menu-order {
+  font-size: 12px;
+  color: #C19D60;
+  margin-right: 10px;
+}
+
+#specialities .menu-tabs .tabs li i {
+  color: #C19D60;
+  margin-left: 50px;
+}
+
 #chefs {
   padding: 25px 0;
 }
@@ -1064,11 +1145,18 @@ header {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-color: #292929;
-  padding: 150px 0;
+  padding: 112px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #store .events::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50px;
   left: 50px;
@@ -1082,6 +1170,84 @@ header {
 
 #store .events .dots {
   color: #C19D60;
+}
+
+#store .events .slider {
+  padding: 0 50px;
+  z-index: 20;
+}
+
+#store .events .slider .event .inner-event p {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  padding: 0 40px;
+}
+
+#store .events .slider .event .inner-event span {
+  color: #C19D60;
+  font-size: 11px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+#store .events .slider .slick-next {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  right: 35px;
+  background: black;
+}
+
+#store .events .slider .slick-next::before {
+  color: #C19D60;
+}
+
+#store .events .slider .slick-prev {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  left: 35px;
+  z-index: 10;
+  background: black;
+}
+
+#store .events .slider .slick-prev::before {
+  color: #C19D60;
+}
+
+#store .events .white-separator2 {
+  position: absolute;
+  top: 360px;
+  font-size: 50px;
+}
+
+#store .events .white-separator2::before {
+  position: absolute;
+  content: "";
+  width: 110px;
+  left: -220px;
+  top: 55px;
+  height: 1px;
+  opacity: 0.5;
+  background-color: #C19D60;
+}
+
+#store .events .white-separator2::after {
+  position: absolute;
+  content: "";
+  width: 110px;
+  left: 120px;
+  top: 55px;
+  height: 1px;
+  opacity: 0.5;
+  background-color: #C19D60;
 }
 
 #store .buy {
@@ -1102,7 +1268,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 150px 100px;
+  padding: 200px 0;
 }
 
 #store .buy h1 {
