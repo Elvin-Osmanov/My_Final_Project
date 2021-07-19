@@ -2,6 +2,7 @@
     padding: 30px 0;
     .inner{
         border-bottom: 1px dotted rgba(255,255,255,0.2);
+        justify-content: space-between;
     }
 
 
@@ -228,7 +229,7 @@
     .copyright{
         display: flex;
         justify-content: space-between;
-        align-content: center;
+        // align-content: center;
 
         p{
             font-size: 13px;
@@ -239,6 +240,7 @@
             @include transition(.6s);
             padding: 15px 0;
             text-align: center;
+            cursor: pointer;
            
 
             a{
@@ -250,21 +252,24 @@
             i{
                 color: $mainColor;
                 font-size: 13px;
-                display: none;
-                margin-right: 50%;
+                visibility: hidden;
+                opacity: 0;
+                @include transition(.6s);
             }
 
 
             &:hover{
                
                 a{
-                    display: none;
+                  
+                    visibility: hidden;
+                    opacity: 0;
                     @include transition(.6s);
                 }
                 i{
                     @include transition(.6s);
-                    display: block;
-                    cursor: pointer;
+                   visibility: visible;
+                   opacity: 1;
                 }
             }
         }

@@ -1,0 +1,62 @@
+#store{
+    padding: 25px 0;
+    overflow: hidden;
+
+    .events{
+
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-color: #292929;
+        padding: 150px 0;
+
+        &::after{
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            bottom: 50px;
+            border: 1px dashed rgba(255,255,255,0.2);
+            z-index: 2;
+             box-shadow: 0px 0px 0px 50px rgba(114, 113, 113, 0.089);
+            }
+
+        .dots{
+            color: $mainColor;
+        }
+    }
+
+    .buy{
+        background-size: 50% 100%;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 150px 100px;
+
+        h1{
+            color: $mainColor
+        }
+
+        p{
+            color: white;
+            font-style: italic;
+            font-size: 20px
+        }
+
+        a.onlineBtn{
+            @extend %mainbtn;
+            background-color: #292929;
+            color: white;
+            border: #292929;
+
+            &:hover{
+                background-color: $mainColor;
+                color: white;
+            }
+        }
+    }
+}
