@@ -218,6 +218,10 @@
                 background-color: white;
                 color: $mainColor;
             }
+
+            &:hover{
+                box-shadow: none;
+            }
         }
     }
 }

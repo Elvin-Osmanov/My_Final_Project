@@ -3,14 +3,15 @@
     
     .navbar-brand{
         margin-right: 0;
+        img{
+            height: 27px;
+            padding-left: 20px;
+        }
     }
 
     padding: 0 ;
    max-width: 90%;
-    img{
-        height: 27px;
-        padding-left: 20px;
-    }
+   
 
     ul{
         align-items: flex-end;
@@ -99,6 +100,201 @@
             }
 
             @include transition(.5s)
+        }
+    }
+
+    .cart-box{
+        padding: 25px 20px 15px;
+        width: 400px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-top: none;
+        margin-left: -142px;
+        margin-top: 0px;
+        border-radius: 0;
+        .upper{
+
+            h6{
+                font-size: 15px;
+                font-family: $primaryFont;
+                text-transform: none;
+                font-weight: 500;
+            }
+
+            p{
+                font-size: 12px;
+                text-transform: lowercase;
+                color: #555;
+            }
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .middle{
+
+           overflow-y:scroll;
+           height: 275px;
+
+          
+           &::-webkit-scrollbar{
+            width: 6px;
+            }
+
+            &::-webkit-scrollbar-thumb{
+                width: 6px;
+                background-color: $mainColor;
+            }
+
+            li:not(:last-child){
+                border-bottom: 1px dotted #ccc;
+            }
+            
+            .item-image{
+               img{
+                width: 75px;
+                height: auto;
+               }
+
+                
+            }
+
+            .item-details{
+                margin-left: 10px;
+
+                p{
+                    text-transform:none;
+                    font-weight: 500;
+                    font-size: 13px;
+                }
+
+                .text-details{
+                  
+                font-weight: 400;
+                color: #666;
+                padding-top: 3px;
+                font-size: 12px;
+                }
+            }
+
+            .remove-icon{
+                display: flex;
+                align-items: center;
+
+                i{
+                    color: $mainColor;
+                }
+            }
+
+            
+            
+        }
+
+        .lower{
+
+            .subtotal{
+                border-top: 1px dotted #ccc;
+                p{
+                    font-family: $primaryFont;
+                    font-weight: 600;
+                    text-transform: none;
+                }
+                .subtotal-price{
+
+                    color: $mainColor;
+                }
+            }
+
+            .checkout{
+
+                border-top: 1px dotted #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+               
+                a{
+                    @extend %mainbtn;
+                    margin-top: 0;
+                    border-color: #232323;
+                    background-color: #232323;
+                    color: white!important;
+
+                    &:hover{
+                        background-color: $mainColor;
+                        
+                    }
+
+                    &:hover{
+                        box-shadow: none;
+                    }
+                }
+
+                span{
+                    font-weight: 200;
+                    color: $mainColor;
+
+                }
+                
+            }
+        }
+    }
+
+    .account-box{
+        width: 259px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-top: none;
+        margin-left: -55px;
+        margin-top: 0px;
+        border-radius: 0;
+        padding: 10px 15px ;
+
+        .login{
+            input{
+                border: 1px solid #e1e1e1;
+                background: #F9F9F9;
+                font-size: 12px;
+                color: #666666;
+                font-family: $secondaryFont;
+                outline: none;
+                border-radius: 0;
+                font-weight: 500;
+    
+                &::placeholder{
+                    font-size: 13px;
+                }
+                &:focus{
+    
+                    box-shadow: none!important;
+                 
+                }
+                
+            }
+
+            label{
+                font-size: 12px;
+                color: #666666;
+                font-family: $secondaryFont;
+                
+            }
+
+            .sign{
+                button{
+                    @extend %mainbtn;
+                    margin-top: 0;
+                    border-color: #232323;
+                    background-color: #232323;
+                    color: white!important;
+    
+                    &:hover{
+                        background-color: $mainColor;
+                        
+                    }
+
+                    &:hover{
+                        box-shadow: none;
+                    }
+                }
+            }
         }
     }
 }

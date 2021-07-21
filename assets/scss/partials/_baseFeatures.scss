@@ -2,6 +2,10 @@ body{
     font-family: $primaryFont;
 }
 
+html {
+    scroll-behavior:smooth;
+  }
+
 header{
     position: fixed;
     top: 0;

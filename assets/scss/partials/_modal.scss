@@ -1,0 +1,120 @@
+#modal{
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2100;
+    display: none;
+   
+
+    .reservation{
+        padding: 30px;
+        background-color: #fff;
+        margin-top: 15%;
+        position: relative;
+        .close-icon{
+            padding: 10px 15px;
+            background:white;
+            border: 1px solid #e1e1e1;
+            display: inline;
+            position: absolute;
+            top:10px;
+            right: 10px;
+            cursor: pointer;
+
+            i{
+                color: $mainColor;
+                font-weight: 200;
+            }
+        }
+        .reservation-inner{
+            border: 1px dotted  #ccc;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 30px;
+
+
+            input{
+                border: 1px solid #e1e1e1;
+                background: #F9F9F9;
+                font-size: 12px;
+                color: #666666;
+                font-family: $secondaryFont;
+                outline: none;
+                border-radius: 0;
+                font-weight: 500;
+    
+                &::placeholder{
+                    font-size: 13px;
+                }
+                &:focus{
+    
+                    box-shadow: none!important;
+                 
+                }
+                
+            }
+
+            select{
+                border: 1px solid #e1e1e1;
+                background: #F9F9F9;
+                font-size: 12px;
+                color: #666666;
+                font-family: $secondaryFont;
+                outline: none;
+                border-radius: 0;
+                font-weight: 500;
+    
+                option{
+                    color: #666666;
+                }
+                &::placeholder{
+                    font-size: 13px;
+                    color: #666666;
+                }
+                &:focus{
+    
+                    box-shadow: none!important;
+                 
+                }
+            }
+
+            textarea{
+                border: 1px solid #e1e1e1;
+               
+                font-size: 12px;
+                color: #666666;
+                font-family: $secondaryFont;
+                outline: none;
+                border-radius: 0;
+                font-weight: 500;
+
+                &:focus{
+    
+                    box-shadow: none!important;
+                 
+                }
+            }
+
+            a.reserve-btn{
+                @extend %mainbtn;
+                background-color: $mainColor;
+
+                &:hover{
+                    background-color: $mainColor;
+                    color:white;
+                }
+
+                &:focus{
+    
+                    box-shadow: none!important;
+                 
+                }
+            }
+        }
+
+    }
+}

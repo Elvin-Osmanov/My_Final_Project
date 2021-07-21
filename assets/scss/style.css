@@ -2,6 +2,10 @@ body {
   font-family: "Playfair Display", serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -17,7 +21,7 @@ header {
   max-width: 1245px !important;
 }
 
-#intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn {
+.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn {
   padding: 13px 28px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid #C19D60;
@@ -32,11 +36,11 @@ header {
   outline: 0;
 }
 
-#intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon {
+.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon {
   margin-left: 15px;
 }
 
-#intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover {
+.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover {
   background: #fff;
   color: #666;
   border-color: transparent;
@@ -46,7 +50,7 @@ header {
   transition: all .5s;
 }
 
-#intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon {
+.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   -webkit-transition: all .9s;
@@ -83,6 +87,9 @@ header {
   background-color: transparent;
   padding: 12px 0;
   max-width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .prenavbar .languages {
@@ -146,6 +153,10 @@ header {
   color: #C19D60 !important;
 }
 
+.scrolled {
+  display: none;
+}
+
 .navbar {
   padding: 0;
   max-width: 90%;
@@ -155,7 +166,7 @@ header {
   margin-right: 0;
 }
 
-.navbar img {
+.navbar .navbar-brand img {
   height: 27px;
   padding-left: 20px;
 }
@@ -243,6 +254,343 @@ header {
   padding-top: 7px;
   color: #666;
   text-decoration: none;
+}
+
+.navbar .cart-box {
+  padding: 25px 20px 15px;
+  width: 400px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-top: none;
+  margin-left: -142px;
+  margin-top: 0px;
+  border-radius: 0;
+}
+
+.navbar .cart-box .upper {
+  border-bottom: 1px solid #eee;
+}
+
+.navbar .cart-box .upper h6 {
+  font-size: 15px;
+  font-family: "Playfair Display", serif;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.navbar .cart-box .upper p {
+  font-size: 12px;
+  text-transform: lowercase;
+  color: #555;
+}
+
+.navbar .cart-box .middle {
+  overflow-y: scroll;
+  height: 275px;
+}
+
+.navbar .cart-box .middle::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar .cart-box .middle::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: #C19D60;
+}
+
+.navbar .cart-box .middle li:not(:last-child) {
+  border-bottom: 1px dotted #ccc;
+}
+
+.navbar .cart-box .middle .item-image img {
+  width: 75px;
+  height: auto;
+}
+
+.navbar .cart-box .middle .item-details {
+  margin-left: 10px;
+}
+
+.navbar .cart-box .middle .item-details p {
+  text-transform: none;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.navbar .cart-box .middle .item-details .text-details {
+  font-weight: 400;
+  color: #666;
+  padding-top: 3px;
+  font-size: 12px;
+}
+
+.navbar .cart-box .middle .remove-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .cart-box .middle .remove-icon i {
+  color: #C19D60;
+}
+
+.navbar .cart-box .lower .subtotal {
+  border-top: 1px dotted #ccc;
+}
+
+.navbar .cart-box .lower .subtotal p {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  text-transform: none;
+}
+
+.navbar .cart-box .lower .subtotal .subtotal-price {
+  color: #C19D60;
+}
+
+.navbar .cart-box .lower .checkout {
+  border-top: 1px dotted #ccc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .cart-box .lower .checkout a {
+  margin-top: 0;
+  border-color: #232323;
+  background-color: #232323;
+  color: white !important;
+}
+
+.navbar .cart-box .lower .checkout a:hover {
+  background-color: #C19D60;
+}
+
+.navbar .cart-box .lower .checkout a:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.navbar .cart-box .lower .checkout span {
+  font-weight: 200;
+  color: #C19D60;
+}
+
+.navbar .account-box {
+  width: 259px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-top: none;
+  margin-left: -55px;
+  margin-top: 0px;
+  border-radius: 0;
+  padding: 10px 15px;
+}
+
+.navbar .account-box .login input {
+  border: 1px solid #e1e1e1;
+  background: #F9F9F9;
+  font-size: 12px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+.navbar .account-box .login input::-webkit-input-placeholder {
+  font-size: 13px;
+}
+
+.navbar .account-box .login input:-ms-input-placeholder {
+  font-size: 13px;
+}
+
+.navbar .account-box .login input::-ms-input-placeholder {
+  font-size: 13px;
+}
+
+.navbar .account-box .login input::placeholder {
+  font-size: 13px;
+}
+
+.navbar .account-box .login input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.navbar .account-box .login label {
+  font-size: 12px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar .account-box .login .sign button {
+  margin-top: 0;
+  border-color: #232323;
+  background-color: #232323;
+  color: white !important;
+}
+
+.navbar .account-box .login .sign button:hover {
+  background-color: #C19D60;
+}
+
+.navbar .account-box .login .sign button:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2100;
+  display: none;
+}
+
+#modal .reservation {
+  padding: 30px;
+  background-color: #fff;
+  margin-top: 15%;
+  position: relative;
+}
+
+#modal .reservation .close-icon {
+  padding: 10px 15px;
+  background: white;
+  border: 1px solid #e1e1e1;
+  display: inline;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#modal .reservation .close-icon i {
+  color: #C19D60;
+  font-weight: 200;
+}
+
+#modal .reservation .reservation-inner {
+  border: 1px dotted  #ccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+}
+
+#modal .reservation .reservation-inner input {
+  border: 1px solid #e1e1e1;
+  background: #F9F9F9;
+  font-size: 12px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+#modal .reservation .reservation-inner input::-webkit-input-placeholder {
+  font-size: 13px;
+}
+
+#modal .reservation .reservation-inner input:-ms-input-placeholder {
+  font-size: 13px;
+}
+
+#modal .reservation .reservation-inner input::-ms-input-placeholder {
+  font-size: 13px;
+}
+
+#modal .reservation .reservation-inner input::placeholder {
+  font-size: 13px;
+}
+
+#modal .reservation .reservation-inner input:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#modal .reservation .reservation-inner select {
+  border: 1px solid #e1e1e1;
+  background: #F9F9F9;
+  font-size: 12px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+#modal .reservation .reservation-inner select option {
+  color: #666666;
+}
+
+#modal .reservation .reservation-inner select::-webkit-input-placeholder {
+  font-size: 13px;
+  color: #666666;
+}
+
+#modal .reservation .reservation-inner select:-ms-input-placeholder {
+  font-size: 13px;
+  color: #666666;
+}
+
+#modal .reservation .reservation-inner select::-ms-input-placeholder {
+  font-size: 13px;
+  color: #666666;
+}
+
+#modal .reservation .reservation-inner select::placeholder {
+  font-size: 13px;
+  color: #666666;
+}
+
+#modal .reservation .reservation-inner select:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#modal .reservation .reservation-inner textarea {
+  border: 1px solid #e1e1e1;
+  font-size: 12px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+#modal .reservation .reservation-inner textarea:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+#modal .reservation .reservation-inner a.reserve-btn {
+  background-color: #C19D60;
+}
+
+#modal .reservation .reservation-inner a.reserve-btn:hover {
+  background-color: #C19D60;
+  color: white;
+}
+
+#modal .reservation .reservation-inner a.reserve-btn:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 #intro {
@@ -974,6 +1322,10 @@ header {
   padding: 25px  20px 25px  0px;
 }
 
+#specialities .menu-tabs .tabs li {
+  cursor: pointer;
+}
+
 #specialities .menu-tabs .tabs li a {
   font-size: 20px;
   color: white;
@@ -986,17 +1338,42 @@ header {
 
 #specialities .menu-tabs .tabs li .menu-order {
   font-size: 12px;
-  color: #C19D60;
+  color: white;
   margin-right: 10px;
 }
 
 #specialities .menu-tabs .tabs li i {
   color: #C19D60;
   margin-left: 50px;
+  display: none;
+}
+
+#specialities .menu-tabs .tabs li:hover .menu-order {
+  color: #C19D60;
+}
+
+#specialities .menu-tabs .tabs li:hover a {
+  color: #C19D60;
+}
+
+#specialities .menu-tabs .tabs li.active .menu-order {
+  color: #C19D60;
+}
+
+#specialities .menu-tabs .tabs li.active i {
+  display: inline;
+}
+
+#specialities .menu-tabs .tabs li.active a {
+  color: #C19D60;
 }
 
 #specialities .menus {
   padding-top: 27px;
+}
+
+#specialities .menus ul {
+  display: none;
 }
 
 #specialities .menus ul li span {
@@ -1031,6 +1408,14 @@ header {
   border-bottom: 1px dotted rgba(204, 204, 204, 0.2);
   top: 10px;
   left: 245px;
+}
+
+#specialities .menus ul#sea {
+  padding-bottom: 134.8px;
+}
+
+#specialities .menus .show {
+  display: block;
 }
 
 #chefs {
@@ -1712,6 +2097,11 @@ header {
 #footer-middle .sub button[type=submit]:hover {
   background-color: white;
   color: #C19D60;
+}
+
+#footer-middle .sub button[type=submit]:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 #footer-bottom {
