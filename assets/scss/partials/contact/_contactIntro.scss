@@ -1,10 +1,24 @@
 #contact-intro{
-  padding: 250px 0;
-  z-index: 1;
-  
+    padding: 180px 0 100px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+
+    .section-footer{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        bottom: 0;
+    }
 
   .contact-details{
-      
+     
     background: #f9f9f9;
     padding: 25px 30px;
 
@@ -40,6 +54,13 @@
                     font-weight: 600;
                     color: black;
                     font-size: 13px;
+                    @include transition(.7s);
+
+                    &:hover{
+                        color: $mainColor;
+                        @include transition(.7s);
+                        text-decoration: underline;
+                    }
                 }
             }
         }
