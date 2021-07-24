@@ -1,0 +1,62 @@
+#error{
+    height: 100vh;
+    padding: 25px 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before{
+        content: "";
+        background-color: rgba(0, 0, 0, 0.308);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .content{
+        h1{
+            font-size: 164px;
+            font-weight: bold;
+        }
+
+        p{
+            font-family: $secondaryFont;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+    }
+
+    .dots{
+        color: $mainColor;
+    }
+
+    .homepage{
+        display: flex;
+        justify-content: center;
+
+        .homepage-btn{
+            @extend %mainbtn;
+
+            background-color: #232323;
+            color: white;
+            border: 0;
+            &:hover{
+                background-color: $mainColor;
+                color: white;
+                border: 0;
+            }
+
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+}
