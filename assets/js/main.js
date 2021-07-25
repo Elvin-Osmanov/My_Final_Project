@@ -49,7 +49,16 @@ $('.carousel').slick({
 $('#store .slider').slick({
   infinite: true,
   slidesToShow: 2,
-  slidesToScroll: 2
+  slidesToScroll: 2,
+ 
+
+});
+
+$('#single-item .slider').slick({
+  infinite: true,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  dots:true
 
 });
 
@@ -198,7 +207,23 @@ $("#range").ionRangeSlider({
 });
 
 
+Fancybox.bind('[data-fancybox="gallery"]', {
+  //dragToClose: false,
+  Thumbs: false,
 
+  Image: {
+    zoom: false,
+    click: false,
+    wheel: "slide",
+  },
+
+  on: {
+    // Move caption inside the slide
+    reveal: (f, slide) => {
+      slide.$caption && slide.$content.appendChild(slide.$caption);
+    },
+  },
+});
 
 
 });

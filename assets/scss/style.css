@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Playfair Display", serif;
 }
@@ -21,7 +22,7 @@ header {
   max-width: 1245px !important;
 }
 
-.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #touch .contact-inputs a.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn {
+.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #touch .contact-inputs a.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn, #single-item .product .quantity-cart a, #single-item .product .add-review button, #single-item .product .back-to-shop-link a {
   padding: 13px 28px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid #C19D60;
@@ -36,11 +37,11 @@ header {
   outline: 0;
 }
 
-.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #touch .contact-inputs a.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon {
+.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #touch .contact-inputs a.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon, #single-item .product .quantity-cart a .icon, #single-item .product .add-review button .icon, #single-item .product .back-to-shop-link a .icon {
   margin-left: 15px;
 }
 
-.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #touch .contact-inputs a.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover {
+.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #touch .contact-inputs a.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover, #single-item .product .quantity-cart a:hover, #single-item .product .add-review button:hover, #single-item .product .back-to-shop-link a:hover {
   background: #fff;
   color: #666;
   border-color: transparent;
@@ -50,7 +51,7 @@ header {
   transition: all .5s;
 }
 
-.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs a.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon {
+.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs a.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon, #single-item .product .quantity-cart a:hover:hover .icon, #single-item .product .add-review button:hover:hover .icon, #single-item .product .back-to-shop-link a:hover:hover .icon {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   -webkit-transition: all .9s;
@@ -4180,5 +4181,701 @@ header {
   z-index: 20;
   width: 100%;
   bottom: 0;
+}
+
+#single-item {
+  padding: 50px 0;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 100%;
+}
+
+#single-item .product .product-name h3 {
+  font-weight: 700;
+}
+
+#single-item .product .product-name .price-star {
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#single-item .product .product-name .price-star p.price {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#single-item .product .product-name .price-star p.price span {
+  color: #C19D60;
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  margin-left: 5px;
+}
+
+#single-item .product .product-name .price-star .review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#single-item .product .product-name .price-star .review ul li i {
+  font-size: 12px;
+  color: #C19D60;
+}
+
+#single-item .product .product-name .price-star .review .review-count {
+  font-family: "Poppins", sans-serif;
+  color: #666666;
+  font-size: 14px;
+}
+
+#single-item .product .category-text .category-inner span {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#single-item .product .category-text .category-inner a {
+  padding: 5px 7px;
+  text-decoration: none;
+  font-style: italic;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  background-color: #F2F2F2;
+  margin-right: 5px;
+}
+
+#single-item .product .category-text .category-inner a:hover {
+  color: #C19D60;
+}
+
+#single-item .product .category-text p {
+  font-size: 13px;
+  line-height: 24px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-weight: 500;
+  color: #5e646a;
+  font-family: "Poppins", sans-serif;
+}
+
+#single-item .product .big-image {
+  margin-bottom: 20px;
+}
+
+#single-item .product .big-image a[data-fancybox] img {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+#single-item .product .big-image .fancybox__container {
+  --fancybox-bg: rgba(17, 6, 25, 0.85);
+}
+
+#single-item .product .big-image .fancybox__container .fancybox__content {
+  padding: 1rem;
+  border-radius: 6px;
+  color: #374151;
+  background: #fff;
+  -webkit-box-shadow: 0 8px 23px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 8px 23px rgba(0, 0, 0, 0.5);
+}
+
+#single-item .product .big-image .fancybox__content > .carousel__button.is-close {
+  top: 0;
+  right: -38px;
+}
+
+#single-item .product .big-image .fancybox__caption {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  /* Prevent opacity change when dragging up/down */
+  --fancybox-opacity: 1;
+}
+
+#single-item .product .slick-dots {
+  bottom: 20px;
+}
+
+#single-item .product .slick-dots li.slick-active button {
+  background: #C19D60;
+  position: relative;
+}
+
+#single-item .product .slick-dots li.slick-active button::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  border: 1px solid #ccc;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#single-item .product .slick-dots li button {
+  opacity: 1;
+  background: white;
+  margin: 0 10px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  border-radius: 100%;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#single-item .product .slick-dots li button::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  border: white;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#single-item .product .slick-next {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  right: 5px;
+  background: black;
+}
+
+#single-item .product .slick-next::before {
+  color: #C19D60;
+}
+
+#single-item .product .slick-prev {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  left: 5px;
+  z-index: 10;
+  background: black;
+}
+
+#single-item .product .slick-prev::before {
+  color: #C19D60;
+}
+
+#single-item .product .quantity-cart {
+  padding: 0px 0 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+#single-item .product .quantity-cart input {
+  border: 1px solid #eee;
+  margin-right: 10px;
+  background: #fff;
+  border-radius: 0;
+}
+
+#single-item .product .quantity-cart input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#single-item .product .quantity-cart a {
+  background-color: #232323;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  padding: 10px 28px;
+  border-color: #232323;
+}
+
+#single-item .product .quantity-cart a:hover {
+  background-color: #C19D60;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#single-item .product .quantity-cart .eye-bag {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 10px 20px;
+}
+
+#single-item .product .quantity-cart .eye-bag i {
+  color: #C19D60;
+  font-size: 12px;
+}
+
+#single-item .product .quantity-cart .eye-bag i span {
+  color: #232323;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  margin-left: 5px;
+}
+
+#single-item .product .review-text .head {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#single-item .product .review-text .review-inner {
+  background: #f9f9f9;
+  padding: 25px 30px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+}
+
+#single-item .product .review-text .review-inner .review-image {
+  padding-top: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+#single-item .product .review-text .review-inner .review-image img {
+  border-radius: 50%;
+}
+
+#single-item .product .review-text .review-inner .inner-text {
+  padding: 0 20px;
+}
+
+#single-item .product .review-text .review-inner .inner-text .avatar-rating {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#single-item .product .review-text .review-inner .inner-text .avatar-rating .name {
+  margin-right: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#single-item .product .review-text .review-inner .inner-text .avatar-rating ul {
+  margin-left: 10px;
+}
+
+#single-item .product .review-text .review-inner .inner-text .avatar-rating ul li {
+  margin-right: 5px;
+}
+
+#single-item .product .review-text .review-inner .inner-text .avatar-rating ul li i {
+  color: #C19D60;
+  font-size: 13px;
+}
+
+#single-item .product .review-text .review-inner .inner-text .date {
+  padding: 10px 0;
+}
+
+#single-item .product .review-text .review-inner .inner-text .date span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#single-item .product .review-text .review-inner .inner-text .big-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: #5e646a;
+  font-family: "Poppins", sans-serif;
+}
+
+#single-item .product .add-review {
+  padding-bottom: 20px;
+}
+
+#single-item .product .add-review p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#single-item .product .add-review .get-star p {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+#single-item .product .add-review input {
+  border: 1px solid #e1e1e1;
+  background: #f9f9f9;
+  padding: 15px 20px;
+  color: #000;
+  font-size: 12px;
+  border-radius: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+#single-item .product .add-review input:focus {
+  background-color: white;
+  -webkit-box-shadow: 0px 10px 14px 0px #F3F2F5;
+          box-shadow: 0px 10px 14px 0px #F3F2F5;
+}
+
+#single-item .product .add-review textarea {
+  border: 1px solid #e1e1e1;
+  background: #f9f9f9;
+  padding: 15px 20px;
+  color: #000;
+  font-size: 12px;
+  border-radius: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+#single-item .product .add-review textarea:focus {
+  background-color: white;
+  -webkit-box-shadow: 0px 10px 14px 0px #F3F2F5;
+          box-shadow: 0px 10px 14px 0px #F3F2F5;
+}
+
+#single-item .product .add-review button {
+  background-color: #C19D60;
+  color: white;
+}
+
+#single-item .product .add-review button:hover {
+  background-color: #C19D60;
+  color: white;
+}
+
+#single-item .product .add-review button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#single-item .product .also-like {
+  padding-top: 20px;
+}
+
+#single-item .product .also-like p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#single-item .product .also-like .related img {
+  margin-bottom: 15px;
+}
+
+#single-item .product .also-like .related .link-like {
+  text-decoration: none;
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+#single-item .product .also-like .related .price-like {
+  color: #C19D60;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#single-item .product .dark-separator {
+  position: absolute;
+  bottom: 80px;
+  font-size: 50px;
+}
+
+#single-item .product .dark-separator::before {
+  position: absolute;
+  content: "";
+  width: 110px;
+  left: -220px;
+  top: 55px;
+  height: 1px;
+  opacity: 0.5;
+  background-color: #C19D60;
+}
+
+#single-item .product .dark-separator::after {
+  position: absolute;
+  content: "";
+  width: 110px;
+  left: 120px;
+  top: 55px;
+  height: 1px;
+  opacity: 0.5;
+  background-color: #C19D60;
+}
+
+#single-item .product .back-to-shop-link {
+  padding-top: 50px;
+}
+
+#single-item .product .back-to-shop-link a {
+  background-color: #232323;
+  color: white;
+  border-color: #232323;
+}
+
+#single-item .product .back-to-shop-link a:hover {
+  background-color: #C19D60;
+  color: white;
+}
+
+#single-item .rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+
+#single-item .rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+#single-item .rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ccc;
+}
+
+#single-item .rate:not(:checked) > label:before {
+  content: '★ ';
+}
+
+#single-item .rate > input:checked ~ label {
+  color: #C19D60;
+}
+
+#single-item .rate:not(:checked) > label:hover,
+#single-item .rate:not(:checked) > label:hover ~ label {
+  color: #C19D60;
+}
+
+#single-item .rate > input:checked + label:hover,
+#single-item .rate > input:checked + label:hover ~ label,
+#single-item .rate > input:checked ~ label:hover,
+#single-item .rate > input:checked ~ label:hover ~ label,
+#single-item .rate > label:hover ~ input:checked ~ label {
+  color: #C19D60;
+}
+
+#single-item .search {
+  border: 1px solid #e1e1e1;
+  background: #F9F9F9;
+  color: #666666;
+  padding: 10px;
+}
+
+#single-item .search input {
+  border: 1px solid #e1e1e1;
+  background: white;
+  font-size: 14px;
+  color: #666666;
+  font-family: "Poppins", sans-serif;
+  padding: 21px;
+  outline: none;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+#single-item .search a {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 50px;
+  background-color: #C19D60;
+}
+
+#single-item .filter {
+  margin-top: 30px;
+}
+
+#single-item .filter p {
+  border: 1px solid #eee;
+  padding: 15px 10px;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+  background: #f9f9f9;
+  color: #292929;
+  text-align: center;
+}
+
+#single-item .filter .irs-line {
+  height: 5px;
+}
+
+#single-item .filter .irs-single {
+  background-color: #C19D60;
+}
+
+#single-item .filter .irs-single::before {
+  border-top-color: #C19D60;
+}
+
+#single-item .filter .irs-handle i {
+  top: -3px;
+  background-color: #C19D60;
+}
+
+#single-item .filter .irs-bar {
+  height: 5px;
+  background-color: #C19D60;
+}
+
+#single-item .filter .update-btn {
+  font-size: 10px;
+  color: white;
+  font-weight: 600;
+  padding: 5px 10px;
+  background-color: #C19D60;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+
+#single-item .popular {
+  margin-top: 30px;
+}
+
+#single-item .popular .popular-text {
+  border: 1px solid #eee;
+  padding: 15px 10px;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+  background: #f9f9f9;
+  color: #292929;
+  text-align: center;
+}
+
+#single-item .popular-product {
+  margin-bottom: 15px;
+}
+
+#single-item .popular-product .small-txt .text {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#single-item .popular-product .small-txt .small-price .pricetxt {
+  font-size: 12px;
+  font-style: italic;
+}
+
+#single-item .popular-product .small-txt .small-price .digit {
+  color: #C19D60;
+}
+
+#single-item .popular-product .small-txt .small-price .reviews {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+#single-item .categories .categorytxt {
+  border: 1px solid #eee;
+  padding: 15px 10px;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+  background: #f9f9f9;
+  color: #292929;
+  text-align: center;
+}
+
+#single-item .categories .category-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 15px;
+}
+
+#single-item .categories .category-link a {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#single-item .categories .category-link a:hover {
+  color: #C19D60;
+}
+
+#single-item .categories .category-link span {
+  font-family: "Poppins", sans-serif;
+  display: block;
+  color: white;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #C19D60;
+  border-radius: 50%;
+}
+
+#single-item .tags .tagtxt {
+  border: 1px solid #eee;
+  padding: 15px 10px;
+  font-size: 18px;
+  margin-bottom: 0;
+  font-weight: 600;
+  background: #f9f9f9;
+  color: #292929;
+  text-align: center;
+}
+
+#single-item .tags .taglink {
+  background-color: #232323;
+  padding: 5px 7px;
+  float: left;
+  margin-top: 5px;
+}
+
+#single-item .tags .taglink a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-style: italic;
+}
+
+#single-item .tags .taglink:hover {
+  background-color: #C19D60;
+}
+
+#single-item .tags .taglink:not(:last-child) {
+  margin-right: 5px;
+}
+
+#single-item .section-footer {
+  height: 40px;
+  position: absolute;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  bottom: -15px;
 }
 /*# sourceMappingURL=style.css.map */
