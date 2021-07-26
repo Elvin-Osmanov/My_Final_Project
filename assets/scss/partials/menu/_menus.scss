@@ -241,3 +241,50 @@
     display: flex;
   }
 }
+
+
+@media only screen and (max-width:770px){
+
+#menus{
+  
+
+  .menu-tabs{
+
+    ul{
+      
+      
+  
+        &::before {
+          display: none;
+        }
+        &::after {
+         display: none;
+        }
+    }
+  }
+
+  .show{
+    display: block;
+  }
+}
+}
+
+@media only screen and (max-width:576px){
+
+  .menu-tabs{
+
+    ul{
+      font-size: 10px;
+
+
+      li{
+
+        .bottom{
+         i{
+           visibility: hidden;
+         }
+        }
+      }
+    }
+  }
+}

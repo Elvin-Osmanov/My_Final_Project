@@ -1,7 +1,6 @@
 .prenavbar{
     background-color: transparent;
     padding: 12px 0;
-    max-width: 90%;
     display: flex;
     .languages{
         display: flex;
@@ -65,3 +64,20 @@
     display: none;
 }
 
+
+@media only screen and(max-width:770px) {
+    .prenavbar{
+        display: flex;
+    }
+
+    .scrolled{
+        display: none;
+    }
+}
+
+
+@media only screen and(max-width:576px) {
+    .prenavbar{
+        display: none;
+    }
+}

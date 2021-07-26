@@ -151,3 +151,27 @@
     }
   }
 }
+
+
+@media only screen and (max-width:770px){
+
+  #store{
+
+    .buy{
+      background-size: 100% 100%;
+      padding: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width:576px){
+
+  
+
+  #store{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+
+}

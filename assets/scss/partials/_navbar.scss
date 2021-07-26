@@ -1,6 +1,24 @@
 
 .navbar{
     
+    .bag{
+        position: relative;
+    }
+
+    .in-cart{
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        background-color: $mainColor;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 17px;
+        font-size:10px;
+        top: 35px;
+        right: 10px;
+
+    }
     .navbar-brand{
         margin-right: 0;
         img{
@@ -10,7 +28,7 @@
     }
 
     padding: 0 ;
-   max-width: 90%;
+   
    
 
     ul{
@@ -278,7 +296,7 @@
             }
 
             .sign{
-                button{
+                button,a{
                     @extend %mainbtn;
                     margin-top: 0;
                     border-color: #232323;
@@ -294,7 +312,21 @@
                         box-shadow: none;
                     }
                 }
+
+            
             }
         }
     }
 }
+
+@media only screen and (max-width: 768px){
+
+.navbar{
+
+    ul{
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+}
+

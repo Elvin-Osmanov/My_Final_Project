@@ -10,19 +10,16 @@ html {
 header {
   position: fixed;
   top: 0;
-  left: 10%;
+  left: 0;
   right: 0;
   z-index: 1030;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .container {
   max-width: 1245px !important;
 }
 
-.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #touch .contact-inputs a.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn, #single-item .product .quantity-cart a, #single-item .product .add-review button, #single-item .product .back-to-shop-link a {
+.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, .navbar .account-box .login .sign a, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #touch .contact-inputs a.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn, #single-item .product .quantity-cart a, #single-item .product .add-review button, #single-item .product .back-to-shop-link a {
   padding: 13px 28px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid #C19D60;
@@ -37,11 +34,11 @@ header {
   outline: 0;
 }
 
-.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #touch .contact-inputs a.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon, #single-item .product .quantity-cart a .icon, #single-item .product .add-review button .icon, #single-item .product .back-to-shop-link a .icon {
+.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, .navbar .account-box .login .sign a .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #touch .contact-inputs a.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon, #single-item .product .quantity-cart a .icon, #single-item .product .add-review button .icon, #single-item .product .back-to-shop-link a .icon {
   margin-left: 15px;
 }
 
-.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #touch .contact-inputs a.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover, #single-item .product .quantity-cart a:hover, #single-item .product .add-review button:hover, #single-item .product .back-to-shop-link a:hover {
+.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, .navbar .account-box .login .sign a:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #touch .contact-inputs a.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover, #single-item .product .quantity-cart a:hover, #single-item .product .add-review button:hover, #single-item .product .back-to-shop-link a:hover {
   background: #fff;
   color: #666;
   border-color: transparent;
@@ -51,7 +48,7 @@ header {
   transition: all .5s;
 }
 
-.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs a.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon, #single-item .product .quantity-cart a:hover:hover .icon, #single-item .product .add-review button:hover:hover .icon, #single-item .product .back-to-shop-link a:hover:hover .icon {
+.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, .navbar .account-box .login .sign a:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs a.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon, #single-item .product .quantity-cart a:hover:hover .icon, #single-item .product .add-review button:hover:hover .icon, #single-item .product .back-to-shop-link a:hover:hover .icon {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   -webkit-transition: all .9s;
@@ -84,10 +81,21 @@ header {
   font-weight: 700;
 }
 
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 700px !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  header .container {
+    padding: 0;
+  }
+}
+
 .prenavbar {
   background-color: transparent;
   padding: 12px 0;
-  max-width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -158,9 +166,43 @@ header {
   display: none;
 }
 
+@media only screen and (max-width: 770px) {
+  .prenavbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .scrolled {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .prenavbar {
+    display: none;
+  }
+}
+
 .navbar {
   padding: 0;
-  max-width: 90%;
+}
+
+.navbar .bag {
+  position: relative;
+}
+
+.navbar .in-cart {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-color: #C19D60;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 17px;
+  font-size: 10px;
+  top: 35px;
+  right: 10px;
 }
 
 .navbar .navbar-brand {
@@ -435,20 +477,32 @@ header {
   font-family: "Poppins", sans-serif;
 }
 
-.navbar .account-box .login .sign button {
+.navbar .account-box .login .sign button, .navbar .account-box .login .sign a {
   margin-top: 0;
   border-color: #232323;
   background-color: #232323;
   color: white !important;
 }
 
-.navbar .account-box .login .sign button:hover {
+.navbar .account-box .login .sign button:hover, .navbar .account-box .login .sign a:hover {
   background-color: #C19D60;
 }
 
-.navbar .account-box .login .sign button:hover {
+.navbar .account-box .login .sign button:hover, .navbar .account-box .login .sign a:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 #modal {
@@ -875,6 +929,12 @@ header {
   z-index: -1;
 }
 
+@media only screen and (max-width: 770px) {
+  #story .story-content a.explore-btn {
+    margin-bottom: 15px;
+  }
+}
+
 #opening {
   overflow: hidden;
 }
@@ -1021,6 +1081,13 @@ header {
   transition: 0.5s;
 }
 
+@media only screen and (max-width: 770px) {
+  #opening .plate {
+    padding: 100px;
+    background-size: 100% 100%;
+  }
+}
+
 #service {
   padding: 85px 0;
   background-repeat: no-repeat;
@@ -1105,6 +1172,8 @@ header {
 }
 
 #service .content-box .front-box-inner {
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 150px 0;
   position: relative;
 }
@@ -1263,6 +1332,12 @@ header {
   bottom: 0;
 }
 
+@media only screen and (max-width: 770px) {
+  #service .content-box {
+    margin-bottom: 15px;
+  }
+}
+
 #specialities {
   padding: 105px 0;
   overflow: hidden;
@@ -1419,13 +1494,38 @@ header {
   display: block;
 }
 
+@media only screen and (max-width: 770px) {
+  #specialities .menu-tabs {
+    border-right: none;
+  }
+  #specialities .menu-tabs .tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #specialities .menu-tabs .tabs li i {
+    display: none;
+  }
+  #specialities .menu-tabs .tabs li.active i {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #specialities .menu-tabs .tabs li a {
+    font-size: 10px;
+  }
+}
+
 #chefs {
   padding: 25px 0;
 }
 
 #chefs .card {
   border-radius: 0;
-  position: relative;
 }
 
 #chefs .card::after {
@@ -1461,7 +1561,11 @@ header {
   transition: 0.5s;
 }
 
-#chefs .card img {
+#chefs .card .over-image {
+  position: relative;
+}
+
+#chefs .card .over-image img {
   border-radius: 0;
   position: relative;
 }
@@ -1471,7 +1575,7 @@ header {
   top: 0px;
   left: 0;
   width: 100%;
-  height: 53%;
+  height: 100%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: 0.5s;
@@ -1558,6 +1662,12 @@ header {
 #chefs .recipe-box a:hover {
   background-color: #C19D60;
   color: white;
+}
+
+@media only screen and (max-width: 770px) {
+  #chefs .card {
+    margin-bottom: 15px;
+  }
 }
 
 #store {
@@ -1716,6 +1826,21 @@ header {
   color: white;
 }
 
+@media only screen and (max-width: 770px) {
+  #store .buy {
+    background-size: 100% 100%;
+    padding: 100px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #store {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
 #testimonial {
   overflow: hidden;
   padding: 25px 0;
@@ -1731,7 +1856,7 @@ header {
   line-height: 52px;
   text-align: center;
   border-radius: 50%;
-  right: -5px;
+  right: 5px;
   background: black;
 }
 
@@ -1880,6 +2005,23 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+#footer-top .outer {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#footer-top .outer2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 #footer-top img {
@@ -2085,7 +2227,6 @@ header {
 }
 
 #footer-middle .sub button[type=submit] {
-  font-family: "Poppins", sans-serif;
   color: #fff;
   outline: none;
   border: none;
@@ -2158,6 +2299,60 @@ header {
   transition: 0.6s;
   visibility: visible;
   opacity: 1;
+}
+
+@media only screen and (max-width: 770px) {
+  #footer-top .outer {
+    margin-top: 7.5px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #footer-middle .call {
+    margin: 20px 0;
+  }
+  #footer-middle .sub button[type=submit] {
+    padding: 12px 70px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #specialities .menu-tabs .tabs li a {
+    font-size: 10px;
+  }
+  #store {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #footer-top .outer {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-left: 15px;
+  }
+  #footer-top .outer2 {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+  #footer-top .languages {
+    margin-left: 10px;
+  }
+  #footer-top .social-links {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-left: 15px;
+  }
+  #footer-middle .call {
+    margin: 20px 0;
+  }
+  #footer-middle .sub button[type=submit] {
+    padding: 12px 25px;
+  }
 }
 
 #error {
@@ -2297,6 +2492,110 @@ header {
   z-index: 20;
   width: 100%;
   bottom: 0;
+}
+
+#story a[data-fancybox] img {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+}
+
+#story .fancybox__container {
+  --fancybox-bg: rgba(17, 6, 25, 0.85);
+}
+
+#story .fancybox__container .fancybox__content {
+  padding: 1rem;
+  border-radius: 6px;
+  color: #374151;
+  background: #fff;
+  -webkit-box-shadow: 0 8px 23px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 8px 23px rgba(0, 0, 0, 0.5);
+}
+
+#story .fancybox__content > .carousel__button.is-close {
+  top: 0;
+  right: -38px;
+}
+
+#story .fancybox__caption {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  /* Prevent opacity change when dragging up/down */
+  --fancybox-opacity: 1;
+}
+
+#story .slick-dots li.slick-active button {
+  background: #C19D60;
+  position: relative;
+}
+
+#story .slick-dots li.slick-active button::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  border: 1px solid #ccc;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#story .slick-dots li button {
+  opacity: 1;
+  background: white;
+  margin: 0 10px;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  border-radius: 100%;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#story .slick-dots li button::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  top: -5px;
+  left: -5px;
+  border: white;
+  -webkit-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+
+#story .slick-next {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  right: 5px;
+  background: black;
+}
+
+#story .slick-next::before {
+  color: #C19D60;
+}
+
+#story .slick-prev {
+  width: 30px;
+  height: 30px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 50%;
+  left: 5px;
+  z-index: 10;
+  background: black;
+}
+
+#story .slick-prev::before {
+  color: #C19D60;
 }
 
 #stats {
@@ -2517,6 +2816,18 @@ header {
 
 #contact-intro .contact-details .contact-inner .dots {
   color: #C19D60;
+}
+
+@media only screen and (max-width: 770px) {
+  #contact-intro .contact-details {
+    padding: 25px 180px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  #contact-intro .contact-details {
+    padding: 25px 45px;
+  }
 }
 
 #touch {
@@ -2759,6 +3070,47 @@ header {
   z-index: 20;
   width: 100%;
   bottom: -15px;
+}
+
+@media only screen and (max-width: 576px) {
+  #touch .contact-inputs .text p {
+    padding: 0;
+  }
+  .contact-details .contact-inner {
+    background: #fff;
+  }
+  .contact-details .contact-inner p {
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .contact-details .contact-inner ul li i {
+    color: #C19D60;
+    margin-right: 10px;
+  }
+  .contact-details .contact-inner ul li p {
+    color: black;
+    font-size: 13px;
+    font-weight: 500;
+    margin-right: 10px;
+  }
+  .contact-details .contact-inner ul li a {
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    font-size: 13px;
+    -webkit-transition: 0.7s;
+    transition: 0.7s;
+  }
+  .contact-details .contact-inner ul li a:hover {
+    color: #C19D60;
+    -webkit-transition: 0.7s;
+    transition: 0.7s;
+    text-decoration: underline;
+  }
+  .contact-details .contact-inner .dots {
+    color: #C19D60;
+  }
 }
 
 #discover {
@@ -3042,6 +3394,27 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media only screen and (max-width: 770px) {
+  #menus .menu-tabs ul::before {
+    display: none;
+  }
+  #menus .menu-tabs ul::after {
+    display: none;
+  }
+  #menus .show {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .menu-tabs ul {
+    font-size: 10px;
+  }
+  .menu-tabs ul li .bottom i {
+    visibility: hidden;
+  }
 }
 
 #signupIntro {
@@ -3375,6 +3748,12 @@ header {
   bottom: -15px;
 }
 
+@media only screen and (max-width: 770px) {
+  #checkout .pay {
+    margin-bottom: 25px;
+  }
+}
+
 #cart-intro {
   padding: 180px 0 50px 0;
   background-attachment: fixed;
@@ -3452,6 +3831,10 @@ header {
 #cart {
   padding: 80px 0;
   position: relative;
+}
+
+#cart .table p span {
+  color: #C19D60;
 }
 
 #cart table th {
@@ -3601,6 +3984,15 @@ header {
   z-index: 20;
   width: 100%;
   bottom: -15px;
+}
+
+@media only screen and (max-width: 770px) {
+  #cart .apply {
+    margin-bottom: 25px;
+  }
+  #cart table {
+    font-size: 13px;
+  }
 }
 
 #shop-intro {
@@ -4107,6 +4499,12 @@ header {
   z-index: 20;
   width: 100%;
   bottom: -15px;
+}
+
+@media only screen and (max-width: 770px) {
+  #items .search {
+    margin-top: 15px;
+  }
 }
 
 #item-intro {
@@ -4877,5 +5275,22 @@ header {
   z-index: 20;
   width: 100%;
   bottom: -15px;
+}
+
+@media only screen and (max-width: 770px) {
+  #single-item .search {
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  #single-item .product .quantity {
+    margin-bottom: 25px;
+  }
+  #single-item .product .review-text .review-inner .review-image {
+    padding-top: 10px;
+    width: 300px;
+    height: 300px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

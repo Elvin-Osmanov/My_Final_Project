@@ -180,3 +180,39 @@
     }
 }
 
+@media only screen and (max-width:770px){
+
+    #specialities{
+
+        .menu-tabs{
+            border-right: none;
+
+            .tabs{
+                display: flex;
+                justify-content: space-evenly;
+                
+                li{
+                    i{
+                        display: none;
+                    }
+                }
+
+                li.active{
+
+                    i{
+                        display: none;
+                    }
+                }
+               
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:576px){
+    #specialities .menu-tabs .tabs li a {
+        font-size: 10px;
+       
+    }
+
+}

@@ -71,3 +71,26 @@
     }
   }
 }
+
+@media only screen and (max-width:770px){
+
+    #contact-intro{
+        .contact-details{
+     
+       
+            padding: 25px 180px;
+
+            
+        }    
+
+        
+    }
+    
+}
+
+@media only screen and (max-width:576px){
+
+    #contact-intro .contact-details {
+        padding: 25px 45px;
+    }
+}

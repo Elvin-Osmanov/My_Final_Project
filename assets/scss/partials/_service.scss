@@ -75,7 +75,8 @@
            
         }
         .front-box-inner{
-
+            background-repeat: no-repeat;
+            background-size: cover;
             padding: 150px 0;
             position: relative;
           
@@ -242,4 +243,15 @@
         width: 100%;
         bottom: 0;
     }
+}
+
+@media only  screen and(max-width:770px) {
+    #service{
+
+        .content-box{
+            margin-bottom: 15px;
+        }
+
+    }
+    
 }
