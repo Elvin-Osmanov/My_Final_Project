@@ -6,6 +6,14 @@
         font-size: 20px;
     }
 
+    .card-success{
+        font-size: 15px;
+        color: $mainColor;
+        font-family: $secondaryFont;
+        font-weight: 600;
+        display: none;
+        
+    }
     form{
 
         input{

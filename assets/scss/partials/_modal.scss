@@ -117,4 +117,13 @@
         }
 
     }
+
+    .success{
+        font-size: 14px;
+        font-family: $secondaryFont;
+        color: $mainColor;
+        font-weight: 500;
+        display: none;
+        
+    }
 }

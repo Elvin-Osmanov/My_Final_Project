@@ -228,10 +228,16 @@
                 color: $mainColor;
             }
 
-            &:hover{
+            &:focus{
                 box-shadow: none;
             }
         }
+    }
+
+    .subsuccess{
+        color: $mainColor;
+        font-family: $secondaryFont;
+        display: none;
     }
 }
 

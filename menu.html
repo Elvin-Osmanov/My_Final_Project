@@ -190,12 +190,12 @@
                     <form>
                       <div class="row mb-3">
                         <div class="col-sm-12">
-                          <input type="email" class="form-control" id="inputEmail3" placeholder="Emain">
+                          <input type="email" class="form-control" id="accountEmail" placeholder="Email">
                         </div>
                       </div>
                       <div class="row mb-3">
                         <div class="col-sm-12">
-                          <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                          <input type="password" class="form-control" id="accountPassword" placeholder="Password">
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -254,24 +254,24 @@
                       </div>
                     </div>
                     <div class="inputs">
-                      <form>
+                      <form id="modal-form">
                         <div class="form-row">
                           <div class="form-group col-md-5 offset-md-1">
     
-                            <input type="text" class="form-control" id="inputName4" placeholder="Your Name">
+                            <input type="text"  class="form-control" id="modal-name" placeholder="Your Name">
                           </div>
                           <div class="form-group col-md-5 ">
     
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email Address*">
+                            <input type="email" class="form-control" id="modal-email" placeholder="Email Address*">
                           </div>
                           <div class="form-group col-md-5 offset-md-1">
     
-                            <input type="number" class="form-control" id="inputPhone4" placeholder="Phone*">
+                            <input type="number" min="0" step="1" class="form-control" id="modal-phone" placeholder="Phone*">
                           </div>
                           <div class="form-group col-md-5 ">
     
-                            <select id="person" class="form-control">
-                              <option selected>Persons</option>
+                            <select id="person" class="form-control" required>
+                              <option selected disabled>Persons</option>
                               <option>1 Person</option>
                               <option>2 People</option>
                               <option>3 People</option>
@@ -282,24 +282,30 @@
                           </div>
                           <div class="form-group col-md-5 offset-md-1">
     
-                            <input type="date" class="form-control" id="inputDate4" placeholder="Date">
+                            <input type="date" class="form-control" id="modal-date" placeholder="Date" required>
                           </div>
                           <div class="form-group col-md-5 ">
     
-                            <select id="time" class="form-control">
-                              <option selected>Time</option>
+                            <select id="time" class="form-control" required>
+                              <option disabled selected>Time</option>
                               <option>10:00am</option>
                               <option>10:00pm</option>
                             </select>
                           </div>
                           <div class="form-group col-md-10 offset-md-1">
                            
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message:"></textarea>
+                            <textarea class="form-control" id="modal-message" rows="3" placeholder="Your Message:"></textarea>
+                          </div>
+                          <div class="form-group col-md-12 text-center">
+                           
+                            <span class="success">Reservation is sent</span>
                           </div>
                     </div>
+                    
                     </form>
-                    <div class="reserve d-flex justify-content-center">
+                    <div class="reserve d-flex justify-content-center ">
                       <a href="#" class="text-center btn reserve-btn">Reserve Table<i class="icon fal fa-long-arrow-right"></i></a>
+                     
                     </div>
                     </div>
                 </div>
@@ -308,7 +314,7 @@
           </div>
           </div>
         </section>
-      </header>
+  </header>
   <main>
     <!-- section discover starts -->
     <section id="discover" style="background-image: url(./assets/images/opening/plate.jpg);">
@@ -1182,6 +1188,7 @@
                 <div class="form-row">
                   <div class="col-8 col-md-9">
                     <input type="email" class="form-control" placeholder="Your Email">
+                    <small class="subsuccess">subscription is pending...</small>
                   </div>
                   <div class="col-4 col-md-3">
                     <button type="submit" class="btn-submit btn-primary mb-2">Send</button>

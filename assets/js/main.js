@@ -3,6 +3,7 @@ $(document).ready(function () {
 
   $(".bookinglink").click(function (e) {
     e.preventDefault();
+
     $("#modal").fadeIn();
   });
 
@@ -44,25 +45,24 @@ $(document).ready(function () {
     slidesToScroll: 3,
     dots: true,
     responsive: [
-      
       {
         breakpoint: 770,
         settings: {
           slidesToShow: 1,
-          slidesToScroll:1 
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 576,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
+          slidesToScroll: 1,
+        },
+      },
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
       // instead of a settings object
-    ]
+    ],
   });
 
   //  slider testimonial end
@@ -73,55 +73,53 @@ $(document).ready(function () {
     slidesToShow: 2,
     slidesToScroll: 2,
     responsive: [
-      
       {
         breakpoint: 770,
         settings: {
           slidesToShow: 2,
-          slidesToScroll:2 
-        }
+          slidesToScroll: 2,
+        },
       },
       {
         breakpoint: 576,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
+          slidesToScroll: 1,
+        },
+      },
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
       // instead of a settings object
-    ]
+    ],
   });
 
   //  slider store end
 
   // about slider starts
-$("#story .slider-about").slick({
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  responsive: [
-      
-    {
-      breakpoint: 770,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll:2 
-      }
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
+  $("#story .slider-about").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 770,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ],
+  });
   // about slider ends
 
   // slider single item start
@@ -168,18 +166,6 @@ $("#story .slider-about").slick({
     });
   });
 
-  $(".about-image-link").click(function (e) {
-    e.preventDefault();
-
-    $("#story .story-images .slider-abput img").each(function () {
-      var source = $(this).attr("src");
-
-      $(this).parent().attr("href", source);
-
-      console.log(source);
-    });
-  });
-
   $(".zoom").magnificPopup({
     disableOn: 700,
     type: "image",
@@ -214,6 +200,530 @@ $("#story .slider-about").slick({
 
   // back to top ends
 
+  // checkout validation starts
+  $(".pay .pay-btn").click(function (e) {
+    e.preventDefault();
+
+    var name = $("#check-name");
+    var email = $("#check-email");
+    var postcode = $("#check-code");
+    var phone = $("#check-phone");
+    var city = $("#check-city");
+    var country = $("#check-country");
+    var phone = $("#check-phone");
+    var cardName = $("#card-name");
+    var cardNumber = $("#card-number");
+    var cardMM = $("#card-mm");
+    var cardYY = $("#card-yy");
+    var cardCVV = $("#card-cvv");
+    var message = $("#card-text");
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+      
+    } else {
+      email.css("border-color", "#eee");
+     
+    }
+
+    if (name.val() == "") {
+      name.css("border-color", "red");
+      
+    } else {
+      name.css("border-color", "#eee");
+      
+    }
+
+    if (message.val() == "") {
+      message.css("border-color", "red");
+      
+    } else {
+      message.css("border-color", "#eee");
+      
+    }
+
+    if (phone.val() == "") {
+      phone.css("border-color", "red");
+     
+    } else {
+      phone.css("border-color", "#eee");
+      
+    }
+
+    if (postcode.val() == "") {
+      postcode.css("border-color", "red");
+     
+    } else {
+      postcode.css("border-color", "#eee");
+      
+    }
+
+    if (city.val() == "") {
+      city.css("border-color", "red");
+      
+    } else {
+      city.css("border-color", "#eee");
+    
+    }
+
+    if (country.val() == "") {
+      country.css("border-color", "red");
+     
+    } else {
+      country.css("border-color", "#eee");
+     
+    }
+
+    if (cardName.val() == "") {
+      cardName.css("border-color", "red");
+     
+    } else {
+      cardName.css("border-color", "#eee");
+     
+    }
+
+    if (cardNumber.val() == "") {
+      cardNumber.css("border-color", "red");
+      
+    } else {
+      cardNumber.css("border-color", "#eee");
+      
+    }
+
+    if (cardYY.val() == "") {
+      cardYY.css("border-color", "red");
+     
+    } else {
+      cardYY.css("border-color", "#eee");
+     
+    }
+
+    if (cardMM.val() == "") {
+      cardMM.css("border-color", "red");
+     
+    } else {
+      cardMM.css("border-color", "#eee");
+    
+    }
+
+    if (cardCVV.val() == "") {
+      cardCVV.css("border-color", "red");
+     
+    } else {
+      cardCVV.css("border-color", "#eee");
+      
+    }
+
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.val());
+    }
+
+    function validatePhone(phone) {
+      var reg = new RegExp('@"^d$"');
+      return reg.test(phone.val());
+    }
+
+    function validateName(name) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(name.val());
+    }
+
+    function validateCity(city) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(city.val());
+    }
+
+    function validateCVV(cardCVV) {
+      var reg = /^[0-9]{3,4}$/
+
+      return reg.test(cardCVV.val());
+    }
+
+    function validateMM(cardMM){
+      var reg = /^0[1-9]|1[0-2]/
+
+      return reg.test(cardMM.val());
+    }
+
+    function validateYY(cardYY){
+      var reg = /^\d{2}$/
+
+      return reg.test(cardYY.val());
+    }
+
+    function validateCardnumber(cardNumber) {
+      var reg = /^\d{16}$/
+
+      return reg.test(cardNumber.val());
+    }
+
+    function validateCountry(country) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(country.val());
+    }
+
+    function validateCName(cardName) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(cardName.val());
+    }
+    function emailValidation() {
+      if (validateEmail(email)) {
+        email.css("border-color", "#eee");
+        return true;
+      } else {
+        email.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function CvvValidation() {
+      if (validateCVV(cardCVV)) {
+        cardCVV.css("border-color", "#eee");
+        return true;
+      } else {
+        cardCVV.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function MMValidation() {  
+      if (validateMM(cardMM)) {
+        cardMM.css("border-color", "#eee");
+        return true;
+      } else {
+        cardMM.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function YYValidation() {  
+      if (validateYY(cardYY)) {
+        cardYY.css("border-color", "#eee");
+        return true;
+      } else {
+        cardYY.css("border-color", "red");
+        return false;
+      }
+    }
+
+    
+    function cardNumberValidation() {  
+      if (validateCardnumber(cardNumber)) {
+        cardNumber.css("border-color", "#eee");
+        return true;
+      } else {
+        cardNumber.css("border-color", "red");
+        return false;
+      }
+    }
+
+
+    function nameValidation() {
+      if (validateName(name)) {
+        name.css("border-color", "red");
+        return false;
+      } else {
+        name.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    function CnameValidation() {
+      if (validateCName(cardName)) {
+        cardName.css("border-color", "red");
+        return false;
+      } else {
+        cardName.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    function cityValidation() {
+      if (validateCity(city)) {
+        city.css("border-color", "red");
+        return false;
+      } else {
+        city.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    function phoneValidation() {
+      if (validatePhone(phone)) {
+        phone.css("border-color", "red");
+        return false;
+      } else {
+        phone.css("border-color", "#eee");
+        return true;
+      }
+    }
+    function countryValidation() {
+      if (validateCountry(country)) {
+        country.css("border-color", "red");
+        return false;
+      } else {
+        country.css("border-color", "#eee");
+        return true;
+      }
+    }
+    if (
+      emailValidation() &&
+      nameValidation() &&
+      phoneValidation() &&
+      CnameValidation() &&
+      cityValidation() &&
+      countryValidation()&&CvvValidation()&&MMValidation()&&YYValidation()&&cardNumberValidation()
+    ) {
+      $("span.card-success").fadeIn();
+      document.forms[0].reset();
+
+      setTimeout(function () {
+        $("span.card-success").fadeOut();
+      }, 3000);
+    } else {
+      $("span.card-success").fadeOut();
+    }
+  });
+
+  // checkout validation ends
+
+  // contact validation starts
+  $("#touch .contact-link .contact-btn").click(function (e) {
+    e.preventDefault();
+
+    var name = $("#touch #contact-name");
+    var email = $("#touch #contact-email");
+    var message = $("#touch #contact-message");
+    var phone = $("#touch #contact-phone");
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+      email.attr("placeholder", "Fill the input!!!");
+    } else {
+      email.css("border-color", "#eee");
+      email.attr("placeholder", "");
+    }
+
+    if (name.val() == "") {
+      name.css("border-color", "red");
+      name.attr("placeholder", "Fill the input!!!");
+    } else {
+      name.css("border-color", "#eee");
+      name.attr("placeholder", "");
+    }
+
+    if (message.val() == "") {
+      message.css("border-color", "red");
+      message.attr("placeholder", "Fill the input!!!");
+    } else {
+      message.css("border-color", "#eee");
+      message.attr("placeholder", "");
+    }
+
+    if (phone.val() == "") {
+      phone.css("border-color", "red");
+      phone.attr("placeholder", "Fill the input!!!");
+    } else {
+      phone.css("border-color", "#eee");
+      phone.attr("placeholder", "");
+    }
+
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.val());
+    }
+
+    function validatePhone(phone) {
+      var reg = new RegExp('@"^d$"');
+      return reg.test(phone.val());
+    }
+
+    function validateName(name) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(name.val());
+    }
+    function emailValidation() {
+      if (validateEmail(email)) {
+        email.css("border-color", "#eee");
+        return true;
+      } else {
+        email.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function nameValidation() {
+      if (validateName(name)) {
+        name.css("border-color", "red");
+        return false;
+      } else {
+        name.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    function phoneValidation() {
+      if (validatePhone(phone)) {
+        phone.css("border-color", "red");
+        return false;
+      } else {
+        phone.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    if (emailValidation() && nameValidation() && phoneValidation()) {
+      $("span.contact-success").fadeIn();
+      document.forms[0].reset();
+
+      setTimeout(function () {
+        $("span.contact-success").fadeOut();
+      }, 3000);
+    } else {
+      $("span.contact-success").fadeOut();
+    }
+  });
+
+  // contact validation ends
+
+  // modal validation starts
+  $("#modal .reserve-btn").click(function (e) {
+    e.preventDefault();
+
+    var name = $("#modal #modal-name");
+    var email = $("#modal #modal-email");
+
+    var phone = $("#modal #modal-phone");
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+     
+    } else {
+      email.css("border-color", "#eee");
+      
+    }
+
+    if (name.val() == "") {
+      name.css("border-color", "red");
+     
+    } else {
+      name.css("border-color", "#eee");
+     
+    }
+
+    if (phone.val() == "") {
+      phone.css("border-color", "red");
+      
+    } else {
+      phone.css("border-color", "#eee");
+      
+    }
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+     
+    } else {
+      email.css("border-color", "#eee");
+      
+    }
+
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.val());
+    }
+
+    function validateName(name) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(name.val());
+    }
+    function emailValidation() {
+      if (validateEmail(email)) {
+        email.css("border-color", "#eee");
+        return true;
+      } else {
+        email.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function nameValidation() {
+      if (validateName(name)) {
+        name.css("border-color", "red");
+        return false;
+      } else {
+        name.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    if (emailValidation() && nameValidation()) {
+      $("#modal .inputs .success").fadeIn();
+      document.forms[0].reset();
+
+      setTimeout(function () {
+        $("#modal .inputs .success").fadeOut();
+      }, 3000);
+    } else {
+      $("#modal .inputs .success").fadeOut();
+    }
+  });
+
+  // modal validation ends
+
+  //footer subscribe validation starts
+  $(".sub button.btn-submit").click(function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var email = $("footer #footer-middle input[type='email']");
+
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.val());
+    }
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+      email.attr("placeholder", "Fill the input!!!");
+    } else {
+      email.css("border-color", "#eee");
+      email.attr("placeholder", "");
+    }
+
+    function emailValidation() {
+      if (validateEmail(email)) {
+        email.css("border-color", "#eee");
+        return true;
+      } else {
+        email.css("border-color", "red");
+        return false;
+      }
+    }
+
+    if (email.val() != "") {
+      if (emailValidation()) {
+        $("#footer-middle .subsuccess").fadeIn();
+        document.forms[0].reset();
+
+        setTimeout(function () {
+          $("#footer-middle .subsuccess").fadeOut();
+        }, 3000);
+      }
+    } else {
+      $("#footer-middle .subsuccess").fadeOut();
+    }
+  });
+  //footer subscribe validation ends
   // menu tabs starts
 
   $(".menu-tabs .tabs li").each(function (e) {
@@ -354,124 +864,7 @@ $("#story .slider-about").slick({
     },
   });
 
-
   //fancybox ends
 
-  //footer email validation 
   
-
-  $(".sub button.btn-submit").click(function(e){
-    e.preventDefault();
-    e.stopImmediatePropagation()
-    var email = $("footer #footer-middle input[type='email']");
-
-    function validateEmail(email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email.val());
-    }
-
-    if (email.val() == "") {
-          email.css("border-color", "red");
-          email.attr("placeholder", "Fill the input!!!");
-        } else {
-          email.css("border-color", "#eee");
-          email.attr("placeholder", "");
-        }
-  })
-
-
-  // $("#message .send").click(function (e) {
-  //   e.preventDefault();
-
-  //   var name = $("#message .drop input[type='name']");
-  //   var email = $("#message .drop input[type='email']");
-  //   var txt = $("#message .drop textarea[name='message']");
-  //   var labelEmail = $("#message .drop label[for='email']");
-  //   var labelName = $("#message .drop label[for='name']");
-
-  //   if (name.val() == "") {
-  //     name.css("background-color", "#ffc1c1");
-  //     name.attr("placeholder", "Fill the input!!!");
-  //   } else {
-  //     name.css("background-color", "#EFF2FA");
-  //     name.attr("placeholder", "");
-  //   }
-
-  //   function validateEmail(email) {
-  //     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //     return re.test(email.val());
-  //   }
-
-  //   function validateName(name) {
-  //     const re = /^[a-zA-Z\s]*$/;
-
-  //     return re.test(name.val());
-  //   }
-  //   function emailValidation() {
-  //     if (validateEmail(email)) {
-  //       labelEmail.hide();
-  //       return true;
-  //     } else {
-  //       labelEmail.show();
-  //       return false;
-  //     }
-  //   }
-
-  //   function nameValidation() {
-  //     if (!validateName(name)) {
-  //       labelName.show();
-  //       return false;
-  //     } else {
-  //       labelName.hide();
-  //       return true;
-  //     }
-  //   }
-
-  //   if (email.val() == "") {
-  //     email.css("background-color", "#ffc1c1");
-  //     email.attr("placeholder", "Fill the input!!!");
-  //   } else {
-  //     email.css("background-color", "#EFF2FA");
-  //     email.attr("placeholder", "");
-  //   }
-
-  //   if (txt.val() == "") {
-  //     txt.css("background-color", "#ffc1c1");
-  //     txt.attr("placeholder", "Fill the input!!!");
-  //   } else {
-  //     txt.css("background-color", "#EFF2FA");
-  //     txt.attr("placeholder", "");
-  //   }
-
-  //   name.focus(function (e) {
-  //     e.preventDefault();
-  //     $(this).css("background-color", "#EFF2FA");
-  //     $(this).attr("placeholder", "");
-  //   });
-
-  //   email.focus(function (e) {
-  //     e.preventDefault();
-  //     $(this).css("background-color", "#EFF2FA");
-  //     $(this).attr("placeholder", "");
-  //   });
-
-  //   txt.focus(function (e) {
-  //     e.preventDefault();
-  //     $(this).css("background-color", "#EFF2FA");
-  //     $(this).attr("placeholder", "");
-  //   });
-
-  //   if (name.val() != "" && email.val() != "" && txt.val() != "") {
-  //     if (emailValidation() && nameValidation()) {
-  //       $(".success").fadeIn();
-  //       document.forms[0].reset();
-
-  //       setTimeout(function () {
-  //         $(".success").fadeOut();
-  //       }, 3000);
-  //     }
-  //   } else {
-  //     $(".success").fadeOut();
-  //   }
-  // });
 });

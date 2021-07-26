@@ -648,6 +648,14 @@ header {
           box-shadow: none !important;
 }
 
+#modal .success {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #C19D60;
+  font-weight: 500;
+  display: none;
+}
+
 #intro {
   height: 100vh;
   padding: 25px 0;
@@ -2241,9 +2249,15 @@ header {
   color: #C19D60;
 }
 
-#footer-middle .sub button[type=submit]:hover {
+#footer-middle .sub button[type=submit]:focus {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+#footer-middle .subsuccess {
+  color: #C19D60;
+  font-family: "Poppins", sans-serif;
+  display: none;
 }
 
 #footer-bottom {
@@ -3063,6 +3077,13 @@ header {
   font-weight: 500;
 }
 
+#touch .contact-inputs span.contact-success {
+  font-size: 12px;
+  color: #C19D60;
+  font-family: "Poppins", sans-serif;
+  display: none;
+}
+
 #touch .section-footer-touch {
   height: 40px;
   position: absolute;
@@ -3631,6 +3652,14 @@ header {
 #checkout p {
   font-weight: 600;
   font-size: 20px;
+}
+
+#checkout .card-success {
+  font-size: 15px;
+  color: #C19D60;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  display: none;
 }
 
 #checkout form input {
