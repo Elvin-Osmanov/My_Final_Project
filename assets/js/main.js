@@ -122,6 +122,14 @@ $(document).ready(function () {
   });
   // about slider ends
 
+  // table remove starts
+$(".remove-btn").click(function () {
+
+  $(this).parent().parent().remove();
+  
+})
+  //table remove ends
+
   // slider single item start
 
   $("#single-item .slider").slick({
