@@ -1,0 +1,74 @@
+﻿@model ServiceViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    int selectedPage = ViewBag.SelectedPage;
+    int pageCount = ViewBag.Pagecount;
+    int counter = (selectedPage - 1) * 4 + 1;
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-end"> <a asp-action="create" class="btn btn-outline-primary mb-3 text-right">Create <i class="ml-2 fas fa-plus"></i></a></div>
+    <table class="table">
+        <thead>
+            <tr class="row">
+                <th class="col-md-1">#</th>
+                <th class="col-md-2">Title</th>
+                <th class="col-md-3">Desc</th>
+                <th class="col-md-3">Text</th>
+                <th class="col-md-3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Services)
+            {
+            <tr class="row">
+                <th class="col-md-1">@counter</th>
+                <td class="col-md-2">@item.Title</td>
+                <td class="col-md-3">@item.Desc</td>
+                <td class="col-md-3">@item.Text</td>
+                <td class="col-md-3">
+                    <a asp-action="detail" asp-route-id="@item.Id" class="btn btn-primary">Info</a>
+                    <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+                    <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+                counter++;
+            }
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (selectedPage > 1)
+            {
+                <li class="page-item ">
+                    <a class="page-link" asp-action="index" asp-route-page="1"> <i class="fas fa-angle-double-left"></i></a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link" asp-action="index" asp-route-page="@(selectedPage-1)"><i class="fas fa-angle-left"></i></a>
+                </li>
+            }
+
+            @for (int i = (selectedPage - 2 < 1 ? 1 : selectedPage - 2); i <= (selectedPage + 2 > pageCount ? pageCount : selectedPage + 2); i++)
+            {
+                <li class="page-item @(i==selectedPage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+            }
+            @if (selectedPage < pageCount)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="index" asp-route-page="@(selectedPage+1)" tabindex="-1">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-action="index" asp-route-page="@pageCount" tabindex="-1">
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+

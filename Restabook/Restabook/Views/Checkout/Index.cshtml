@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- section intro starts -->
+<section id="check-intro" style="        background-image: url(~/../assets/images/checkout/bg.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="title text-center">
+                    <p>Enjoy your time in our restaurant with pleasure.</p>
+                    <h1 class="text-white">About our Restaurant</h1>
+                    <div class="dots">
+                        <ul class="list-unstyled justify-content-center">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scroll-down d-flex justify-content-center">
+                    <div class="text-white mouse">
+                        <div class="yellow-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-footer" style="        background-image: url(~/../assets/images/section-footer/brush-dec.png);"></div>
+</section>
+<!-- section intro ends -->
+<!-- section checkout starts -->
+<section id="checkout">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="information">
+                    <p>Your Information</p>
+                    <form class="row g-3">
+                        <div class="col-md-6">
+
+                            <input type="text" class="form-control" id="check-name" placeholder="Your Name*">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="email" class="form-control" id="check-email" placeholder="Email*">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="number" min="0" step="1" class="form-control" id="check-phone" placeholder="Phone*">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="text" class="form-control" id="check-city" placeholder="City*">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="text" class="form-control" id="check-country" placeholder="Country*">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="text" class="form-control" id="check-code" placeholder="Postal Code*">
+                        </div>
+
+                    </form>
+                    <p>Payment menthod</p>
+                    <form class="row g-3">
+                        <div class="col-md-6">
+
+                            <input type="text" class="form-control" id="card-name" placeholder="Cardholder's Name">
+                        </div>
+                        <div class="col-md-6">
+
+                            <input type="number" class="form-control" id="card-number" min="0" step="1" placeholder="Card Number*">
+                        </div>
+                        <div class="col-md-3">
+
+                            <input type="number" class="form-control" id="card-mm" min="0" step="1" placeholder="MM*">
+                        </div>
+                        <div class="col-md-3">
+
+                            <input type="number" class="form-control" id="card-yy" min="0" step="1" placeholder="YY*">
+                        </div>
+                        <div class="col-md-3 pr-0">
+
+                            <input type="number" class="form-control" id="card-cvv" min="0" step="1" placeholder="***">
+
+                        </div>
+                        <div class="col-md-3">
+                            <small>*Three digits number on the back of your card</small>
+                        </div>
+                        <div class="form-group col-md-12">
+
+                            <textarea class="form-control" id="card-text" rows="3" placeholder="Additional notes"></textarea>
+                        </div>
+                        <div class="form-group col-md-12 text-center">
+
+                            <span class="card-success">Payment requested from bank</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="pay d-flex justify-content-center">
+                    <a href="#" class="pay-btn">Confirm and Pay<i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="totals">
+                    <div class="total-inner">
+                        <h5>Cart totals</h5>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between"><p>Cart Subtotal:</p><span>$240.00</span></li>
+                            <li class="d-flex justify-content-between"><p>Shipping Total:</p><span>$12.00</span></li>
+                            <li class="d-flex justify-content-between"><p>Total:</p><span>$252.00</span></li>
+                        </ul>
+                        <div class="proceed">
+                            <a href="#" class="proceed-btn">Proceed to Checkout</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-footer" style="        background-image: url(~/../assets/images/section-footer/brush-dec_2.png);">
+    </div>
+</section>
+<!-- section checkout ends -->

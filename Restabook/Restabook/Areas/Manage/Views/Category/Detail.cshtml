@@ -1,0 +1,21 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1>Detail</h1>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.Name"></label>
+            <input class="form-control" asp-for="@Model.Name" readonly>
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+
+    </form>
+    <div>
+        <a asp-action="index" asp-controller="category" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>
+

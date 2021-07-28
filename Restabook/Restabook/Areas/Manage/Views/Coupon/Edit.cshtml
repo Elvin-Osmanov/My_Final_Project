@@ -1,0 +1,29 @@
+﻿@model Coupon
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Create</h2>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.CouponName"></label>
+            <input class="form-control" asp-for="@Model.CouponName">
+            <span asp-validation-for="@Model.CouponName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.CouponDiscount"></label>
+            <input class="form-control" asp-for="@Model.CouponDiscount">
+            <span asp-validation-for="@Model.CouponDiscount" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

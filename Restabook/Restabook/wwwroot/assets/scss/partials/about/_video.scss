@@ -1,0 +1,97 @@
+#video{
+
+    padding: 90px 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before{
+        content: "";
+        background-color: rgba(0, 0, 0, 0.308);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .video-content{
+       
+        .title{
+            p{
+                font-family: $secondaryFont;
+                font-weight: 300;
+                font-style: normal;
+                font-size: 15px;
+            }
+        }
+    
+        .dots{
+            color: $mainColor;
+        }
+    
+       
+        .video-btn{
+            
+            width: 85px;
+            height: 85px;
+            text-align: center;
+            line-height: 82px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.2);
+            transition: all 300ms ease-out;
+            border:1px solid $mainColor;
+    
+            &:hover{
+                transform: scale(1.1);
+                transition: all 300ms ease-out;
+    
+            }
+            
+    
+            a{
+                text-decoration: none;
+    
+            }
+    
+            i{
+                width: 65px;
+                height: 65px;
+                text-align: center;
+                line-height: 65px;
+                border-radius: 50%;
+                background-color: $mainColor;
+                position: relative;
+                z-index: 5;
+                color: white;
+            }
+    
+            
+        }
+    }
+
+
+
+    .section-header-video{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: -5px;
+        
+    }
+
+    .section-footer-video{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        bottom: 0;
+    }
+}

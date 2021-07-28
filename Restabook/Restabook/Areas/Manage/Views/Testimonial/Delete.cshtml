@@ -1,0 +1,28 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/testimonials/@Model.ProfilePhoto" style="max-width:150px" class="card-img-top" alt="slider">
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Fullname</h5>
+                <p class="card-text">Desc: @Model.Desc</p>
+                <p class="card-text">Occupation: @Model.GivenRating</p>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="testimonial" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+    <form method="post" asp-action="delete">
+        <input name="id" value="@Model.Id" hidden />
+        <button type="submit" class="btn btn-outline-danger"> Delete</button>
+    </form>
+</div>
+

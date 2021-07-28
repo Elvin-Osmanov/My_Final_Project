@@ -1,0 +1,36 @@
+﻿@model Service
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="@Model.Title"></label>
+            <input class="form-control" asp-for="@Model.Title" readonly>
+            <span asp-validation-for="@Model.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Text"></label>
+            <input class="form-control" asp-for="@Model.Text" readonly>
+            <span asp-validation-for="@Model.Text" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Desc"></label>
+            <input class="form-control" asp-for="@Model.Desc" readonly>
+            <span asp-validation-for="@Model.Desc" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Icon"></label>
+            <input class="form-control" asp-for="@Model.Icon" readonly>
+            <span asp-validation-for="@Model.Icon" class="text-danger"></span>
+        </div>
+        <img src="~/uploads/services/@Model.BackgroundPhoto" style="max-width:150px" class="card-img-top">
+    </form>
+    <div>
+        <a asp-action="index" asp-controller="service" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>
+

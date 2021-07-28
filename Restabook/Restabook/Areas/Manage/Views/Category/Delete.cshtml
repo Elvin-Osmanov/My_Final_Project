@@ -1,0 +1,23 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <h1>Delete</h1>
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="@Model.Name"></label>
+            <input class="form-control" asp-for="@Model.Name" readonly>
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-danger">Do you want to delete?</button>
+    </form>
+</div>

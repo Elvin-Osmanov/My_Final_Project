@@ -1,0 +1,838 @@
+﻿@inject Restabook.Services.LayoutViewModelService service
+@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+    Setting setting = service.GetSettings();
+    var counter = 1;
+    var counterTestimonial = 1;
+
+}
+
+
+<!-- section intro starts -->
+<section id="intro" style="background-image: url(~/../assets/images/intro/introback.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="welcome-content">
+                    <div class="dots">
+                        <ul class="text-white list-unstyled">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+                    <p class="text-white">Top Services and Premium Cuisine</p>
+                    <h1 class="text-white">Welcome to Restabook Restaurant</h1>
+                    <a class="btn menu-btn" href="#">Check out our Menu <i class="icon fal fa-long-arrow-right"></i></a>
+
+                </div>
+            </div>
+            <div class="col-lg-6 d-lg-flex d-md-none d-none justify-content-end align-items-center">
+                <div class="video-side">
+                    <div class="link ">
+                        <a class="text-white btn play-btn" href="@setting.VideoRedirectUrl"><i class="fas fa-play"></i></a>
+                    </div>
+                    <p class="text-white ml-4">View Promo Video</p>
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="section-footer-content">
+                    <div class="wrapper d-flex">
+                        <div class="text-white mouse">
+                            <div class="yellow-dot"></div>
+                        </div>
+                        <span class="text-white scroll-text">Scroll down to discover</span>
+
+                    </div>
+                    <a href="#story" class="down-icon">
+                        <i class=" fal fa-chevron-double-down"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="section-footer" style="background-image: url(~/../assets/images/section-footer/brush-dec.png);"></div>
+</section>
+<!-- section intro ends -->
+<!-- section story starts -->
+<section id="story">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="story-content">
+                    <div class="title">
+                        <p>Our story</p>
+                        <h1>Few words about us</h1>
+                    </div>
+                    <div class="dots">
+                        <ul class="text-dark list-unstyled">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+                    <div class="storytxt">
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                            totam aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+                            sunt. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi
+                            ut aliquid ex ea commodi consequatur.
+                        </p>
+                        <p class="mt-1">
+                            Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+                            molestiae consequatur.
+                        </p>
+
+                    </div>
+
+                    <a class="btn explore-btn" href="">
+                        Explore our Menu <i class="icon fal fa-long-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="story-images">
+                    <img class="img-fluid main" src="~/uploads/setting/@setting.AboutPhoto">
+
+                    <img src="~/assets/images/story/side.jpg" class="d-lg-block d-md-none d-none" style="width: 65%;
+                    top: -15%;
+                    z-index: -1;
+                    left: 68%;
+                    position: absolute;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section story ends -->
+<!-- section opening starts -->
+<section id="opening">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="plate" style="        background-image: url(~/../assets/images/opening/plate.jpg);">
+
+                    <i class="quote far fa-quote-right"></i>
+                    <p class="text-white text-center">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+                        quasi accusantium."
+                    </p>
+                    <span class="text-white text-center">
+                        Kevin Kowalsky - Restaurant’s cheaf <img src="~/assets/images/opening/signature.png" class="ml-5 img-fluid">
+                    </span>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 p-0 ">
+                <div class="hours d-flex flex-column" style="        background-image: url(~/../assets/images/opening/leaves.png);">
+                    <div class="title text-center">
+                        <p>Call For Reservations</p>
+                        <h1 class="text-white">Opening Hours</h1>
+
+                    </div>
+                    <div class="dots align-self-center">
+                        <ul class="list-unstyled">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="opening-info d-flex">
+                        <div class="col-lg-6 p-0 d-flex flex-column align-items-center ">
+                            <h6>@setting.StartDay1 to @setting.OverDay1</h6>
+                            <span class="text-white">@setting.StartTime1</span>
+                            <span class="text-white">@setting.OverTime1</span>
+                        </div>
+                        <div class="col-lg-6 p-0 d-flex flex-column align-items-center">
+                            <h6>@setting.StartDay2 to @setting.OverDay2</h6>
+                            <span class="text-white">@setting.StartTime2</span>
+                            <span class="text-white">@setting.OverTime2</span>
+                        </div>
+
+                    </div>
+                    <div class="align-self-center text-white white-separator">
+                        .
+                    </div>
+
+                    <div class="call-number text-center">
+                        <a href="#">@setting.SupportPhone</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section opening ends -->
+<!-- section service starts -->
+<section id="service" style="        background-image: url(~/../assets/images/services/section-bg.png);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="title">
+                    <p>Why people choose us</p>
+                    <h1>Prepare for first-class service</h1>
+                </div>
+                <div class="dots">
+                    <ul class="text-dark justify-content-center list-unstyled">
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            @foreach (var item in Model.Services)
+            {
+
+              
+
+                <div class="col-lg-4 col-md-12">
+                    <div class="content-box">
+                        <div class="front-box">
+                            <div class="front-box-inner" style="        background-image: url(uploads/services/@item.BackgroundPhoto);">
+                                <div class="overlay"></div>
+                                <div class="txt">
+                                    <h2 class="text-white">@item.Title</h2>
+                                    <span class="text-white  text-uppercase">@item.Text</span>
+                                </div>
+
+                                <div class="order">
+
+
+                                    @if (counter >= 10)
+                                    {
+                                        <span>@counter.</span>
+                                    }
+                                    else
+                                    {
+                                        <span>0@(counter).</span>
+                                    }
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rear-box">
+                            <div class="rear-box-inner">
+                                <div class="text-center icon">
+                                    @Html.Raw(item.Icon)
+                                </div>
+                                <p class="text-center text-white">
+                                    @item.Desc
+                                </p>
+                                <div class="dots">
+                                    <ul class="mb-0 justify-content-center list-unstyled">
+                                        <li>.</li>
+                                        <li>.</li>
+                                        <li>.</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                counter++;
+            }
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="link text-center">
+                    <a class="btn" href="#">Read More About us <i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-footer" style="        background-image: url(~/../assets/images/section-footer/brush-dec_2.png);"></div>
+</section>
+<!-- section service ends -->
+<!-- section specialities starts -->
+<section id="specialities" style="        background-image: url(~/../assets/images/specialitites/maindish.jpg);">
+    <div class="section-header-special"
+         style="background-image: url(~/../assets/images/section-footer/brush-dec_2.png);"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title text-center">
+                    <p>Special menu offers.</p>
+                    <h1 class="text-white">Enjoy Restaurants Specialties</h1>
+                </div>
+                <div class="dots">
+                    <ul class="list-unstyled justify-content-center align-items-center">
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="menu-tabs">
+                    <ul class="list-unstyled tabs">
+                        <li href="#main" class="d-flex justify-content-between align-items-baseline active">
+                            <div class="name">
+                                <span class="menu-order">01.</span><a>Main dishes</a>
+                            </div><i class="fas fa-caret-left"></i>
+                        </li>
+                        <li href="#starter" class="d-flex justify-content-between align-items-baseline">
+                            <div class="name">
+                                <span class="menu-order">02.</span><a>Starter</a>
+                            </div><i class="fas fa-caret-left"></i>
+                        </li>
+                        <li href="#dessert" class="d-flex justify-content-between align-items-baseline">
+                            <div class="name">
+                                <span class="menu-order">03.</span><a>Desserts</a>
+                            </div><i class="fas fa-caret-left"></i>
+                        </li>
+                        <li href="#sea" class="d-flex justify-content-between align-items-baseline">
+                            <div class="name">
+                                <span class="menu-order">04.</span><a>Sea Food</a>
+                            </div><i class="fas fa-caret-left"></i>
+                        </li>
+                        <li href="#drinks" class="d-flex justify-content-between align-items-baseline">
+                            <div class="name">
+                                <span class="menu-order">05.</span><a>Drinks</a>
+                            </div><i class="fas fa-caret-left"></i>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="col-lg-9">
+                <div class="menus">
+                    <ul id="main" class="list-unstyled show">
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    01.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Soft shell crab</h6>
+                                    <p class="text-white">Granny help you treat yourself with a different meal everyday</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $29
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    02.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Miso chicken</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $19
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    03.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Fish pie</h6>
+                                    <p class="text-white">usce tempus tempus maximus volutpat</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $12
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    04.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Salmon riverland</h6>
+                                    <p class="text-white">Fusce a tellus tellus. Praesent neque arcu, efficitur sit amet</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $105
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="starter" class="list-unstyled">
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    01.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Fried Potatoes</h6>
+                                    <p class="text-white">Granny help you treat yourself with a different meal everyday</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $29
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    02.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Doner Burger</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $19
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    03.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Steak Filet</h6>
+                                    <p class="text-white">usce tempus tempus maximus volutpat</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $12
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    04.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Cayenne Shrimp</h6>
+                                    <p class="text-white">Fusce a tellus tellus. Praesent neque arcu, efficitur sit amet</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $37
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="dessert" class="list-unstyled ">
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    01.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Fried Potatoes</h6>
+                                    <p class="text-white">Granny help you treat yourself with a different meal everyday</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $29
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    02.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Tarte Tatin</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $25
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    03.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Creme Brulee</h6>
+                                    <p class="text-white">usce tempus tempus maximus volutpat</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $64
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    04.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Lemon Meringue</h6>
+                                    <p class="text-white">Fusce a tellus tellus. Praesent neque arcu, efficitur sit amet</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $12
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="sea" class="list-unstyled">
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    01.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Lobster with melted mozarella</h6>
+                                    <p class="text-white">Granny help you treat yourself with a different meal everyday</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $156
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    02.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Butterfly fried shrimps platter</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $98
+                            </div>
+                        </li>
+
+                    </ul>
+                    <ul id="drinks" class="list-unstyled">
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    01.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Kiwi Coctail</h6>
+                                    <p class="text-white">Granny help you treat yourself with a different meal everyday</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $12
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    02.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Summer Beer</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $21
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    03.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Red Mojitos</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $17
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-baseline justify-content-between">
+                            <div class="details align-items-baseline  d-flex">
+                                <span>
+                                    04.
+                                </span>
+                                <div class="item align-self-start">
+                                    <h6 class="text-white">Cabernet Sauvignon</h6>
+                                    <p class="text-white">Etiam tempus felis eros, id lobortis turpis</p>
+                                </div>
+                            </div>
+                            <div class="price">
+                                $40
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex justify-content-between align-items-end">
+                <div class="menu-link">
+                    <a href="#" class="menubtn btn">View Full Menu<i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+                <div class="pdf">
+                    <a href="#" class="pdfbtn">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section-footer-special" style="        background-image: url(~/../assets/images/section-footer/brush-dec.png);">
+    </div>
+</section>
+<!-- section specialities ends -->
+<!-- section chefs starts -->
+<section id="chefs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title text-center">
+                    <p>Our awesome team</p>
+                    <h1>Met Our Chefs</h1>
+                </div>
+                <div class="dots">
+                    <ul class="text-dark justify-content-center list-unstyled">
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model.Chefs)
+            {
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="over-image">
+                            <div class="overlay">
+                                <p class="text-white text-center">Follow</p>
+                                <div class="social-links">
+                                    <ul class="list-unstyled d-flex justify-content-center align-items-around">
+                                        <li><a href="@item.FacebookUrl"><i class="text-white fab fa-facebook-f"></i></a></li>
+                                        <li><a href="@item.TwitterUrl"><i class="text-white fab fa-twitter"></i></a></li>
+                                        <li><a href="@item.InstagramUrl"><i class="text-white fab fa-instagram"></i></a></li>
+                                        <li><a href="@item.VkUrl"><i class="text-white fab fa-vk"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <img src="~/uploads/chefs/@item.Photo" class="img-fluid card-img-top">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-center card-title">Kevin Gray</h5>
+                            <span class="text-center d-block">Master chef in @item.City</span>
+                            <p class="text-center card-text">
+                               @item.Desc
+                            </p>
+                            <div class="dots">
+                                <ul class="justify-content-center list-unstyled">
+                                    <li>.</li>
+                                    <li>.</li>
+                                    <li>.</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="recipe-box">
+                    <h4>Want to cook something tasty? Read our best recipes.</h4>
+                    <a href="">Recipes Book <i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section chefs ends -->
+<!-- section store starts -->
+<section id="store">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="events" style="        background-image: url(~/../assets/images/store/bgstore2.png);">
+                    <div class="title text-center">
+                        <p>Book a table</p>
+                        <h1 class="text-white">Upcoming Events</h1>
+
+                    </div>
+                    <div class="dots">
+                        <ul class="list-unstyled justify-content-center">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+                    <div class="slider">
+                        @foreach (var item in Model.Events)
+                        {
+                            <div class="event d-flex">
+                                <div class="inner-event d-flex flex-column justify-content-center align-items-center">
+                                    <h6 class="text-white">@item.Title</h6>
+                                    <span>@item.EventDate.ToString("dd MMMM yyyy")</span>
+                                    <p>
+                                        @item.Desc
+                                    </p>
+                                    <div class="dots">
+                                        <ul class="list-unstyled">
+                                            <li>.</li>
+                                            <li>.</li>
+                                            <li>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+                    </div>
+                    <div class="align-self-center text-white white-separator2">
+                        .
+                    </div>
+                    <div class="align-self-center link-to-book mt-4">
+                        <a href="#" class="bookbtn btn">Book Table Now<i class="icon fal fa-long-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="buy" style="background-image: url(~/../assets/images/store/bgstore.jpg);">
+                    <div class="dots text-white">
+                        <ul class="list-unstyled">
+                            <li>.</li>
+                            <li>.</li>
+                            <li>.</li>
+                        </ul>
+                    </div>
+                    <h1>Our Store</h1>
+                    <p>Want to order food home? Visit our online store.</p>
+                    <a href="#" class="btn onlineBtn">Buy online<i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section store ends -->
+<!-- section testimonial starts -->
+<section id="testimonial">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title text-center">
+                    <p>What said about us</p>
+                    <h1>Customer Reviews</h1>
+                </div>
+                <div class="dots">
+                    <ul class="list-unstyled text-dark justify-content-center">
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="carousel">
+                    
+                    @foreach (var item in Model.Testimonials)
+                    {
+                       
+
+                        <div class="slider d-flex flex-column justify-content-center align-items-center">
+                            <i class="align-self-start far fa-quote-left"></i>
+                            <div class="image-box d-flex justify-content-center align-items-center">
+                                <img src="~/uploads/testimonials/@item.ProfilePhoto" class="img-fluid" alt="">
+                            </div>
+
+                            <h6>@item.Fullname</h6>
+
+                            <div class="rating">
+                                @for (int i = 0; i < item.GivenRating; i++)
+                                {
+                                    <i class="fas fa-star"></i>
+                                }
+
+
+
+                            </div>
+
+                            <p class="text-center">
+                                "@item.Desc"
+                            </p>
+
+                            <div class="footer ">
+                                @if (counterTestimonial >= 10)
+                                {
+                                    <span>@(counterTestimonial).</span>
+                                }
+                                else
+                                {
+                                    <span>0@(counterTestimonial).</span>
+                                }
+                                <div class="dots">
+                                    <ul class=" list-unstyled">
+                                        <li>.</li>
+                                        <li>.</li>
+                                        <li>.</li>
+                                    </ul>
+                                </div>
+                                <i class="far fa-quote-right"></i>
+                            </div>
+
+                        </div>
+
+                        counterTestimonial++;
+                    }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section testimonial ends -->

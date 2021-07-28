@@ -1,0 +1,29 @@
+﻿@model Chef 
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <img src="~/uploads/chefs/@Model.Photo" class="card-img-top" style="width:250px;" alt="course image">
+            <div class="card-body">
+                <h5 class="card-title">FullName: @Model.FullName</h5>
+                <p class="card-text">City: @Model.City</p>
+                <p class="card-text">Desc: @Model.Desc</p>
+                <p class="card-text">Desc: @Model.TwitterUrl</p>
+                <p class="card-text">Facebook: @Model.FacebookUrl</p>
+                <p class="card-text">Instagram: @Model.InstagramUrl</p>
+                <p class="card-text">Vk: @Model.VkUrl</p>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="chef" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>
+
+
