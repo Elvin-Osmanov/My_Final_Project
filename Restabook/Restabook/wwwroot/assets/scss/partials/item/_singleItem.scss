@@ -5,6 +5,8 @@
     background-position:bottom left;
     background-size: 100%;
 
+    
+
     .product{
 
         .product-name{
@@ -277,8 +279,8 @@
 
                 .review-image{
                     padding-top: 10px;
-                    width: 150px;
-                    height: 150px;
+                    max-width: 80px;
+                    max-height: 80px;
                     
                     img{
                         border-radius: 50%;
@@ -349,6 +351,14 @@
                
             }
 
+            span.review-success{
+                font-size: 13px;
+                color: $mainColor;
+                font-family: $secondaryFont;
+                font-weight: 500;
+                display: none;
+            }
+
             input{
                 border: 1px solid #e1e1e1;
                 background: #f9f9f9;
@@ -380,7 +390,7 @@
                 }
             }
 
-            button{
+            input.add-review-btn{
                 @extend %mainbtn;
                 background-color: $mainColor;
                 color: white;
@@ -476,40 +486,70 @@
         }
     }
 
-    .rate {
+    .rating {
+        display: inline-block;
+        position: relative;
+        height: 50px;
+        line-height: 45px;
+        font-size: 20px;
+    }
+
+    .rating label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        cursor: pointer;
+    }
+
+    .rating label:last-child {
+        position: static;
+    }
+
+    .rating label:nth-child(1) {
+        z-index: 5;
+    }
+
+    .rating label:nth-child(2) {
+        z-index: 4;
+    }
+
+    .rating label:nth-child(3) {
+        z-index: 3;
+    }
+
+    .rating label:nth-child(4) {
+        z-index: 2;
+    }
+
+    .rating label:nth-child(5) {
+        z-index: 1;
+    }
+
+    .rating label input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+
+    .rating label .icon {
         float: left;
-        height: 46px;
-        padding: 0 10px;
+        color: transparent;
     }
-    .rate:not(:checked) > input {
-        position:absolute;
-        top:-9999px;
+
+    .rating label:last-child .icon {
+        color: #666;
     }
-    .rate:not(:checked) > label {
-        float:right;
-        width:1em;
-        overflow:hidden;
-        white-space:nowrap;
-        cursor:pointer;
-        font-size:18px;
-        color:#ccc;
-    }
-    .rate:not(:checked) > label:before {
-        content: '★ ';
-    }
-    .rate > input:checked ~ label {
-        color: $mainColor;    
-    }
-    .rate:not(:checked) > label:hover,
-    .rate:not(:checked) > label:hover ~ label {
-        color: $mainColor;  
-    }
-    .rate > input:checked + label:hover,
-    .rate > input:checked + label:hover ~ label,
-    .rate > input:checked ~ label:hover,
-    .rate > input:checked ~ label:hover ~ label,
-    .rate > label:hover ~ input:checked ~ label {
+
+    .rating:not(:hover) label input:checked ~ .icon,
+    .rating:hover label:hover input ~ .icon {
         color: $mainColor;
+    }
+
+    .rating label input:focus:not(:checked) ~ .icon:last-child {
+        color: $mainColor;
+        text-shadow: 0 0 5px $mainColor;
     }
 
     .search{

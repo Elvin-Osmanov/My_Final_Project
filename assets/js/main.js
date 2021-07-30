@@ -94,7 +94,7 @@ $(document).ready(function () {
   });
 
   //  slider store end
-
+ 
   // about slider starts
   $("#story .slider-about").slick({
     infinite: true,
@@ -207,6 +207,86 @@ $(".remove-btn").click(function () {
   });
 
   // back to top ends
+  // review validation starts
+  $("#single-item .add-review .add-review-btn").click(function (e){
+    e.preventDefault();
+
+    var name = $("#review-name");
+    var email = $("#review-email");
+    var message = $("#review-message");
+
+    if (email.val() == "") {
+      email.css("border-color", "red");
+      
+    } else {
+      email.css("border-color", "#eee");
+     
+    }
+
+    if (name.val() == "") {
+      name.css("border-color", "red");
+      
+    } else {
+      name.css("border-color", "#eee");
+      
+    }
+
+    if (message.val() == "") {
+      message.css("border-color", "red");
+      
+    } else {
+      message.css("border-color", "#eee");
+      
+    }
+
+    function validateEmail(email) {
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email.val());
+    }
+
+    function validateName(name) {
+      var reg = new RegExp("^\\d+$");
+
+      return reg.test(name.val());
+    }
+
+    function emailValidation() {
+      if (validateEmail(email)) {
+        email.css("border-color", "#eee");
+        return true;
+      } else {
+        email.css("border-color", "red");
+        return false;
+      }
+    }
+
+    function nameValidation() {
+      if (validateName(name)) {
+        name.css("border-color", "red");
+        return false;
+      } else {
+        name.css("border-color", "#eee");
+        return true;
+      }
+    }
+
+    if (
+      emailValidation() &&
+      nameValidation()
+    ) {
+      $("span.review-success").fadeIn();
+      document.forms[0].reset();
+
+      setTimeout(function () {
+        $("span.review-success").fadeOut();
+      }, 3000);
+    } else {
+      $("span.review-success").fadeOut();
+    }
+
+  })
+  // review validation ends
 
   // checkout validation starts
   $(".pay .pay-btn").click(function (e) {
@@ -836,6 +916,7 @@ $(".remove-btn").click(function () {
 
   //fancybox starts
 
+ 
   Fancybox.bind('[data-fancybox="gallery"]', {
     //dragToClose: false,
     Thumbs: false,
@@ -854,25 +935,7 @@ $(".remove-btn").click(function () {
     },
   });
 
-  Fancybox.bind('[data-fancybox="gallery2"]', {
-    //dragToClose: false,
-    Thumbs: false,
-
-    Image: {
-      zoom: false,
-      click: false,
-      wheel: "slide",
-    },
-
-    on: {
-      // Move caption inside the slide
-      reveal: (f, slide) => {
-        slide.$caption && slide.$content.appendChild(slide.$caption);
-      },
-    },
-  });
-
-  //fancybox ends
+  
 
   
 });

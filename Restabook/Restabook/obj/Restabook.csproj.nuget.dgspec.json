@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Elvin\\source\\repos\\Restabook\\Restabook\\Restabook.csproj": {}
+    "C:\\Users\\Elvin\\Desktop\\Final Project\\Restabook\\Restabook\\Restabook.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Elvin\\source\\repos\\Restabook\\Restabook\\Restabook.csproj": {
+    "C:\\Users\\Elvin\\Desktop\\Final Project\\Restabook\\Restabook\\Restabook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Elvin\\source\\repos\\Restabook\\Restabook\\Restabook.csproj",
+        "projectUniqueName": "C:\\Users\\Elvin\\Desktop\\Final Project\\Restabook\\Restabook\\Restabook.csproj",
         "projectName": "Restabook",
-        "projectPath": "C:\\Users\\Elvin\\source\\repos\\Restabook\\Restabook\\Restabook.csproj",
+        "projectPath": "C:\\Users\\Elvin\\Desktop\\Final Project\\Restabook\\Restabook\\Restabook.csproj",
         "packagesPath": "C:\\Users\\Elvin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Elvin\\source\\repos\\Restabook\\Restabook\\obj\\",
+        "outputPath": "C:\\Users\\Elvin\\Desktop\\Final Project\\Restabook\\Restabook\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -382,23 +382,23 @@
                       <a
                         class="big-image-link"
                         data-fancybox="gallery"
-                        href="/assets/images/menu/3.jpg"
+                        href="./assets/images/menu/3.jpg"
                       >
-                        <img class="img-fluid" src="/assets/images/menu/3.jpg" />
+                        <img class="img-fluid" src="./assets/images/menu/3.jpg" />
                       </a>
                       <a
                       class="big-image-link"
                         data-fancybox="gallery"
-                        href="/assets/images/menu/1.jpg"
+                        href="./assets/images/menu/1.jpg"
                       >
-                        <img class="img-fluid" src="/assets/images/menu/1.jpg" />
+                        <img class="img-fluid" src="./assets/images/menu/1.jpg" />
                       </a>
                       <a
                         class="big-image-link"
                         data-fancybox="gallery"
-                        href="/assets/images/menu/2.jpg"
+                        href="./assets/images/menu/2.jpg"
                       >
-                        <img class="img-fluid" src="/assets/images/menu/2.jpg" />
+                        <img class="img-fluid" src="./assets/images/menu/2.jpg" />
                       </a>
                     </div>
                   </div>
@@ -423,7 +423,6 @@
 
                   <div class="review-text">
                     <p class="head">Reviews</p>
-
                     <ul class="list-unstyled">
                       <li class="review-inner d-flex">
                         <div class="review-image">
@@ -471,38 +470,62 @@
                   <div class="add-review">
                     <p>Add Review</p>
 
-                   <div class="get-star d-flex align-items-center">
-                    <p>Your rating for this product</p>
-                    <div class="rate">
-                      <input type="radio" id="star5" name="rate" value="5" />
-                      <label for="star5" title="text">5 stars</label>
-                      <input type="radio" id="star4" name="rate" value="4" />
-                      <label for="star4" title="text">4 stars</label>
-                      <input type="radio" id="star3" name="rate" value="3" />
-                      <label for="star3" title="text">3 stars</label>
-                      <input type="radio" id="star2" name="rate" value="2" />
-                      <label for="star2" title="text">2 stars</label>
-                      <input type="radio" id="star1" name="rate" value="1" />
-                      <label for="star1" title="text">1 star</label>
-                    </div>
-                   </div>
+                  
                    <form class="row g-3">
+                    <div class="get-star d-flex align-items-center col-md-12">
+                      <p class="mb-0 mr-1">Your rating for this product</p>
+                      <div class="rating">
+                        <label>
+                            <input type="radio" name="stars" value="1" />
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="stars" value="2" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="stars" value="3" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="stars" value="4" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="stars" value="5" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                    </div>
+                     </div>
                     <div class="col-md-6 mb-3">
                      
-                      <input type="text" class="form-control" id="name" placeholder="Your Name*">
+                      <input type="text" class="form-control" id="review-name" placeholder="Your Name*">
                     </div>
                     <div class="col-md-6 mb-3">
                     
-                      <input type="email" class="form-control" id="email" placeholder="Email Address*">
+                      <input type="email" class="form-control" id="review-email" placeholder="Email Address*">
                     </div>
                    
                     <div class="col-md-12 mb-4">
                       
-                      <textarea class="form-control" placeholder="Your Messsage"></textarea>
+                      <textarea class="form-control" id="review-message" placeholder="Your Messsage"></textarea>
                     </div>
-                    
+                    <div class="col-md-12 mb-4">
+                      
+                      <span class="review-success">Review has been accepted</span>
+                    </div>
                     <div class="col-12">
-                      <button type="submit" class="btn btn-primary">Add review<i class="icon fal fa-long-arrow-right"></i></button>
+                      <input type="submit" class="btn btn-primary add-review-btn">Add review<i class="icon fal fa-long-arrow-right"></i></input>
                     </div>
                   </form>
                   </div>
@@ -642,7 +665,7 @@
         <div class="section-footer" style="background-image: url(./assets/images/section-footer/brush-dec_2.png);"></div>
       </section>
         <!-- section single-item ends -->
-      
+  </main>
         <footer>
 
           <section id="footer-top">

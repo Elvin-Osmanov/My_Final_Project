@@ -1,7 +1,11 @@
-﻿
+﻿@model ShopViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int pageCount = ViewBag.PageCount;
+    int selectedPage = ViewBag.SelectedPage;
+    int? categoryId = ViewBag.CategoryId;
 }
 
 
@@ -54,155 +58,59 @@
                     </div>
                     <div class="list">
                         <div class="row">
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="">
-                                                <i class="fas fa-search"></i>
-                                            </a>
+                            @foreach (var item in Model.Products)
+                            {
+                                var poster = item.ProductPhotos.FirstOrDefault(x=>x.Order==1);
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="item">
+                                        <div class="image">
+                                            <div class="overlay">
+                                                <a class="image-link" href="">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </div>
+                                            <img src="./uploads/products/@poster.Name" class="img-fluid">
+                                           
+
                                         </div>
-                                        <img src="./assets/images/menu/1.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Soft shell crab</a>
-                                            <span>Sale - 30%</span>
-                                        </div>
-                                        <p>Seasoned with an herb crust, served with au jus and handcarved to order.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./assets/images/menu/10.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Soft shell crab</a>
-                                            <span>Sale - 30%</span>
-                                        </div>
-                                        <p>Seasoned with an herb crust, served with au jus and handcarved to order.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
+                                        <div class="item-detail">
+                                            <div class="top">
+                                                <a asp-action="index" asp-controller="product" asp-route-id="@item.Id" asp-route-categoryId="@item.Category.Id">@item.Name</a>
+                                                
+                                                <span><span class=" @(item.DiscountPercent>0?"d-block":"d-none")">Sale - @item.DiscountPercent%</span><span class="@(item.IsChefSelecetion==true?"d-block":"d-none")">Chef Selected</span></span>
+                                            </div>
+                                            <p>@item.SmallDesc</p>
+                                            <div class="bottom">
+                                                <span class="price">$@item.Price</span>
+                                                <a href="#" class="add-btn">Add to Cart</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="#">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./assets/images/menu/1.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Soft shell crab</a>
-                                            <span>Sale - 30%</span>
-                                        </div>
-                                        <p>Seasoned with an herb crust, served with au jus and handcarved to order.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="#">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./assets/images/menu/2.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Fish pie</a>
-                                            <span>Sale - 30%</span>
-                                        </div>
-                                        <p>Our tender, juicy filet paired with a steamed tempor lobster tail.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="#">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./assets/images/menu/4.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Fish pie</a>
-                                            <span>Chef selection</span>
-                                        </div>
-                                        <p>Our tender, juicy filet paired with a steamed tempor lobster tail.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="#">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./assets/images/menu/6.jpg" class="img-fluid">
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a href="#">Fish pie</a>
-                                            <span>Sale - 20%</span>
-                                        </div>
-                                        <p>Our tender, juicy filet paired with a steamed tempor lobster tail.</p>
-                                        <div class="bottom">
-                                            <span class="price">$29</span>
-                                            <a href="#" class="add-btn">Add to Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            }
+
+
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pagination">
                                     <ul class="list-unstyled d-flex ">
-                                        <li><a href="#" class="prev-btn"><i class="fal fa-long-arrow-left"></i></a></li>
-                                        <li class="on"><a href="#" class="page"><span>01.</span></a></li>
-                                        <li><a href="#" class="page"><span>02.</span></a></li>
-                                        <li><a href="#" class="page"><span>03.</span></a></li>
-                                        <li><a href="#" class="page"><span>04.</span></a></li>
-                                        <li><a href="#" class="next-btn"><i class="fal fa-long-arrow-right"></i></a></li>
+                                        @if (selectedPage > 1)
+                                        {
+                                            <li><a asp-action="index" asp-route-page="@(selectedPage-1)" class="prev-btn"><i class="fal fa-long-arrow-left"></i></a></li>
+                                        }
+                                        @for (int i = (selectedPage > 1 ? (selectedPage - 1) : 1); i <= (selectedPage < pageCount ? selectedPage + 1 : pageCount); i++)
+                                        {
+                                           
+                                                <li class="@(i==selectedPage?"on":"")"><a asp-action="index" asp-route-page="@i" class="page"><span>@i.</span></a></li>
+                                           
+                                        }
+                                        @if (selectedPage < pageCount)
+                                        {
+                                            <li><a asp-action="index" asp-route-page="@(selectedPage+1)" class="next-btn"><i class="fal fa-long-arrow-right"></i></a></li>
+                                        }
+                                        
+
                                     </ul>
                                 </div>
                             </div>
@@ -234,6 +142,7 @@
                             <p class="popular-text">Popular Products</p>
 
                             <ul class="list-unstyled mt-3">
+
                                 <li class="popular-product d-flex">
                                     <div class="small-image mr-3">
                                         <img src="./assets/images/menu/10.jpg" class="img-fluid" style="width: 90px; height: auto;">
@@ -277,11 +186,10 @@
                             <p class="categorytxt">Categories</p>
 
                             <ul class="list-unstyled mt-3">
-                                <li class="category-link"><a href="#" class="category-btn">Seafood</a> <span>12</span></li>
-                                <li class="category-link"><a href="#" class="category-btn">Drinks</a> <span>8</span></li>
-                                <li class="category-link"><a href="#" class="category-btn">Desserts</a> <span>7</span></li>
-                                <li class="category-link"><a href="#" class="category-btn">Starter</a> <span>14</span></li>
-                                <li class="category-link"><a href="#" class="category-btn">Main Dishes</a> <span>5</span></li>
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li class="category-link"><a asp-controller="product" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
+                                }
                             </ul>
                         </div>
 
@@ -289,14 +197,12 @@
                             <p class="tagtxt">Recent tags</p>
 
                             <ul class="list-unstyled mt-3 ">
-                                <li class="taglink"><a href="#">Lifestyle</a></li>
-                                <li class="taglink"><a href="#">Travel</a></li>
-                                <li class="taglink"><a href="#">Trip</a></li>
-                                <li class="taglink"><a href="#">Outdoor</a></li>
-                                <li class="taglink"><a href="#">Camping</a></li>
-                                <li class="taglink"><a href="#">Adventure</a></li>
-                                <li class="taglink"><a href="#">Photos</a></li>
-                                <li class="taglink"><a href="#">Adventure</a></li>
+                                @foreach (var item in Model.Tags)
+                                {
+                                    <li class="taglink"><a asp-controller="product" asp-action="index" asp-route-categoryId="@item.Id">@item.Name</a></li>
+                                }
+
+                               
                             </ul>
                         </div>
                     </div>

@@ -11,5 +11,7 @@ namespace Restabook.Data.Entities
         [Required(ErrorMessage = ("Obligatory!!!"))]
         [StringLength(maximumLength: 50, ErrorMessage = "Length no more than 50!")]
         public string Name { get; set; }
+
+        public List<Product> Products { get; set; }
     }
 }

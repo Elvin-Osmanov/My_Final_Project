@@ -1,0 +1,57 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Tag> tags = ViewBag.Tags;
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card pl-3">
+            <div class="inner pl-3 pt-2">
+               
+                
+                <p>Photos</p>
+                <div class="images d-flex">
+                    @foreach (var item in Model.ProductPhotos)
+                    {
+                        <img src="~/uploads/products/@item.Name" style="max-width:150px;margin-right:10px" class="card-img-top" alt="slider">
+                    }
+                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Name</h5>
+                <p class="card-text">Desc: @Html.Raw(Model.Desc)</p>
+                <p class="card-text">Small Desc: @Model.SmallDesc</p>
+                <p class="card-text">Rate: @Model.Rate</p>
+                <p class="card-text">Price: @Model.Price</p>
+                <p class="card-text">Discounted Price: @Model.DiscountedPrice</p>
+                <p class="card-text">Discount Percent: @Model.DiscountPercent</p>
+                <p class="card-text">Is Chef Selecetion: @Model.IsChefSelecetion</p>
+                <p class="card-text"> Has Seen: @Model.HasSeen</p>
+                <p class="card-text">Has Shopped: @Model.HasShopped</p>
+                <p class="card-text">Category: @Model.Category.Name</p>
+                <div class="card-text bg-light" style="border-radius:5px">
+                    Tags:
+
+                    @foreach (var item in tags)
+                    {
+                        if (tags[tags.Count - 1] != item)
+                        {<p class="d-inline">@item.Name,</p> }
+                    else
+                    {<p class="d-inline">@item.Name</p>}
+
+            }
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="product" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>
+

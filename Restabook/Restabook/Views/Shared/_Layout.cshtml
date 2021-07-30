@@ -66,16 +66,16 @@
                             <a class="nav-link" asp-controller="home" asp-action="index">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-controller="menu" asp-action="index">Menu</a>
+                            <a class="nav-link" asp-controller="menu" asp-action="index">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-controller="about" asp-action="index">About</a>
+                            <a class="nav-link" asp-controller="about" asp-action="index">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-controller="contact" asp-action="index">Contact</a>
+                            <a class="nav-link" asp-controller="contact" asp-action="index">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link"  asp-controller="shop" asp-action="index">Shop</a>
+                            <a class="nav-link" asp-controller="shop" asp-action="index">Shop</a>
                         </li>
                         <li class="nav-item dropdown cart">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -183,7 +183,7 @@
                                             </div>
                                         </div>
                                         <div class="checkout pt-2">
-                                            <a  asp-controller="cart" asp-action="index">View Cart</a> <span>/</span> <a  asp-controller="checkout" asp-action="index">Checkout</a>
+                                            <a asp-controller="cart" asp-action="index">View Cart</a> <span>/</span> <a asp-controller="checkout" asp-action="index">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
@@ -367,9 +367,9 @@
                         <div class="about">
                             <h4>About Us</h4>
                             <p>
-                               @setting.FooterDesc
+                                @setting.FooterDesc
                             </p>
-                            <a  asp-controller="about" asp-action="index">Read more</a>
+                            <a asp-controller="about" asp-action="index">Read more</a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -392,7 +392,7 @@
 
                                 </li>
                             </ul>
-                            <a  asp-controller="contact" asp-action="index" class="touch">Get in Touch</a>
+                            <a asp-controller="contact" asp-action="index" class="touch">Get in Touch</a>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -445,6 +445,7 @@
             crossorigin="anonymous"></script>
 
     <script src="~/assets/js/main.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>
