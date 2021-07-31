@@ -3,14 +3,15 @@
   position: relative;
 
   .menu-tabs {
-    ul {
+    
       border: 1px solid #eee;
       padding: 20px 20px 5px 20px;
       background: #f9f9f9;
       position: relative;
       display: flex;
+      flex-direction: row;
       justify-content: space-around;
-      align-items: center;
+      align-items: baseline;
 
       &::before {
         content: "";
@@ -31,11 +32,17 @@
         right: -150px;
       }
 
-      li {
+      .tab-link {
+      color: black;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+      text-decoration: none;
+           
         .top {
-          a {
-            text-decoration: none;
-            color: #000;
+          .inner-link {
+            font-size: 18px;
           }
           span {
             font-size: 11px;
@@ -50,16 +57,14 @@
         }
 
         .bottom {
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          margin-bottom: -11px;
+         
+          margin-bottom: -14px;
           visibility: hidden;
           color: $mainColor;
         }
       }
 
-      li.active{
+      a.active{
         a,span{
           color: $mainColor;
         }
@@ -67,7 +72,7 @@
           visibility: visible
         }
       }
-    }
+    
   }
 
   .download-btn {
@@ -125,8 +130,8 @@
     display: none;
 
     .context{
-      
-        padding-bottom: 50px;
+     
+        padding: 25px 0;
         &:hover{
             .price{
 
@@ -238,53 +243,53 @@
 }
 
   .show{
-    display: flex;
+    display:block;
   }
 }
 
 
-@media only screen and (max-width:770px){
+// @media only screen and (max-width:770px){
 
-#menus{
+// #menus{
   
 
-  .menu-tabs{
+//   .menu-tabs{
 
-    ul{
+//     ul{
       
       
   
-        &::before {
-          display: none;
-        }
-        &::after {
-         display: none;
-        }
-    }
-  }
+//         &::before {
+//           display: none;
+//         }
+//         &::after {
+//          display: none;
+//         }
+//     }
+//   }
 
-  .show{
-    display: block;
-  }
-}
-}
+//   .show{
+//     display: block;
+//   }
+// }
+// }
 
-@media only screen and (max-width:576px){
+// @media only screen and (max-width:576px){
 
-  .menu-tabs{
+//   .menu-tabs{
 
-    ul{
-      font-size: 10px;
+//     ul{
+//       font-size: 10px;
 
 
-      li{
+//       li{
 
-        .bottom{
-         i{
-           visibility: hidden;
-         }
-        }
-      }
-    }
-  }
-}
+//         .bottom{
+//          i{
+//            visibility: hidden;
+//          }
+//         }
+//       }
+//     }
+//   }
+// }

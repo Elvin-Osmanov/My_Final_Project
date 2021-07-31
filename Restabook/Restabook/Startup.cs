@@ -33,12 +33,15 @@ namespace Restabook
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             }).AddIdentity<AppUser, IdentityRole>(options =>
             {
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 10;
+                options.Password.RequiredLength = 8;
                 options.Password.RequireDigit = false;
-            }
+                options.Password.RequireLowercase = false;
+                
+                
 
-            ).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddTransient<LayoutViewModelService>();
             services.AddControllersWithViews();
@@ -61,7 +64,7 @@ namespace Restabook
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

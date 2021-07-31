@@ -62,12 +62,13 @@ namespace Restabook.Data.Entities
         [NotMapped]
         public List<IFormFile> Files { get; set; } = new List<IFormFile>();
 
-    
-
         [NotMapped]
         public List<int> FileIds { get; set; }
 
+        public string PosterPhoto { get; set; }
 
-  
+        [NotMapped]
+        public IFormFile File { get; set; }
+
     }
 }

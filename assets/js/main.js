@@ -892,11 +892,11 @@ $(".remove-btn").click(function () {
 
   // odometer ends
 
-  $("#menus .menu-tabs ul li").each(function (e) {
+  $("#menus .menu-tabs a").each(function (e) {
     $(this).click(function (e) {
       e.preventDefault();
 
-      $(".menu-tabs ul li.active").removeClass("active");
+      $(".menu-tabs a.active").removeClass("active");
       $(this).addClass("active");
 
       var href = $(this).attr("href");

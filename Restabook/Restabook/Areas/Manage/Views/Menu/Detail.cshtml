@@ -1,0 +1,21 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">FullName: @Model.Name</h5>
+               
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <a asp-action="index" asp-controller="menu" class="btn btn-outline-success mt-md-2">Back</a>
+    </div>
+</div>

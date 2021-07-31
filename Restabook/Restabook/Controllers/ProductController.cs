@@ -40,7 +40,7 @@ namespace Restabook.Controllers
                 Products = await _context.Products.ToListAsync(),
                 Categories = await _context.Categories.ToListAsync(),
 
-                PopularProducts = await _context.Products.Include(x => x.ProductPhotos).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).ToListAsync(),
+                PopularProducts = await _context.Products.Include(x => x.ProductPhotos).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).Take(3).ToListAsync(),
             };
 
             return View(productVM);

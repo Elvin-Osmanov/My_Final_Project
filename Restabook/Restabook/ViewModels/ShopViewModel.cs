@@ -12,5 +12,6 @@ namespace Restabook.ViewModels
         public List<Category> Categories { get; set; }
         public List<Product> Products { get; set; }
         public List<Product> PopularProducts { get; set; }
+        public List<Product> Searched { get; set; }
     }
 }

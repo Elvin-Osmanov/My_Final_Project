@@ -27,7 +27,7 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            double totalCount = await _context.Categories.CountAsync();
+            double totalCount = await _context.Products.CountAsync();
             int pageCount = (int)Math.Ceiling(totalCount / 5);
 
             if (page < 1) page = 1;
@@ -75,6 +75,28 @@ namespace Restabook.Areas.Manage.Controllers
 
             product.ProductTags = await _createProductTags(product.TagIds);
 
+            if (product.File != null)
+            {
+                #region CheckPhotoLength
+                if (product.File.Length > 3 * (1024 * 1024))
+                {
+                    ModelState.AddModelError("File", "Cannot be more than 3MB");
+                    return View();
+
+                }
+                #endregion
+                #region CheckPhotoContentType
+                if (product.File.ContentType != "image/png" && product.File.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("File", "Only jpeg and png files accepted");
+                    return View();
+                }
+                #endregion
+
+                string filename = FileManagerHelper.Save(_env.WebRootPath, "uploads/products/poster", product.File);
+
+                product.PosterPhoto = filename;
+            }
 
             //if (product.PosterFile != null)
             //{
@@ -194,9 +216,36 @@ namespace Restabook.Areas.Manage.Controllers
             var lastPhoto = existProduct.ProductPhotos.OrderByDescending(x => x.Order).FirstOrDefault();
             int photoOrder = lastPhoto != null ? lastPhoto.Order + 1 : 1;
 
+            if (product.File != null)
+            {
+                #region CheckPhotoLength
+                if (product.File.Length > 3 * (1024 * 1024))
+                {
+                    ModelState.AddModelError("File", "Cannot be more than 3MB");
+                    return View();
+
+                }
+                #endregion
+                #region CheckPhotoContentType
+                if (product.File.ContentType != "image/png" && product.File.ContentType != "image/jpeg")
+                {
+                    ModelState.AddModelError("File", "Only jpeg and png files accepted");
+                    return View();
+                }
+                #endregion
+
+                string filename = FileManagerHelper.Save(_env.WebRootPath, "uploads/products/poster", existProduct.File);
+
+                if (!string.IsNullOrWhiteSpace(existProduct.PosterPhoto))
+                {
+                    FileManagerHelper.Delete(_env.WebRootPath, "uploads/products/poster", existProduct.PosterPhoto);
+                }
+
+                existProduct.PosterPhoto = filename;
+            }
             //if (product.PosterFile != null)
             //{
-               
+
             //    #region CheckPhotoLength
             //    if (product.PosterFile.Length > 3 * (1024 * 1024))
             //    {

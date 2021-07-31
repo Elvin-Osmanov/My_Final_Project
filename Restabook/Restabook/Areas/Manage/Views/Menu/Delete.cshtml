@@ -1,0 +1,24 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">FullName: @Model.Name</h5>
+
+
+            </div>
+        </div>
+    </div>
+    <form method="post" asp-action="delete">
+        <input name="id" value="@Model.Id" hidden />
+        <button type="submit" class="btn btn-outline-danger mt-md-3"> Delete</button>
+    </form>
+</div>
+
+

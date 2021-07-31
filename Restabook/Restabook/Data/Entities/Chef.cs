@@ -11,7 +11,7 @@ namespace Restabook.Data.Entities
     public class Chef:BaseEntity
     {
         [Required(ErrorMessage = ("Obligatory!!!"))]
-        [StringLength(maximumLength: 100, ErrorMessage = "Length no more than 50!")]
+        [StringLength(maximumLength: 100, ErrorMessage = "Length no more than 100!")]
         public string FullName { get; set; }
 
         [Required(ErrorMessage = ("Obligatory!!!"))]

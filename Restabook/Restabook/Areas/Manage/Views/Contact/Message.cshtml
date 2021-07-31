@@ -1,0 +1,29 @@
+﻿@model List<ContactMessage>
+@{ ViewData["Title"] = "Message";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml"; }
+
+<div class="container-fluid">
+    <h2>Messages</h2>
+    <div class="row">
+        @foreach (var message in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@message.FullName - @message.Email</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@message.Subject</h6>
+                        <p class="card-text">@message.PhoneNumber</p>
+                        <p class="card-text">@message.Message</p>
+                        <a asp-action="index" class="btn btn-primary mb-2">Back</a>
+                        <form asp-action="DeleteMessage" method="post">
+                            <input type="hidden" name="id" value="@message.Id" />
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>}
+    </div>
+</div>
+
+
+

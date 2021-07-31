@@ -23,6 +23,8 @@ namespace Restabook.Data
 
         public DbSet<Chef> Chefs { get; set; }
 
+        public DbSet<Menu> Menus { get; set; }
+
         public DbSet<Event> Events { get; set; }
 
         public DbSet<Setting> Settings { get; set; }
@@ -40,6 +42,10 @@ namespace Restabook.Data
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
 
         public DbSet<ProductReview> ProductReviews { get; set; }
+
+         public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<ContactMessage> ContactMessages { get; set; }
 
     }
 }

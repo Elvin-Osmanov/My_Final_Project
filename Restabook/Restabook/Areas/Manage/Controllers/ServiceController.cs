@@ -25,8 +25,8 @@ namespace Restabook.Areas.Manage.Controllers
         }
         public async Task<IActionResult> Index(int page = 1)
         {
-            double totalCount = await _context.Tags.CountAsync();
-            int pageCount = (int)Math.Ceiling(totalCount / 5);
+            double totalCount = await _context.Services.CountAsync();
+            int pageCount = (int)Math.Ceiling(totalCount / 4);
 
             if (page < 1) page = 1;
             else if (page > pageCount) page = pageCount;
@@ -36,7 +36,7 @@ namespace Restabook.Areas.Manage.Controllers
 
             ServiceViewModel serviceVM = new ServiceViewModel
             {
-                Services = await _context.Services.Skip((page - 1) * 5).Take(5).ToListAsync()
+                Services = await _context.Services.Skip((page - 1) * 4).Take(4).ToListAsync()
             };
             return View(serviceVM);
         }

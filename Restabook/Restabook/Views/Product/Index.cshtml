@@ -195,7 +195,7 @@
 
                                         <div class="col-lg-4 d-flex flex-column mb-3">
                                             <img src="~/uploads/products/@relatedProductPoster.Name" class="img-fluid">
-                                            <a href="#" class="link-like">@item.Name</a>
+                                            <a asp-action="index" asp-controller="product" asp-route-id="@item.Id" asp-route-categoryId="@item.Category.Id" class="link-like">@item.Name</a>
                                             <span class="price-like">
                                                 $@item.Price
                                             </span>
@@ -212,7 +212,7 @@
                             .
                         </div>
                         <div class="back-to-shop-link d-flex justify-content-center align-items-center">
-                            <a href="#" class="to-shop">Back to Shop<i class="icon fal fa-long-arrow-right"></i></a>
+                            <a  class="to-shop">Back to Shop<i class="icon fal fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@
                             <ul class="list-unstyled mt-3">
                                 @foreach (var item in Model.Categories)
                                 {
-                                    <li class="category-link"><a asp-controller="product" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
+                                    <li class="category-link"><a asp-controller="shop" asp-action="index" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
                                 }
 
 

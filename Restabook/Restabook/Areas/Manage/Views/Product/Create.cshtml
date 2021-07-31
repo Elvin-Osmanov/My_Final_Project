@@ -57,11 +57,17 @@
         </div>
 
         <div class="form-group col-md-6">
-            <label asp-for="@Model.Files"></label>
+            <label asp-for="@Model.Files">Photos</label>
             <input class="form-control" asp-for="@Model.Files">
             <span asp-validation-for="@Model.Files" class="text-danger"></span>
         </div>
-        
+
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.File">Poster</label>
+            <input class="form-control" asp-for="@Model.File">
+            <span asp-validation-for="@Model.File" class="text-danger"></span>
+        </div>
+
         <div class="form-group">
             <div class="form-check">
                 <input class="form-check-input" asp-for="@Model.IsChefSelecetion" />

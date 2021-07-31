@@ -1,4 +1,4 @@
-﻿
+﻿@model ContactViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,9 +14,9 @@
                     <div class="contact-inner">
                         <p class="text-center">Contact Details</p>
                         <ul class="list-unstyled">
-                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">USA 27TH Brooklyn NY</a></li>
-                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">+7(123)987654</a></li>
-                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">yourmail@domain.com</a></li>
+                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@Model.Contact.Address</a></li>
+                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@Model.Contact.Phone</a></li>
+                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@Model.Contact.SupportEmail</a></li>
                         </ul>
                         <div class="dots">
                             <ul class="list-unstyled justify-content-center">
@@ -42,9 +42,9 @@
                     <div class="contact-inner">
                         <p class="text-left">Contact Details</p>
                         <ul class="list-unstyled">
-                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">USA 27TH Brooklyn NY</a></li>
-                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">+7(123)987654</a></li>
-                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">yourmail@domain.com</a></li>
+                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@Model.Contact.Address</a></li>
+                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@Model.Contact.Phone</a></li>
+                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@Model.Contact.SupportEmail</a></li>
                         </ul>
                         <div class="dots">
                             <ul class="list-unstyled justify-content-center">
@@ -72,32 +72,28 @@
                     <div class="text py-5">
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
                     </div>
-                    <form>
+                    <form asp-action="message" method="post">
+                        <input type="hidden" name="contactId" value="@Model.Contact.Id" />
                         <div class="form-row">
                             <div class="form-group col-md-5 ">
 
-                                <input type="text" class="form-control" id="contact-name" placeholder="Your Name">
+                                <input type="text" class="form-control contact-name" id="FullName" name="FullName" placeholder="Your Name" required>
                             </div>
                             <div class="form-group col-md-5 ">
 
-                                <input type="email" class="form-control" id="contact-email" placeholder="Email Address*">
+                                <input type="email" class="form-control contact-email" name="Email" id="Email" placeholder="Email Address*" required>
                             </div>
                             <div class="form-group col-md-5 ">
 
-                                <input type="number" min="0" step="1" class="form-control" id="contact-phone" placeholder="Phone*">
+                                <input type="text" class="contact-phone form-control" name="PhoneNumber" id="PhoneNumber" placeholder="Phone*" required>
                             </div>
                             <div class="form-group col-md-5 ">
+                                <input type="text" class="form-control contact-phone" name="Subject" id="Subject" placeholder="Subject*" required>
 
-                                <select id="inputState" class="form-control" required>
-                                    <option disabled selected>Subject</option>
-                                    <option>Upcoming Events</option>
-                                    <option>Book Inside</option>
-                                    <option>Banquet</option>
-                                </select>
                             </div>
                             <div class="form-group col-md-10 ">
 
-                                <textarea class="form-control" id="contact-message" rows="3" placeholder="Your Message:"></textarea>
+                                <textarea class="form-control contact-message" id="Message" name="Message" rows="3" placeholder="Your Message:" required></textarea>
                             </div>
                             <div class="form-group col-md-10 ">
 
@@ -105,11 +101,15 @@
                                     Message has been sent
                                 </span>
                             </div>
+                            <div class="form-group col-md-10 ">
+
+                                <div class="mb-3 contact-link d-flex justify-content-start">
+                                    <button type="submit" class="text-center btn contact-btn">Send Message<i class="icon fal fa-long-arrow-right"></i></button>
+                                </div>
+                            </div>
                         </div>
                     </form>
-                    <div class="mb-3 contact-link d-flex justify-content-start">
-                        <a href="#" class="text-center btn contact-btn">Send Message<i class="icon fal fa-long-arrow-right"></i></a>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-5 p-0">
@@ -131,14 +131,14 @@
 
                     <div class="opening-info d-flex">
                         <div class="col-lg-6 p-0 d-flex flex-column align-items-center ">
-                            <h6>Sunday to Tuesday</h6>
-                            <span class="text-white">09:00</span>
-                            <span class="text-white">22:00</span>
+                            <h6>@Model.Setting.StartDay1 to @Model.Setting.OverDay1</h6>
+                            <span class="text-white">@Model.Setting.StartTime1</span>
+                            <span class="text-white">@Model.Setting.OverTime1</span>
                         </div>
                         <div class="col-lg-6 p-0 d-flex flex-column align-items-center">
-                            <h6>Friday to Saturday</h6>
-                            <span class="text-white">11:00</span>
-                            <span class="text-white">19:00</span>
+                            <h6>@Model.Setting.StartDay2 to @Model.Setting.OverDay2</h6>
+                            <span class="text-white">@Model.Setting.StartTime2</span>
+                            <span class="text-white">@Model.Setting.OverTime2</span>
                         </div>
 
                     </div>
@@ -147,12 +147,16 @@
                     </div>
 
                     <div class="call-number text-center">
-                        <a href="#">+7(111)123456789</a>
+                        <a href="#">@Model.Setting.ServicePhone</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="section-footer-touch" style="        background-image: url(~/../assets/images/section-footer/brush-dec_2.png);">
+    <div class="section-footer-touch" style="        background-image: url(~/../assets/images/section-footer/brush-dec_2.png);"></div>
 </section>
 <!-- section touch ends -->
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

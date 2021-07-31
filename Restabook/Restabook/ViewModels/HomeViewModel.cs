@@ -17,5 +17,7 @@ namespace Restabook.ViewModels
 
         public List<Service> Services { get; set; }
 
+        public List<Product> Products { get; set; }
+
     }
 }

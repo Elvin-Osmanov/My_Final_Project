@@ -38,24 +38,27 @@ namespace Restabook.Areas.Manage.Controllers
             return View();
         }
 
-        //public async Task Create()
+        public async Task Create()
+        {
+            AppUser user = new AppUser
+            {
+                UserName = "SuperAdmin",
+                FullName = "Super Admin",
+            };
+
+
+            await _userManager.AddToRoleAsync(user, "Admin");
+
+            await _userManager.CreateAsync(user, "admin");
+            
+        }
+
+        //public async Task CreateRole()
         //{
-        //    AppUser user = new AppUser
-        //    {
-        //        UserName = "SuperAdmin",
-        //        FullName = "Super Admin",
-        //    };
-
-        //    await _userManager.CreateAsync(user, "Admin123");
-        //    await _userManager.AddToRoleAsync(user, "Admin");
-        //}
-
-        //public async Task CreateRole() {
 
         //    await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-        //    await _roleManager.CreateAsync(new IdentityRole { Name = "Moderator" });
-        //    await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-        
+           
+
         //}
     }
 }

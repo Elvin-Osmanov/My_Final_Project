@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Restabook.Data;
 using Restabook.ViewModels;
@@ -31,7 +32,9 @@ namespace Restabook.Controllers
 
                 Events = _context.Events.Take(3).ToList(),
 
-                Services = _context.Services.Take(3).ToList()
+                Services = _context.Services.Take(3).ToList(),
+
+                Products = _context.Products.Include(x=>x.Category).ToList()
 
             };
             return View(homeVM);

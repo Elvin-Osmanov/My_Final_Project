@@ -3,6 +3,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+    int allproducts = ViewBag.AllProducts;
+   
     int pageCount = ViewBag.PageCount;
     int selectedPage = ViewBag.SelectedPage;
     int? categoryId = ViewBag.CategoryId;
@@ -44,7 +46,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="txt d-lg-flex d-md-flex d-block justify-content-between">
-                        <p>Showing <span>1-8</span> of 19 results </p>
+                        @*<p>Showing <span>@Model.Products.Take(6).Count()</span> of @allproducts results </p>*@
                         <div class="form-group col-md-4 col-7 p-0">
 
                             <select id="inputState" class="form-control">
@@ -102,7 +104,19 @@
                                         @for (int i = (selectedPage > 1 ? (selectedPage - 1) : 1); i <= (selectedPage < pageCount ? selectedPage + 1 : pageCount); i++)
                                         {
                                            
-                                                <li class="@(i==selectedPage?"on":"")"><a asp-action="index" asp-route-page="@i" class="page"><span>@i.</span></a></li>
+                                                <li class="@(i==selectedPage?"on":"")">
+                                                    <a asp-action="index" asp-route-page="@i" class="page">
+                                                        @if (i < 10)
+                                                        {
+                                                            <span>0@(i).</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>@i.</span>
+                                                        }
+
+                                                    </a>
+                                                </li>
                                            
                                         }
                                         @if (selectedPage < pageCount)
@@ -119,15 +133,15 @@
                 </div>
                 <div class="col-lg-4 ">
                     <div class="sidebar">
-                        <div class="search">
+                        <form class="search" asp-action="index" method="get">
                             <div class="col-md-12 justify-content-center d-flex align-items-center">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <a href="#" class="search-btn"><i class="text-white fas fa-search"></i></a>
+                                <input type="text" class="form-control" placeholder="Search..." name="searchStr" value="@ViewBag.SearchString">
+                                <button type="submit" value="Search" class="search-btn"><i class="text-white fas fa-search"></i></button>
                             </div>
 
 
-                        </div>
-                        <div class="filter">
+                        </form>
+                        <form class="filter">
                             <p>Price Filter</p>
                             <div class="row mt-3">
                                 <div class="col-lg-9 col-md-9 col-9">
@@ -137,48 +151,28 @@
                                     <a href="#" class="update-btn">Update</a>
                                 </div>
                             </div>
-                        </div>
+                        </form>
                         <div class="popular">
                             <p class="popular-text">Popular Products</p>
 
                             <ul class="list-unstyled mt-3">
+                                @foreach (var item in Model.PopularProducts)
+                                {
+                                   
+                                    <li class="popular-product d-flex">
+                                        <div class="small-image mr-3">
+                                            <img src="~/uploads/products/poster/@item.PosterPhoto" class="img-fluid" style="width: 90px; height: auto;">
+                                        </div>
+                                        <div class="small-txt">
+                                            <p class="text">@item.Name</p>
+                                            <div class="small-price d-flex">
+                                                <span class="pricetxt">Price:<span class="digit">$@item.DiscountedPrice</span></span>
+                                                <span class="reviews">@item.ProductReviews.Count() Reviews</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
 
-                                <li class="popular-product d-flex">
-                                    <div class="small-image mr-3">
-                                        <img src="./assets/images/menu/10.jpg" class="img-fluid" style="width: 90px; height: auto;">
-                                    </div>
-                                    <div class="small-txt">
-                                        <p class="text">Victoria's Filet Mignon</p>
-                                        <div class="small-price d-flex">
-                                            <span class="pricetxt">Price:<span class="digit">$24</span></span>
-                                            <span class="reviews">0 Reviews</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="popular-product d-flex">
-                                    <div class="small-image mr-3">
-                                        <img src="./assets/images/menu/9.jpg" class="img-fluid" style="width: 90px; height: auto;">
-                                    </div>
-                                    <div class="small-txt">
-                                        <p class="text">Prime Cuts of Beef</p>
-                                        <div class="small-price d-flex ">
-                                            <span class="pricetxt">Price:<span class="digit">$54</span></span>
-                                            <span class="reviews">2 Reviews</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="popular-product d-flex">
-                                    <div class="small-image mr-3">
-                                        <img src="./assets/images/menu/7.jpg" class="img-fluid" style="width: 90px; height: auto;">
-                                    </div>
-                                    <div class="small-txt">
-                                        <p class="text">Meatball tagliatelle</p>
-                                        <div class="small-price d-flex ">
-                                            <span class="pricetxt">Price:<span class="digit">$47</span></span>
-                                            <span class="reviews">5 Reviews</span>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
 
