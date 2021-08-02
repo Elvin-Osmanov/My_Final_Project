@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restabook.Areas.Manage.ViewModels;
@@ -10,6 +11,7 @@ using Restabook.Data.Entities;
 
 namespace Restabook.Areas.Manage.Controllers
 {
+    [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
     [Area("Manage")]
     public class MenuController : Controller
     {

@@ -29,7 +29,7 @@
                 <input class="form-control" asp-for="@Model.SupportEmail">
                 <span asp-validation-for="@Model.SupportEmail" class="text-danger"></span>
             </div>
-           
+
             <div class="form-group col-md-6">
                 <label asp-for="@Model.FacebookUrl"></label>
                 <input class="form-control" asp-for="@Model.FacebookUrl">
@@ -95,7 +95,11 @@
                 <input class="form-control" asp-for="@Model.OverTime2">
                 <span asp-validation-for="@Model.OverTime2" class="text-danger"></span>
             </div>
-
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.ShippingCost"></label>
+                <input class="form-control" asp-for="@Model.ShippingCost">
+                <span asp-validation-for="@Model.ShippingCost" class="text-danger"></span>
+            </div>
 
         </div>
         <div class="form-group">
@@ -133,6 +137,19 @@
                     {
                         <img style="max-width:150px" src="~/uploads/setting/@Model.FooterLogo" alt="Alternate Text" />
                         <input asp-for="@Model.FooterLogo" hidden />}
+                </div>
+
+            </div>
+            <div class="form-group col-md-6">
+
+                <label asp-for="@Model.BookPdf"></label>
+                <input class="form-control" asp-for="@Model.BookPdf">
+                <span asp-validation-for="@Model.BookPdf" class="text-danger"></span>
+                <div style="margin-top:8px" class="photo-box">
+                    @if (Model.BookPdfUrl != null)
+                    {
+                        <img style="max-width:150px" src="~/uploads/pdf/@Model.BookPdfUrl" alt="Alternate Text" />
+                        <input asp-for="@Model.BookPdfUrl" hidden />}
                 </div>
 
             </div>

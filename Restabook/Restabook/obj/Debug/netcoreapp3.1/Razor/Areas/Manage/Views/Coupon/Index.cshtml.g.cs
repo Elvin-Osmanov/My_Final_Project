@@ -26,8 +26,15 @@ using Restabook.Data.Entities;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\Areas\Manage\Views\_ViewImports.cshtml"
+using Restabook.Data.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6d7f132e47a17e469b47ecaec1e21fc0661705a2", @"/Areas/Manage/Views/Coupon/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bb253c16ddefc0a3ee2e868021bcb9263687b5b6", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2fe8eff951cc74225ede8d790da0f6eff90491cb", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Coupon_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<CouponViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,7 +87,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n\r\n\r\n<div class=\"container-fluid\">\r\n\r\n    <div class=\"d-flex justify-content-end\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a27662", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a27867", async() => {
                 WriteLiteral("Create <i class=\"ml-2 fas fa-plus\"></i>");
             }
             );
@@ -141,7 +148,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("%</td>\r\n                    <td>\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a210463", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a210668", async() => {
                 WriteLiteral("Info");
             }
             );
@@ -173,7 +180,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a212744", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a212949", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -205,7 +212,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a215023", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a215228", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -255,7 +262,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a218063", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a218268", async() => {
                 WriteLiteral(" <i class=\"fas fa-angle-double-left\"></i>");
             }
             );
@@ -278,7 +285,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"page-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a219945", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a220150", async() => {
                 WriteLiteral("<i class=\"fas fa-angle-left\"></i>");
             }
             );
@@ -338,7 +345,7 @@ WriteAttributeValue(" ", 2211, i==selectedPage?"active":"", 2212, 30, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a223376", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a223581", async() => {
 #nullable restore
 #line 57 "C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\Areas\Manage\Views\Coupon\Index.cshtml"
                                                                                                                             Write(i);
@@ -392,7 +399,7 @@ WriteAttributeValue(" ", 2211, i==selectedPage?"active":"", 2212, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a226500", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a226705", async() => {
                 WriteLiteral("\r\n                        <i class=\"fas fa-angle-right\"></i>\r\n                    ");
             }
             );
@@ -425,7 +432,7 @@ WriteAttributeValue(" ", 2211, i==selectedPage?"active":"", 2212, 30, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"page-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a229045", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d7f132e47a17e469b47ecaec1e21fc0661705a229250", async() => {
                 WriteLiteral("\r\n                        <i class=\"fas fa-angle-double-right\"></i>\r\n                    ");
             }
             );

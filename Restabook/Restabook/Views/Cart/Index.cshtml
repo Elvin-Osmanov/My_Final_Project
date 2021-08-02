@@ -1,7 +1,14 @@
-﻿
+﻿@model List<Order>
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
+@inject Restabook.Services.LayoutViewModelService service
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Setting setting = service.GetSettings();
+    double subtotal = 0;
+    double finaltotal = 0;
+    double shipping = 0;
+    int Id = 0;
 }
 
 <!-- section intro starts -->
@@ -39,7 +46,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="table">
-                    <p>Your Cart <span>3 items</span></p>
+                    <p>Your Cart <span>@Model.Count() items</span></p>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -47,79 +54,99 @@
                                 <th scope="col">Description</th>
                                 <th scope="col" class="bg-light">Price</th>
                                 <th scope="col">Count</th>
+                                <th scope="col" class="bg-light">Status</th>
                                 <th scope="col" class="bg-light">Total</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" class="p-1 text-center bg-light">
-                                    <img src="./assets/images/menu/1.jpg"
-                                         class="img-fluid" style="width: 50px; height: auto;" alt="">
-                                </th>
-                                <td>Grilled Steaks</td>
-                                <td class="bg-light">
-                                    $22
-                                </td>
-                                <td><input type="number" style="border: 0;width: 35px;" value="1"></td>
-                                <td class="bg-light">$22.00</td>
-                                <td><i class="fas fa-times remove-btn"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="p-1 text-center bg-light">
-                                    <img src="./assets/images/menu/2.jpg"
-                                         class="img-fluid" style="width: 50px; height: auto;" alt="">
-                                </th>
-                                <td>Grilled Steaks</td>
-                                <td class="bg-light">
-                                    $22
-                                </td>
-                                <td><input type="number" style="border: 0;width: 35px;" value="1"></td>
-                                <td class="bg-light">$22.00</td>
-                                <td><i class="fas fa-times remove-btn"></i></td>
-                            </tr>
-                            <tr>
-                                <th scope="row" class="p-1 text-center bg-light">
-                                    <img src="./assets/images/menu/3.jpg"
-                                         class="img-fluid" style="width: 50px; height: auto;" alt="">
-                                </th>
-                                <td>Grilled Steaks</td>
-                                <td class="bg-light">
-                                    $22
-                                </td>
-                                <td><input type="number" style="border: 0;width: 35px;" value="1"></td>
-                                <td class="bg-light">$22.00</td>
-                                <td><i class="fas fa-times remove-btn"></i></td>
-                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                var fullprice = item.Product.Price * item.Count;
+                            
+                                <tr>
+                                    <th scope="row" class="p-1 text-center bg-light">
+                                        <img src="~/uploads/products/poster/@item.Product.PosterPhoto"
+                                             class="img-fluid" style="width: 50px; height: auto;" alt="">
+                                    </th>
+                                    <td>@item.Product.Name</td>
+                                    <td class="bg-light">
+                                        $@item.Product.DiscountedPrice
+                                    </td>
+                                    <td>@item.Count</td>
+                                    <td>@(item.OrderStatus == OrderStatus.Pending?"pending":(item.OrderStatus == OrderStatus.Accepted?"accepted":"rejected"))</td>
+                                    <td class="bg-light">$@fullprice</td>
+                                    <td >
+                                        <form method="post" asp-action="remove">
+                                            <button type="submit" class="border-0" style="background-color:#FFFFFF">
+                                                <input name="id" value="@item.Id" hidden />
+                                                <i class="fas fa-times remove-btn"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+
+
+                                if (item.OrderStatus != OrderStatus.Rejected)
+                                {
+                                    subtotal += (item.Price * item.Count);
+                                }
+
+                                item.Id = Id;
+                            }
+
 
                         </tbody>
                     </table>
                 </div>
-                <div class="apply d-flex justify-content-between mt-5">
-                    <div class="coupon d-flex">
-                        <input class="form-control" type="text" placeholder="Coupon code"> <a href="#"
-                                                                                              class="apply-btn btn">Apply</a>
-                    </div>
-                    <a href="#" class="update-btn btn">Update Cart</a>
-                </div>
+                @*<div class="apply d-flex justify-content-between mt-5">
+                        <div class="coupon d-flex">
+                            <input class="form-control" type="text" placeholder="Coupon code"> <a href="#"
+                                                                                                  class="apply-btn btn">Apply</a>
+                        </div>
+                        <a href="#" class="update-btn btn">Update Cart</a>
+                    </div>*@
             </div>
             <div class="col-lg-4">
                 <div class="totals">
                     <div class="total-inner">
                         <h5>Cart totals</h5>
                         <ul class="list-unstyled">
+
                             <li class="d-flex justify-content-between">
-                                <p>Cart Subtotal:</p><span>$240.00</span>
+                                <p>Cart Subtotal:</p><span>$@subtotal</span>
                             </li>
                             <li class="d-flex justify-content-between">
-                                <p>Shipping Total:</p><span>$12.00</span>
+                                <p>Shipping Total:</p>
+                                @if (subtotal != 0)
+                                {
+                                    <span>
+                                        $@(shipping = setting.ShippingCost)
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span>
+                                        $0
+                                    </span>
+                                }
+
                             </li>
                             <li class="d-flex justify-content-between">
-                                <p>Total:</p><span>$252.00</span>
+                                <p>Total:</p>
+                                @if (subtotal != 0)
+                                {
+                                    <span>$@(finaltotal=subtotal+shipping)</span>
+                                }
+                                else
+                                {
+                                    <span>$0</span>
+                                }
+
                             </li>
                         </ul>
                         <div class="proceed">
-                            <a href="" class="proceed-btn">Proceed to Checkout</a>
+                            <a asp-controller="checkout" asp-action="index" asp-route-id="@Id" class="proceed-btn">Proceed to Checkout</a>
                         </div>
                     </div>
 

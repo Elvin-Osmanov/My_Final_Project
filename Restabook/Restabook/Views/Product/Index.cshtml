@@ -1,7 +1,9 @@
 ﻿@model ProductDetailViewModel
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
 @{
     ViewData["Title"] = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
 }
 
 <main>
@@ -78,10 +80,17 @@
                             </div>
                             <p>@Html.Raw(Model.Product.Desc)</p>
                         </div>
-                        <div class="quantity-cart d-lg-flex d-md-flex d-block justify-content-between align-items-baseline">
+                        <div style="padding-top:10px;" class="quantity-cart d-lg-flex d-md-flex d-block justify-content-between align-items-baseline">
                             <div class="quantity d-flex  align-items-baseline">
-                                <input type="number" class="form-control col-md-2 col-2">
-                                <a href="#">Add to cart<i class="icon fal fa-long-arrow-right"></i></a>
+                                <form method="post" asp-action="create" asp-controller="order">
+                                    <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+                                    <input type="text" name="count" value="1" class="form-control col-md-2 col-2">
+
+                                    @if (user != null)
+                                    {
+                                        <button type="submit">Add to cart<i class="icon fal fa-long-arrow-right"></i></button>
+                                    }
+                                </form>
                             </div>
                             <div class="eye-bag d-inline ">
                                 <i class="far fa-eye">  <span>@Model.Product.HasSeen</span></i>
@@ -212,7 +221,7 @@
                             .
                         </div>
                         <div class="back-to-shop-link d-flex justify-content-center align-items-center">
-                            <a  class="to-shop">Back to Shop<i class="icon fal fa-long-arrow-right"></i></a>
+                            <a class="to-shop">Back to Shop<i class="icon fal fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -26,8 +26,15 @@ using Restabook.Data.Entities;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\Areas\Manage\Views\_ViewImports.cshtml"
+using Restabook.Data.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c47f8318b72b05276dc3958f7c503992ceed91fa", @"/Areas/Manage/Views/Event/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bb253c16ddefc0a3ee2e868021bcb9263687b5b6", @"/Areas/Manage/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2fe8eff951cc74225ede8d790da0f6eff90491cb", @"/Areas/Manage/Views/_ViewImports.cshtml")]
     public class Areas_Manage_Views_Event_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<EventViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,7 +87,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"container-fluid\">\r\n    <div class=\"d-flex justify-content-end\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa7643", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa7848", async() => {
                 WriteLiteral("Create <i class=\"ml-2 fas fa-plus\"></i>");
             }
             );
@@ -150,7 +157,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("</td>\r\n              \r\n\r\n                    <td class=\"col-md-3\">\r\n                       \r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa11083", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa11288", async() => {
                 WriteLiteral("Info");
             }
             );
@@ -182,7 +189,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa13363", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa13568", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -214,7 +221,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa15641", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa15846", async() => {
                 WriteLiteral("Delete");
             }
             );
@@ -265,7 +272,7 @@ using Restabook.Data.Entities;
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa18684", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa18889", async() => {
                 WriteLiteral(" <i class=\"fas fa-angle-double-left\"></i>");
             }
             );
@@ -288,7 +295,7 @@ using Restabook.Data.Entities;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"page-item \">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa20566", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa20771", async() => {
                 WriteLiteral("<i class=\"fas fa-angle-left\"></i>");
             }
             );
@@ -348,7 +355,7 @@ WriteAttributeValue(" ", 2539, i==selectedPage?"active":"", 2540, 30, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa23993", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa24198", async() => {
 #nullable restore
 #line 61 "C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\Areas\Manage\Views\Event\Index.cshtml"
                                                                                                                             Write(i);
@@ -402,7 +409,7 @@ WriteAttributeValue(" ", 2539, i==selectedPage?"active":"", 2540, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("                <li class=\"page-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa27113", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa27318", async() => {
                 WriteLiteral("\r\n                        <i class=\"fas fa-angle-right\"></i>\r\n                    ");
             }
             );
@@ -435,7 +442,7 @@ WriteAttributeValue(" ", 2539, i==selectedPage?"active":"", 2540, 30, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"page-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa29657", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c47f8318b72b05276dc3958f7c503992ceed91fa29862", async() => {
                 WriteLiteral("\r\n                        <i class=\"fas fa-angle-double-right\"></i>\r\n                    ");
             }
             );

@@ -1,28 +1,28 @@
 $(document).ready(function () {
   // modal start
 
-  $(".bookinglink").click(function (e) {
-    e.preventDefault();
+  //$(".bookinglink").click(function (e) {
+  //  e.preventDefault();
 
-    $("#modal").fadeIn();
-  });
+  //  $("#modal").fadeIn();
+  //});
 
-  $(".close-icon").click(function (e) {
-    e.preventDefault();
-    $("#modal").fadeOut();
-  });
+  //$(".close-icon").click(function (e) {
+  //  e.preventDefault();
+  //  $("#modal").fadeOut();
+  //});
 
-  $("html , body").keydown(function (x) {
-    if (x.which == 27) {
-      $("#modal").fadeOut();
-    }
-  });
+  //$("html , body").keydown(function (x) {
+  //  if (x.which == 27) {
+  //    $("#modal").fadeOut();
+  //  }
+  //});
 
-  window.addEventListener("click", function (e) {
-    if ($(e.target).hasClass("modal")) {
-      $("#modal").fadeOut();
-    }
-  });
+  //window.addEventListener("click", function (e) {
+  //  if ($(e.target).hasClass("modal")) {
+  //    $("#modal").fadeOut();
+  //  }
+  //});
 
   // modal ends
 
@@ -123,11 +123,11 @@ $(document).ready(function () {
   // about slider ends
 
   // table remove starts
-$(".remove-btn").click(function () {
+//$(".remove-btn").click(function () {
 
-  $(this).parent().parent().remove();
+//  $(this).parent().parent().remove();
   
-})
+//})
   //table remove ends
 
   // slider single item start
@@ -684,7 +684,7 @@ $(".remove-btn").click(function () {
 
   // modal validation starts
   $("#modal .reserve-btn").click(function (e) {
-    e.preventDefault();
+    //e.preventDefault();
 
     var name = $("#modal #modal-name");
     var email = $("#modal #modal-email");
@@ -770,7 +770,7 @@ $(".remove-btn").click(function () {
 
   //footer subscribe validation starts
   $(".sub button.btn-submit").click(function (e) {
-    e.preventDefault();
+    //e.preventDefault();
     e.stopImmediatePropagation();
     var email = $("footer #footer-middle input[type='email']");
 
@@ -936,6 +936,21 @@ $(".remove-btn").click(function () {
   });
 
   
+    $('#searching').keyup(function () {
+        let search = $(this).val();
+        console.log(search)
+        $('#searching li').remove();
+        if (search.trim().length > 0) {
+            $.ajax({
+                url: "/Product/Search?search=" + search,
+                type: "Get",
+                success: function (response) {
+                    console.log(response)
+                    $("#searcheditems").append(response)
+                }
 
+            })
+        }
+    });
   
 });

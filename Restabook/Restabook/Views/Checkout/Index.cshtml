@@ -1,7 +1,14 @@
-﻿
+﻿@model Order
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
+@inject Restabook.Services.LayoutViewModelService service
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Setting setting = service.GetSettings();
+
+    double subtotal = 0;
+    
+    double shipping = 0;
 }
 
 <!-- section intro starts -->
@@ -112,9 +119,9 @@
                     <div class="total-inner">
                         <h5>Cart totals</h5>
                         <ul class="list-unstyled">
-                            <li class="d-flex justify-content-between"><p>Cart Subtotal:</p><span>$240.00</span></li>
-                            <li class="d-flex justify-content-between"><p>Shipping Total:</p><span>$12.00</span></li>
-                            <li class="d-flex justify-content-between"><p>Total:</p><span>$252.00</span></li>
+                            <li class="d-flex justify-content-between"><p>Cart Subtotal:</p><span>$@(subtotal=Model.Price*Model.Count)</span></li>
+                            <li class="d-flex justify-content-between"><p>Shipping Total:</p><span>$@(shipping=subtotal+setting.ShippingCost)</span></li>
+                            <li class="d-flex justify-content-between"><p>Total:</p><span>$@(subtotal+shipping)</span></li>
                         </ul>
                         <div class="proceed">
                             <a href="#" class="proceed-btn">Proceed to Checkout</a>

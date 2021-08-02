@@ -1,0 +1,32 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">User: @Model.AppUser.FullName</h5>
+            
+            <p class="card-text">ReservationTime: @Model.ReservationTime.ToString("HH:mm")</p>
+
+            <p class="card-text">ReservationDate: @Model.ReservationDate.ToString("dd.MM.yyyy")</p>
+            
+
+
+            <div class="d-flex justify-content-between">
+                <form asp-action="accept" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button class="btn btn-success" type="submit">Accept</button>
+                </form>
+                <form asp-action="reject" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <button class="btn btn-danger" type="submit">Reject</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+

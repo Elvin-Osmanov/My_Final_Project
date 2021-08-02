@@ -2,6 +2,7 @@
 @model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
+  
     Setting setting = service.GetSettings();
     var counter = 1;
     var counterTestimonial = 1;
@@ -507,7 +508,7 @@
                     <a asp-controller="menu" asp-action="index" class="menubtn btn">View Full Menu<i class="icon fal fa-long-arrow-right"></i></a>
                 </div>
                 <div class="pdf">
-                    <a href="#" class="pdfbtn">Download PDF</a>
+                    <a href="~/pdf/@setting.BookPdfUrl" class="pdfbtn">Download PDF</a>
                 </div>
             </div>
         </div>

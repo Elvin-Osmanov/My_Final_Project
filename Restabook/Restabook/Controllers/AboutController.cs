@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Restabook.Data;
+using Restabook.Data.Entities;
 using Restabook.ViewModels;
 
 namespace Restabook.Controllers
@@ -27,6 +28,27 @@ namespace Restabook.Controllers
             };
 
             return View(aboutVM);
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
+        {
+
+
+            Subscriber sub = new Subscriber
+            {
+                CreatedDate = DateTime.UtcNow,
+                ModifiedDate = DateTime.UtcNow,
+                Email = subscriber.Email
+
+            };
+
+            _context.Subscribers.Add(sub);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
         }
     }
 }

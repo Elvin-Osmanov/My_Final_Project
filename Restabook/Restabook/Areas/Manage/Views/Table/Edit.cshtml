@@ -1,0 +1,46 @@
+﻿@model Table
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Time> times = ViewBag.Times;
+}
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="@Model.Date"></label>
+                <input type="date" class="form-control" asp-for="@Model.Date">
+                <span asp-validation-for="@Model.Date" class="text-danger"></span>
+            </div>
+           
+        </div>
+       
+
+            <div class="form-group col-md-6">
+                <label for="TimeIds">Time</label>
+                <select name="TimeIds" multiple class="form-control">
+                    @foreach (var time in times)
+                    {
+                        if (Model.TimeTables.Any(x => x.TimeId == time.Id))
+                        {
+                    <option selected value="@time.Id">@time.StartTime.ToString("HH:mm")</option>
+                        }
+                        else
+                        {
+                    <option value="@time.Id">@time.StartTime.ToString("HH:mm")</option>
+                        }
+                    }
+                </select>
+            </div>
+       
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>}
+

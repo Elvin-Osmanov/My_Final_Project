@@ -21,6 +21,8 @@ namespace Restabook.Controllers
 
         public async Task<IActionResult> Index(int id)
         {
+           
+
             Product product = await _context.Products
                    .Include(x => x.ProductPhotos)
                    .Include(x => x.Category)
@@ -30,6 +32,8 @@ namespace Restabook.Controllers
 
             if (product == null)
                 return NotFound();
+
+            
 
             ProductDetailViewModel productVM = new ProductDetailViewModel
             {
@@ -42,6 +46,9 @@ namespace Restabook.Controllers
 
                 PopularProducts = await _context.Products.Include(x => x.ProductPhotos).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).Take(3).ToListAsync(),
             };
+
+            product.HasSeen++;
+            await _context.SaveChangesAsync();
 
             return View(productVM);
         }
@@ -75,6 +82,28 @@ namespace Restabook.Controllers
             await _context.SaveChangesAsync();
 
             return Ok();
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
+        {
+
+
+            Subscriber sub = new Subscriber
+            {
+                CreatedDate = DateTime.UtcNow,
+                ModifiedDate = DateTime.UtcNow,
+                Email = subscriber.Email
+
+            };
+
+            _context.Subscribers.Add(sub);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
         }
     }
 }

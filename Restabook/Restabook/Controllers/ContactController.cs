@@ -20,12 +20,12 @@ namespace Restabook.Controllers
         }
         public IActionResult Index()
         {
-            ContactViewModel contactVM = new ContactViewModel
-            {
-                Contact = _context.Contacts.FirstOrDefault(),
-                Setting= _context.Settings.FirstOrDefault()
-            };
-            return View(contactVM);
+
+
+            Contact contact = _context.Contacts.FirstOrDefault();
+               
+           
+            return View(contact);
         }
 
         [HttpPost]
@@ -51,6 +51,27 @@ namespace Restabook.Controllers
             };
 
             contact.ContactMessages.Add(contactMessage);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
+        {
+
+
+            Subscriber sub = new Subscriber
+            {
+                CreatedDate = DateTime.UtcNow,
+                ModifiedDate = DateTime.UtcNow,
+                Email = subscriber.Email
+
+            };
+
+            _context.Subscribers.Add(sub);
 
             await _context.SaveChangesAsync();
 

@@ -1,0 +1,26 @@
+﻿@model List<Subscriber>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container-fluid">
+    <h2>Subscribers</h2>
+    <div class="row" style="margin-left:3px">
+        <ul class="list-unstyled">
+            @foreach (var sub in Model)
+            {
+
+                <li class="text-info mb-3">
+                    @sub.Email
+                </li>
+
+
+            }
+        </ul>
+    </div>
+</div>
+

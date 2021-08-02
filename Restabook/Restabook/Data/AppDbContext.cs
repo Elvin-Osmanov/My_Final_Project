@@ -43,9 +43,23 @@ namespace Restabook.Data
 
         public DbSet<ProductReview> ProductReviews { get; set; }
 
-         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<ContactMessage> ContactMessages { get; set; }
+
+        public DbSet<Table> Tables { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
+
+        public DbSet<Time> Times { get; set; }
+
+        public DbSet<TimeTable> TimeTables { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        
+
+        
 
     }
 }

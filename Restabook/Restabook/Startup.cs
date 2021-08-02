@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -34,17 +36,40 @@ namespace Restabook
             }).AddIdentity<AppUser, IdentityRole>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+                options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 8;
-                options.Password.RequireDigit = false;
-                options.Password.RequireLowercase = false;
-                
-                
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+
 
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
 
             services.AddTransient<LayoutViewModelService>();
             services.AddControllersWithViews();
+            services.AddHttpContextAccessor();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Member_Auth";
+                options.DefaultSignInScheme = "Member_Auth";
+            })
+            .AddCookie("Member_Auth", options =>
+            {
+                options.LoginPath = "/account/login";
+                options.AccessDeniedPath = "/account/login";
+            })
+           .AddCookie("Admin_Auth", options =>
+           {
+               options.LoginPath = "/manage/account/login";
+               options.AccessDeniedPath = "/manage/account/login";
+           });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+                
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,10 +87,52 @@ namespace Restabook
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.Use(async (context, next) =>
+            {
+                var area = context.Request.RouteValues["area"];
+                string scheme = null;
+
+                if (area == null)
+                {
+                    foreach (var item in context.Request.Cookies)
+                    {
+                        if (item.Key.Contains("Member_Auth"))
+                        {
+                            scheme = "Member_Auth";
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item in context.Request.Cookies)
+                    {
+                        if (item.Key.Contains("Admin_Auth"))
+                        {
+                            scheme = "Admin_Auth";
+                            break;
+                        }
+                    }
+                }
+
+                if (scheme != null)
+                {
+                    var result = await context.AuthenticateAsync(scheme);
+                    if (result.Succeeded)
+                    {
+                        context.User = result.Principal;
+                    }
+                }
+
+                await next();
+
+              
+            });
 
             app.UseEndpoints(endpoints =>
             {

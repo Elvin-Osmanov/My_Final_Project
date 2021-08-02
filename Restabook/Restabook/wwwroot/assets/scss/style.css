@@ -18,36 +18,36 @@ header {
   max-width: 1245px !important;
 }
 
-.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, .navbar .account-box .login .sign a, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #touch .contact-inputs button.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn, #single-item .product .quantity-cart a, #single-item .product .add-review button.add-review-btn, #single-item .product .back-to-shop-link a {
-  padding: 13px 28px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid #C19D60;
-  color: #fff;
-  margin-top: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 13px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  border-radius: 0;
-  outline: 0;
+.navbar .cart-box .lower .checkout a, .navbar .account-box .login .sign button, .navbar .account-box .login .sign a, #modal .reservation .reservation-inner a.reserve-btn, #intro .welcome-content a.menu-btn, #story .story-content a.explore-btn, #service .link a, #specialities .menu-link a.menubtn, #chefs .recipe-box a, #store .events a.bookbtn, #store .buy a.onlineBtn, #error .homepage .homepage-btn, #sign-in .homepage .homepage-btn, #sign-in a.sign-up-btn, #touch .contact-inputs button.contact-btn, #menus .download-btn a, #register .registration-form a, #checkout .pay .pay-btn, #single-item .product .quantity-cart a, #single-item .product .add-review button.add-review-btn, #single-item .product .back-to-shop-link a {
+    padding: 13px 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #C19D60;
+    color: #fff;
+    margin-top: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 0;
+    outline: 0;
 }
 
-.navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, .navbar .account-box .login .sign a .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #touch .contact-inputs a.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon, #single-item .product .quantity-cart a .icon, #single-item .product .add-review button.add-review-btn .icon, #single-item .product .back-to-shop-link a .icon {
-  margin-left: 15px;
-}
+    .navbar .cart-box .lower .checkout a .icon, .navbar .account-box .login .sign button .icon, .navbar .account-box .login .sign a .icon, #modal .reservation .reservation-inner a.reserve-btn .icon, #intro .welcome-content a.menu-btn .icon, #story .story-content a.explore-btn .icon, #service .link a .icon, #specialities .menu-link a.menubtn .icon, #chefs .recipe-box a .icon, #store .events a.bookbtn .icon, #store .buy a.onlineBtn .icon, #error .homepage .homepage-btn .icon, #sign-in .homepage .homepage-btn, #sign-in button.sign-up-btn, #touch .contact-inputs button.contact-btn .icon, #menus .download-btn a .icon, #register .registration-form a .icon, #checkout .pay .pay-btn .icon, #single-item .product .quantity-cart a .icon, #single-item .product .add-review button.add-review-btn .icon, #single-item .product .back-to-shop-link a .icon {
+        margin-left: 15px;
+    }
 
-.navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, .navbar .account-box .login .sign a:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #touch .contact-inputs a.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover, #single-item .product .quantity-cart a:hover, #single-item .product .add-review button.add-review-btn:hover, #single-item .product .back-to-shop-link a:hover {
-  background: #fff;
-  color: #666;
-  border-color: transparent;
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-  -webkit-transition: all .5s;
-  transition: all .5s;
-}
+    .navbar .cart-box .lower .checkout a:hover, .navbar .account-box .login .sign button:hover, .navbar .account-box .login .sign a:hover, #modal .reservation .reservation-inner a.reserve-btn:hover, #intro .welcome-content a.menu-btn:hover, #story .story-content a.explore-btn:hover, #service .link a:hover, #specialities .menu-link a.menubtn:hover, #chefs .recipe-box a:hover, #store .events a.bookbtn:hover, #store .buy a.onlineBtn:hover, #error .homepage .homepage-btn:hover, #sign-in .homepage .homepage-btn,  #sign-in button.sign-up-btn, #touch .contact-inputs button.contact-btn:hover, #menus .download-btn a:hover, #register .registration-form a:hover, #checkout .pay .pay-btn:hover, #single-item .product .quantity-cart a:hover, #single-item .product .add-review button.add-review-btn:hover, #single-item .product .back-to-shop-link a:hover {
+        background: #fff;
+        color: #666;
+        border-color: transparent;
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+        -webkit-transition: all .5s;
+        transition: all .5s;
+    }
 
-.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, .navbar .account-box .login .sign a:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs a.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon, #single-item .product .quantity-cart a:hover:hover .icon, #single-item .product .add-review button.add-review-btn:hover:hover .icon, #single-item .product .back-to-shop-link a:hover:hover .icon {
+.navbar .cart-box .lower .checkout a:hover:hover .icon, .navbar .account-box .login .sign button:hover:hover .icon, .navbar .account-box .login .sign a:hover:hover .icon, #modal .reservation .reservation-inner a.reserve-btn:hover:hover .icon, #intro .welcome-content a.menu-btn:hover:hover .icon, #story .story-content a.explore-btn:hover:hover .icon, #service .link a:hover:hover .icon, #specialities .menu-link a.menubtn:hover:hover .icon, #chefs .recipe-box a:hover:hover .icon, #store .events a.bookbtn:hover:hover .icon, #store .buy a.onlineBtn:hover:hover .icon, #error .homepage .homepage-btn:hover:hover .icon, #touch .contact-inputs button.contact-btn:hover:hover .icon, #menus .download-btn a:hover:hover .icon, #register .registration-form a:hover:hover .icon, #checkout .pay .pay-btn:hover:hover .icon, #single-item .product .quantity-cart a:hover:hover .icon, #single-item .product .add-review button.add-review-btn:hover:hover .icon, #single-item .product .back-to-shop-link a:hover:hover .icon {
   -webkit-transform: rotateX(360deg);
           transform: rotateX(360deg);
   -webkit-transition: all .9s;
@@ -5326,6 +5326,214 @@ header {
   bottom: -15px;
 }
 
+#sign-in {
+    height: 100vh;
+    padding: 25px 0;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+}
+
+    #sign-in::before {
+        content: "";
+        background-color: rgba(0, 0, 0, 0.308);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #sign-in .content h1 {
+        font-size: 100px;
+        font-weight: bold;
+    }
+
+    #sign-in .content p {
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    #sign-in .dots {
+        color: #C19D60;
+    }
+
+    #sign-in .homepage {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+        #sign-in .homepage .homepage-btn {
+            background-color: #232323;
+            color: white;
+            border: 0;
+        }
+
+            #sign-in .homepage .homepage-btn:hover {
+                background-color: #C19D60;
+                color: white;
+                border: 0;
+            }
+
+            #sign-in .homepage .homepage-btn:focus {
+                -webkit-box-shadow: none;
+                box-shadow: none;
+            }
+
+    #sign-in input {
+
+        border: 1px solid #e1e1e1;
+        background: #F9F9F9;
+        font-size: 12px;
+        color: #666666;
+        font-family: "Poppins", sans-serif;
+        outline: none;
+        border-radius: 0;
+        font-weight: 500;
+    }
+
+        #sign-in input::-webkit-input-placeholder {
+            font-size: 13px;
+        }
+
+        #sign-in input:-ms-input-placeholder {
+            font-size: 13px;
+        }
+
+        #sign-in input::-ms-input-placeholder {
+            font-size: 13px;
+        }
+
+        #sign-in input::placeholder {
+            font-size: 13px;
+        }
+
+        #sign-in input:focus {
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+    #sign-in a.sign-up-btn {
+        background-color: #232323;
+        border-color: #232323;
+        margin-top: 0;
+    }
+
+        #sign-in a.sign-up-btn:hover {
+            background-color: #C19D60;
+            border-color: #C19D60;
+            color: white;
+        }
+
+        #sign-in a.sign-up-btn:focus {
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+button.sign-in-btn {
+    padding: 13px 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #C19D60;
+    color: #fff;
+    margin-top: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 0;
+    outline: 0;
+    background-color: #232323;
+    border-color: #232323;
+    margin-top: 0;
+}
+
+ button.sign-in-btn:hover {
+    background-color: #C19D60;
+    border-color: #C19D60;
+    color: white;
+}
+
+ button.sign-in-btn:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.registration-button button {
+    padding: 13px 28px;
+    background: black;
+    border: 1px solid black;
+    color: #fff;
+    margin-top: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 0;
+    outline: 0;
+}
+
+    .registration-button button:hover {
+        background-color: #C19D60;
+        border-color: #C19D60;
+        color: white;
+    }
+
+    .registration-button button:focus {
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+.slidecontainer {
+    width: 100%;
+}
+
+.sliderrange {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+    .sliderrange:hover {
+        opacity: 1;
+    }
+
+    .sliderrange::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 15px;
+        background: #C19D60;
+        cursor: pointer;
+    }
+
+    .sliderrange::-moz-range-thumb {
+        width: 5px;
+        height: 15px;
+        background: #C19D60;
+        cursor: pointer;
+    }
 @media only screen and (max-width: 770px) {
   #single-item .search {
     margin-top: 15px;

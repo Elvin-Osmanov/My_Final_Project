@@ -1,0 +1,41 @@
+﻿@model Table
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+    List<Time> times = ViewBag.Times;
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card pl-3">
+
+            <div class="card-body">
+                <h5 class="card-title">Title: @Model.Date.ToString("dd mm yyyy")</h5>
+
+                Tags:
+
+                @foreach (var item in times)
+                {
+                    if (times[times.Count - 1] != item)
+                    {
+                        <p class="d-inline">@item.StartTime.ToString("HH:mm")</p>
+                    }
+                    else
+                    {
+                        <p class="d-inline">@item.StartTime.ToString("HH:mm")</p>
+                    }
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <form method="post" asp-action="delete" class="mt-2">
+        <input name="id" value="@Model.Id" hidden />
+        <button type="submit" class="btn btn-outline-danger"> Delete</button>
+    </form>
+</div>
+
+

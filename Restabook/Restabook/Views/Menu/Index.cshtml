@@ -1,10 +1,12 @@
-﻿@model MenuViewModel
+﻿@inject Restabook.Services.LayoutViewModelService service
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
+@model MenuViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var counter = 1;
-
-     
+    AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
+    Setting setting = service.GetSettings();
 }
 
 <!-- section discover starts -->
@@ -37,28 +39,28 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-8 offset-lg-2">
-                <div class="menu-tabs"> 
+                <div class="menu-tabs">
 
-                        @foreach (var menu in Model.Menus)
-                        {
-                            
-                            
-                            
+                    @foreach (var menu in Model.Menus)
+                    {
 
-                            <a href="#@menu.Name.ToLower().Substring(0,3)" style="text-decoration:none" class="@(menu.Order==1?"tab-link active":"tab-link ")" >
-                                <div class="top">
-                                    <span>0@(counter).</span>
-                                    <span class="inner-link">@menu.Name</span>
-                                </div>
-                                <div class="bottom">
-                                    <i class="fas fa-caret-up"></i>
-                                </div>
-                            </a>
-                            counter++;
-                        }
-                    
 
-                    
+
+
+                        <a href="#@menu.Name.ToLower().Substring(0,3)" style="text-decoration:none" class="@(menu.Order==1?"tab-link active":"tab-link ")">
+                            <div class="top">
+                                <span>0@(counter).</span>
+                                <span class="inner-link">@menu.Name</span>
+                            </div>
+                            <div class="bottom">
+                                <i class="fas fa-caret-up"></i>
+                            </div>
+                        </a>
+                        counter++;
+                    }
+
+
+
 
                 </div>
             </div>
@@ -68,51 +70,55 @@
                 <div class="menu-boxes">
                     @foreach (var item in Model.Menus)
                     {
-                                
-                                <div id="@item.Name.Substring(0,3).ToLower()" class="@(item.Order==1?"menu-content show":"menu-content")">
+
+                        <div id="@item.Name.Substring(0,3).ToLower()" class="@(item.Order==1?"menu-content show":"menu-content")">
 
 
-                                    <div class="row">
+                            <div class="row">
 
-                                        @foreach (var product in Model.Products)
-                                        {
-                                           
+                                @foreach (var product in Model.Products)
+                                {
 
-                                            if (product.Category.Name == item.Name)
-                                            {
-                                                <div class="col-lg-6 col-md-12 col-12">
 
-                                                    <div class="context d-flex justify-content-between">
-                                                        <div class="left d-flex">
+                                    if (product.Category.Name == item.Name)
+                                    {
+                                        <div class="col-lg-6 col-md-12 col-12">
 
-                                                            <a class="zoom" href="">
-                                                                <div class="overlay">
-                                                                    <i class="fas fa-search"></i>
-                                                                </div>
-                                                                <img src="~/uploads/products/poster/@product.PosterPhoto">
-                                                            </a>
-                                                            <div class="menu-details">
-                                                                <h6>@product.Name</h6>
-                                                                <p>@product.SmallDesc</p>
-                                                            </div>
+                                            <div class="context d-flex justify-content-between">
+                                                <div class="left d-flex">
+
+                                                    <a class="zoom" href="">
+                                                        <div class="overlay">
+                                                            <i class="fas fa-search"></i>
                                                         </div>
-
-                                                        <div class="price">
-                                                            <span class="d-block">$@product.DiscountedPrice</span>
-                                                            <a href="" class="add-btn">Add To Cart</a>
-                                                        </div>
+                                                        <img src="~/uploads/products/poster/@product.PosterPhoto">
+                                                    </a>
+                                                    <div class="menu-details">
+                                                        <h6>@product.Name</h6>
+                                                        <p>@product.SmallDesc</p>
                                                     </div>
                                                 </div>
-                                            }
+
+                                                <div class="price">
+                                                    <span class="d-block">$@product.DiscountedPrice</span>
+                                                    @if (user != null)
+                                                    {
+                                                        <a asp-action="addbasket" asp-controller="cart" asp-route-id="@item.Id" class="add-btn">Add To Cart</a>
+                                                    }
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
 
 
 
-                                        }
-                                    </div>
-                                </div>
+                                }
+                            </div>
+                        </div>
                     }
 
-                  
+
                 </div>
             </div>
         </div>
@@ -126,7 +132,7 @@
         <div class="row my-5">
             <div class="col-lg-4 offset-lg-4 text-center">
                 <div class="download-btn">
-                    <a href="#">Download menu in PDF <i class="icon fal fa-long-arrow-right"></i></a>
+                    <a href="~/pdf/@setting.BookPdfUrl">Download menu in PDF <i class="icon fal fa-long-arrow-right"></i></a>
                 </div>
             </div>
         </div>

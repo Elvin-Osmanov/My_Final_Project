@@ -1,0 +1,7 @@
+﻿
+@foreach (Product product in Model)
+{
+    <li style="display:flex">
+        <a href="/Product/Index/@product.Id">@product.Name</a>
+    </li>
+}

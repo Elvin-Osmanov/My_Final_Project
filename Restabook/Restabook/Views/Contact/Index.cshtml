@@ -1,7 +1,9 @@
-﻿@model ContactViewModel
+﻿@model Contact
+@inject Restabook.Services.LayoutViewModelService service
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    Setting setting = service.GetSettings();
 }
 
 <!-- section contact-intro starts -->
@@ -14,9 +16,9 @@
                     <div class="contact-inner">
                         <p class="text-center">Contact Details</p>
                         <ul class="list-unstyled">
-                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@Model.Contact.Address</a></li>
-                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@Model.Contact.Phone</a></li>
-                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@Model.Contact.SupportEmail</a></li>
+                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@setting.Address</a></li>
+                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@setting.ServicePhone</a></li>
+                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@setting.SupportEmail</a></li>
                         </ul>
                         <div class="dots">
                             <ul class="list-unstyled justify-content-center">
@@ -42,9 +44,9 @@
                     <div class="contact-inner">
                         <p class="text-left">Contact Details</p>
                         <ul class="list-unstyled">
-                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@Model.Contact.Address</a></li>
-                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@Model.Contact.Phone</a></li>
-                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@Model.Contact.SupportEmail</a></li>
+                            <li class="d-flex"><i class="fal fa-map-marked-alt"></i><p>Address:</p><a href="#">@setting.Address</a></li>
+                            <li class="d-flex"><i class="fal fa-phone-rotary"></i></i><p>Phone:</p><a href="#">@setting.ServicePhone</a></li>
+                            <li class="d-flex"><i class="fal fa-mailbox"></i></i><p>Mail:</p><a href="#">@setting.SupportEmail</a></li>
                         </ul>
                         <div class="dots">
                             <ul class="list-unstyled justify-content-center">
@@ -73,15 +75,17 @@
                         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
                     </div>
                     <form asp-action="message" method="post">
-                        <input type="hidden" name="contactId" value="@Model.Contact.Id" />
+                        <input type="hidden" name="contactId" value="@Model.Id" />
                         <div class="form-row">
                             <div class="form-group col-md-5 ">
 
                                 <input type="text" class="form-control contact-name" id="FullName" name="FullName" placeholder="Your Name" required>
+
                             </div>
                             <div class="form-group col-md-5 ">
 
                                 <input type="email" class="form-control contact-email" name="Email" id="Email" placeholder="Email Address*" required>
+
                             </div>
                             <div class="form-group col-md-5 ">
 
@@ -131,14 +135,14 @@
 
                     <div class="opening-info d-flex">
                         <div class="col-lg-6 p-0 d-flex flex-column align-items-center ">
-                            <h6>@Model.Setting.StartDay1 to @Model.Setting.OverDay1</h6>
-                            <span class="text-white">@Model.Setting.StartTime1</span>
-                            <span class="text-white">@Model.Setting.OverTime1</span>
+                            <h6>@setting.StartDay1 to @setting.OverDay1</h6>
+                            <span class="text-white">@setting.StartTime1</span>
+                            <span class="text-white">@setting.OverTime1</span>
                         </div>
                         <div class="col-lg-6 p-0 d-flex flex-column align-items-center">
-                            <h6>@Model.Setting.StartDay2 to @Model.Setting.OverDay2</h6>
-                            <span class="text-white">@Model.Setting.StartTime2</span>
-                            <span class="text-white">@Model.Setting.OverTime2</span>
+                            <h6>@setting.StartDay2 to @setting.OverDay2</h6>
+                            <span class="text-white">@setting.StartTime2</span>
+                            <span class="text-white">@setting.OverTime2</span>
                         </div>
 
                     </div>
@@ -147,7 +151,7 @@
                     </div>
 
                     <div class="call-number text-center">
-                        <a href="#">@Model.Setting.ServicePhone</a>
+                        <a href="#">@setting.ServicePhone</a>
                     </div>
                 </div>
             </div>

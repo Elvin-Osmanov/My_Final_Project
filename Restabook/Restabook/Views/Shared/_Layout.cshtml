@@ -1,10 +1,12 @@
-﻿@*@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager*@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
 @inject Restabook.Services.LayoutViewModelService service
 
-@{
-    //AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
-    Setting setting = service.GetSettings();
 
+@{
+    AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
+    Setting setting = service.GetSettings();
+    var basketItems = service.GetBasket();
+    Subscriber subscriber = service.Subscriber;
 
 
 }
@@ -55,7 +57,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
 
-                <a class="navbar-brand" href="index.html"><img src="~/uploads/setting/@setting.HeaderLogo" alt="" class="img-fluid"></a>
+                <a class="navbar-brand" asp-action="index" asp-controller="home"><img src="~/uploads/setting/@setting.HeaderLogo" alt="" class="img-fluid"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -77,163 +79,105 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="shop" asp-action="index">Shop</a>
                         </li>
-                        <li class="nav-item dropdown cart">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fal fa-shopping-bag bag"></i>
-                                <div class="in-cart">3</div>
-                            </a>
-                            <div class="dropdown-menu cart-box" aria-labelledby="navbarDropdownMenuLink">
-                                <div class="cart">
-                                    <div class="upper d-flex justify-content-between">
-                                        <h6>Your Cart</h6>
-                                        <p><span>4</span> items</p>
-                                    </div>
-                                    <ol style="padding-inline-start: 15px;" class=" middle mt-3">
-                                        <li>
-                                            <div class="d-flex justify-content-between cart-order">
-                                                <div class="wrap d-flex justify-content-between">
-                                                    <div class="item-image">
-                                                        <img src="~/assets/images/cart/cart1.jpg" class="img-fluid">
-                                                    </div>
-                                                    <div class="item-details">
-
-                                                        <p class="m-0 p-0">Grilled Steaks</p>
-                                                        <div class="text-details">
-                                                            <span class="count">1</span>
-                                                            x
-                                                            <span class="price">$45</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between cart-order">
-                                                <div class="wrap d-flex justify-content-between">
-                                                    <div class="item-image">
-                                                        <img src="~/assets/images/cart/cart2.jpg" class="img-fluid">
-                                                    </div>
-                                                    <div class="item-details">
-
-                                                        <p class="m-0 p-0">Grilled Steaks</p>
-                                                        <div class="text-details">
-                                                            <span class="count">1</span>
-                                                            x
-                                                            <span class="price">$45</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between cart-order">
-                                                <div class="wrap d-flex justify-content-between">
-                                                    <div class="item-image">
-                                                        <img src="~/assets/images/cart/cart3.jpg" class="img-fluid">
-                                                    </div>
-                                                    <div class="item-details">
-
-                                                        <p class="m-0 p-0">Grilled Steaks</p>
-                                                        <div class="text-details">
-                                                            <span class="count">1</span>
-                                                            x
-                                                            <span class="price">$45</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="d-flex justify-content-between cart-order">
-                                                <div class="wrap d-flex justify-content-between">
-                                                    <div class="item-image">
-                                                        <img src="~/assets/images/cart/cart3.jpg" class="img-fluid">
-                                                    </div>
-                                                    <div class="item-details">
-
-                                                        <p class="m-0 p-0">Grilled Steaks</p>
-                                                        <div class="text-details">
-                                                            <span class="count">1</span>
-                                                            x
-                                                            <span class="price">$45</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="remove-icon">
-                                                    <i class="fas fa-times"></i>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                    <div class="lower pt-2">
-                                        <div class="subtotal d-flex justify-content-between align-items-center">
-                                            <p>Subtotal:</p>
-                                            <div class="subtotal-price">
-                                                $ <span>147</span>
-                                            </div>
+                        @if (user != null)
+                        {
+                            <li class="nav-item dropdown cart">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fal fa-shopping-bag bag"></i>
+                                    <div class="in-cart">@basketItems.BasketProductItems.Count()</div>
+                                </a>
+                                <div class="dropdown-menu cart-box" aria-labelledby="navbarDropdownMenuLink">
+                                    <div class="cart">
+                                        <div class="upper d-flex justify-content-between">
+                                            <h6>Your Cart</h6>
+                                            <p><span>@basketItems.BasketProductItems.Count()</span> items</p>
                                         </div>
-                                        <div class="checkout pt-2">
-                                            <a asp-controller="cart" asp-action="index">View Cart</a> <span>/</span> <a asp-controller="checkout" asp-action="index">Checkout</a>
+                                        <ol style="padding-inline-start: 15px;" class=" middle mt-3">
+
+                                            @foreach (var item in basketItems.BasketProductItems)
+                                            {
+                                                <li>
+                                                    <div class="d-flex justify-content-between cart-order">
+                                                        <div class="wrap d-flex justify-content-between">
+                                                            <div class="item-image">
+                                                                <img src="~/uploads/products/poster/@item.Poster" class="img-fluid">
+                                                            </div>
+                                                            <div class="item-details">
+
+                                                                <p class="m-0 p-0">@item.Name</p>
+                                                                <div class="text-details">
+                                                                    <span class="count">@item.Count</span>
+                                                                    x
+                                                                    <span class="price">$@item.Price</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="remove-icon">
+                                                           <a asp-controller="cart" asp-action="removebasket" asp-route-id="@item.Id" > <i style="font-size:15px;font-weight:300" class="fas fa-times"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            }
+
+                                            
+                                        </ol>
+                                        <div class="lower pt-2">
+                                            <div class="subtotal d-flex justify-content-between align-items-center">
+                                                <p>Subtotal:</p>
+                                                <div class="subtotal-price">
+                                                    $ <span>@basketItems.TotalPrice</span>
+                                                </div>
+                                            </div>
+                                            <div class="checkout pt-2">
+                                                <a asp-controller="cart" asp-action="index">View Cart</a> <span>/</span> <a asp-controller="checkout" asp-action="index">Checkout</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown account">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fal fa-user-alt"></i>
-                            </a>
-                            <div class="dropdown-menu account-box" aria-labelledby="navbarDropdownMenuLink">
-                                <div class="account">
-                                    <div class="login">
-                                        <form>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12">
-                                                    <input type="email" class="form-control" id="accountEmail" placeholder="Email">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12">
-                                                    <input type="password" class="form-control" id="accountPassword" placeholder="Password">
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-12 text-center">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                        <label class="form-check-label" for="gridCheck1">
-                                                            Remember me
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            </li>
+                            <li class="nav-item dropdown account">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fal fa-user-alt"></i>
+                                </a>
+                                <div class="dropdown-menu account-box" aria-labelledby="navbarDropdownMenuLink">
+                                    <div class="account">
+                                        <div class="login">
+                                           
                                             <div class="sign d-flex justify-content-between">
-                                                <button type="submit" class="btn btn-primary">Sign In</button>
-                                                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                                                <a asp-action="profile" asp-controller="account" class="btn btn-primary">Profile</a>
+                                                <a asp-action="logout" asp-controller="account" class="btn btn-primary">Log Out</a>
+                                                
                                             </div>
-                                        </form>
+                                            
+                                        </div>
                                     </div>
+
                                 </div>
+                            </li>
 
-                            </div>
-                        </li>
-                        <li class="nav-item booking-txt">
-                            <a class="nav-link bookinglink" href="#">
-                                <p>Reservation</p>
-                            </a>
+                            <li class="nav-item booking-txt">
+                                <a class="nav-link bookinglink" asp-controller="reservation" asp-action="index">
+                                    <p>Reservation</p>
+                                </a>
 
-                        </li>
+                            </li>
+
+                        }
+                        else
+                        {
+                    <li class="nav-item account">
+                        <a  asp-controller="account" asp-action="login" >
+                           
+                            <i class="fal fa-user-alt" style="font-size:33px;"></i>
+                        </a>
+                      
+                    </li>
+                        }
+
+
+
                     </ul>
                 </div>
 
@@ -241,89 +185,7 @@
             </nav>
         </div>
 
-        <section id="modal" class="modal">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="reservation">
-                            <div class="close-icon">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <div class="reservation-inner" style="        background-image: url(~/../assets/images/modal/reservation-bg.png);">
-                                <div class="title text-center">
-                                    <p>Don't forget to book a table</p>
-                                    <h1 class="text-dark">Table Reservations</h1>
-                                    <div class="dots">
-                                        <ul class="list-unstyled justify-content-center">
-                                            <li>.</li>
-                                            <li>.</li>
-                                            <li>.</li>
-                                            <li>.</li>
-                                            <li>.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="inputs">
-                                    <form id="modal-form">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-5 offset-md-1">
-
-                                                <input type="text" class="form-control" id="modal-name" placeholder="Your Name">
-                                            </div>
-                                            <div class="form-group col-md-5 ">
-
-                                                <input type="email" class="form-control" id="modal-email" placeholder="Email Address*">
-                                            </div>
-                                            <div class="form-group col-md-5 offset-md-1">
-
-                                                <input type="number" min="0" step="1" class="form-control" id="modal-phone" placeholder="Phone*">
-                                            </div>
-                                            <div class="form-group col-md-5 ">
-
-                                                <select id="person" class="form-control" required>
-                                                    <option selected disabled>Persons</option>
-                                                    <option>1 Person</option>
-                                                    <option>2 People</option>
-                                                    <option>3 People</option>
-                                                    <option>4 People</option>
-                                                    <option>5 People</option>
-                                                    <option>Banquet</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-5 offset-md-1">
-
-                                                <input type="date" class="form-control" id="modal-date" placeholder="Date" required>
-                                            </div>
-                                            <div class="form-group col-md-5 ">
-
-                                                <select id="time" class="form-control" required>
-                                                    <option disabled selected>Time</option>
-                                                    <option>10:00am</option>
-                                                    <option>10:00pm</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-md-10 offset-md-1">
-
-                                                <textarea class="form-control" id="modal-message" rows="3" placeholder="Your Message:"></textarea>
-                                            </div>
-                                            <div class="form-group col-md-12 text-center">
-
-                                                <span class="success">Reservation is sent</span>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                    <div class="reserve d-flex justify-content-center ">
-                                        <a href="#" class="text-center btn reserve-btn">Reserve Table<i class="icon fal fa-long-arrow-right"></i></a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
     </header>
 
     <main>
@@ -402,10 +264,10 @@
                                 Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a
                                 notification by email.
                             </p>
-                            <form>
+                            <form asp-action="subscribe"  method="post">
                                 <div class="form-row">
                                     <div class="col-8 col-md-9">
-                                        <input type="email" class="form-control" placeholder="Your Email">
+                                        <input type="email" asp-for="@subscriber.Email" name="Email" id="Email" class="form-control" placeholder="Your Email">
                                         <small class="subsuccess">subscription is pending...</small>
                                     </div>
                                     <div class="col-4 col-md-3">

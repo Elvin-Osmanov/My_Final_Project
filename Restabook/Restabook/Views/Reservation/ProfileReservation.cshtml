@@ -1,0 +1,50 @@
+﻿@model Reservation
+@{
+    ViewData["Title"] = "ProfileReservation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="register" style="        background-image: url(~/../../assets/images/services/section-bg.png);">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="registration-form">
+                    <h4 class="text-center">Reservations</h4>
+                    <div class="col-lg-6">
+            <h4 class="text-center">Reservations</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" class="bg-light">Date</th>
+                        <th scope="col" class="bg-light">Time</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row" class="p-1 text-center bg-light">
+                            @Model.ReservationDate.ToString("dd.MM.yyyy")
+                        </td>
+                        <td>@Model.ReservationTime.ToString("HH:mm")</td>
+                        <td class="text-center">
+                            <form method="post" asp-controller="reservation" asp-action="removereservation">
+                                <button type="submit" class="border-0" style="background-color:#FFFFFF">
+                                    <input name="id" value="@Model.Id" hidden />
+                                    <i class="fas fa-times remove-btn"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+

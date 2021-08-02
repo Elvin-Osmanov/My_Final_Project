@@ -1,28 +1,28 @@
 $(document).ready(function () {
   // modal start
 
-  $(".bookinglink").click(function (e) {
-    e.preventDefault();
+  // $(".bookinglink").click(function (e) {
+  //   e.preventDefault();
 
-    $("#modal").fadeIn();
-  });
+  //   $("#modal").fadeIn();
+  // });
 
-  $(".close-icon").click(function (e) {
-    e.preventDefault();
-    $("#modal").fadeOut();
-  });
+  // $(".close-icon").click(function (e) {
+  //   e.preventDefault();
+  //   $("#modal").fadeOut();
+  // });
 
-  $("html , body").keydown(function (x) {
-    if (x.which == 27) {
-      $("#modal").fadeOut();
-    }
-  });
+  // $("html , body").keydown(function (x) {
+  //   if (x.which == 27) {
+  //     $("#modal").fadeOut();
+  //   }
+  // });
 
-  window.addEventListener("click", function (e) {
-    if ($(e.target).hasClass("modal")) {
-      $("#modal").fadeOut();
-    }
-  });
+  // window.addEventListener("click", function (e) {
+  //   if ($(e.target).hasClass("modal")) {
+  //     $("#modal").fadeOut();
+  //   }
+  // });
 
   // modal ends
 

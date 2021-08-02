@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,8 +13,8 @@ using Restabook.Helpers;
 
 namespace Restabook.Areas.Manage.Controllers
 {
-    
-        [Area("Manage")]
+    [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
+    [Area("Manage")]
         public class ChefController : Controller
         {
             private readonly AppDbContext _context;

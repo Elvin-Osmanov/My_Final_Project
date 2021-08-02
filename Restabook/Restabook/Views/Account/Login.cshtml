@@ -1,0 +1,66 @@
+﻿@model MemberLoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- section sign-in start -->
+<section id="sign-in" style="background-image: url(~/../../assets/images/intro/error.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="content text-center">
+                    <h1 class="text-white">Sign Up</h1>
+                    <p class="text-white">Welcome dear Customer</p>
+                </div>
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 offset-md-4">
+                            <input class="form-control" asp-for="@Model.Email" placeholder="Email">
+                            <span class="text-danger" asp-validation-for="@Model.Email"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 offset-4">
+                            <input class="form-control" asp-for="@Model.Password" placeholder="Password">
+                            <span class="text-danger" asp-validation-for="@Model.Password"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 offset-4 text-center">
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="RememberMe">
+                                <label class="text-white form-check-label" asp-for="RememberMe">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-4 offset-4 ">
+                            <div class="sign d-flex justify-content-between">
+                                <button type="submit" class="sign-in-btn btn-primary">Sign In</button>
+                                <a asp-action="register" class="sign-up-btn">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+                <div class="dots">
+                    <ul class="list-unstyled align-items-center justify-content-center">
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                        <li>.</li>
+                    </ul>
+                </div>
+                <div class="homepage">
+                    <a asp-controller="home" asp-action="index" class="homepage-btn">Back to Home Page<i class="icon fal fa-long-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section sign-in ends -->

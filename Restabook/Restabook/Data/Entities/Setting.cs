@@ -90,13 +90,17 @@ namespace Restabook.Data.Entities
         [StringLength(maximumLength: 150, ErrorMessage = "Lenght should be no more than 150 characters!!!")]
         public string SupportPhone { get; set; }
 
-       
+        public double ShippingCost { get; set; }
 
         [Required(ErrorMessage = "Obligatory!!!")]
         [StringLength(maximumLength: 5000, ErrorMessage = "Lenght should be no more than 5000 characters!!!")]
         public string AboutStory { get; set; }
 
-        
+        [NotMapped]
+        public IFormFile BookPdf { get; set; }
+
+        public string BookPdfUrl { get; set; }
+
         public string AboutPhoto { get; set; }
 
         [NotMapped]

@@ -19,5 +19,7 @@ namespace Restabook.ViewModels
 
         public List<Product> Products { get; set; }
 
+        
+
     }
 }

@@ -9,6 +9,6 @@ namespace Restabook.ViewModels
     public class ContactViewModel
     {
         public Contact Contact { get; set; }
-        public Setting Setting { get; set; }
+        
     }
 }

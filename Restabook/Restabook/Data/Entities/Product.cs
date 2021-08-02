@@ -70,5 +70,7 @@ namespace Restabook.Data.Entities
         [NotMapped]
         public IFormFile File { get; set; }
 
+      
+
     }
 }

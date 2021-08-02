@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using Restabook.Helpers;
 
 namespace Restabook.Areas.Manage.Controllers
 {
+    [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
     [Area("Manage")]
     public class SettingController : Controller
     {
@@ -33,6 +35,8 @@ namespace Restabook.Areas.Manage.Controllers
             };
             return View(settingVM);
         }
+
+        
 
         public async Task<IActionResult> Edit(int id)
         {
@@ -81,7 +85,7 @@ namespace Restabook.Areas.Manage.Controllers
             existSetting.OverTime1 = setting.OverTime1;
             existSetting.OverTime2 = setting.OverTime2;
             existSetting.VideoRedirectUrl = setting.VideoRedirectUrl;
-
+          
 
 
 
@@ -170,7 +174,33 @@ namespace Restabook.Areas.Manage.Controllers
                 }
             }
 
+            if (setting.BookPdf != null)
+            {
+                #region CheckPhotoLength
+                if (setting.BookPdf.Length > 3 * (1024 * 1024))
+                {
+                    ModelState.AddModelError("File", "Cannot be more than 3MB");
+                    return View();
 
+                }
+                #endregion
+                #region CheckPhotoContentType
+                if (setting.BookPdf.ContentType != "application/pdf" )
+                {
+                    ModelState.AddModelError("File", "Only pdf files accepted");
+                    return View();
+                }
+                #endregion
+
+                string filename = FileManagerHelper.Save(_env.WebRootPath, "pdf/", existSetting.BookPdf);
+
+                if (!string.IsNullOrWhiteSpace(existSetting.BookPdfUrl))
+                {
+                    FileManagerHelper.Delete(_env.WebRootPath, "pdf/", existSetting.BookPdfUrl);
+                }
+
+                existSetting.BookPdfUrl = filename;
+            }
 
             await _context.SaveChangesAsync();
 
