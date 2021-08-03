@@ -78,7 +78,7 @@
                         </div>
                         <div class="category-text">
                             <div class="category-inner">
-                                <span>Category:</span> <a href="#">@Model.Product.Category.Name</a>
+                                <span>Category:</span> <a asp-controller="shop" asp-action="index" asp-route-categoryId="@categoryId">@Model.Product.Category.Name</a>
                             </div>
                             <p>@Html.Raw(Model.Product.Desc)</p>
                         </div>
@@ -90,7 +90,19 @@
 
                                     @if (user != null)
                                     {
-                                        <button type="submit">Add to cart<i class="icon fal fa-long-arrow-right"></i></button>
+                                        <button style="padding: 11px 28px;
+        background: #C19D60;
+        border: 1px solid #C19D60;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        margin-top:20px;
+        border-radius: 0;
+        outline: 0;
+    " type="submit">Add to cart<i class="icon fal fa-long-arrow-right"></i></button>
                                     }
                                 </form>
                             </div>

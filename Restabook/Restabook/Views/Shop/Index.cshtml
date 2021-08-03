@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
     int allproducts = ViewBag.AllProducts;
- 
+   
     int pageCount = ViewBag.PageCount;
     int selectedPage = ViewBag.SelectedPage;
     int? categoryId = ViewBag.CategoryId;
@@ -107,12 +107,11 @@
             </div>
             <div class="col-lg-4 ">
                 <div class="sidebar">
-                    @if (@ViewContext.RouteData.Values["controller"].ToString() == "Shop")
-                    {
-                        <form class="search">
+                   
+                        <form class="search" asp-action="search" method="get">
                             <div class="col-md-12 justify-content-center d-flex align-items-center">
                                 <div class="searhed-box">
-                                    <input type="text" class="form-control" id="searching" placeholder="Search...">
+                                    <input type="text" name="search" value="@ViewData["Filter"]" class="form-control" id="searching" placeholder="Search...">
                                    
                                 </div>
                                 <button type="submit" value="Search" style="padding: 11px 28px;
@@ -131,23 +130,23 @@
 
 
                         </form>
-                    }
+                    
                     <form class="filter">
                         <p>Price Filter</p>
                         <div class="row mt-3">
-                            <form>
+                            <form method="get" asp-action="SearchPrice">
                                 <div class="col-lg-9 ">
 
                                     <div class="slidecontainer">
-                                        <input type="range" min="1" max="1000" value="0" class="sliderrange" id="myRange">
-                                        <p class="mt-2">Price to$: <span id="demo"></span></p>
+                                        <input  type="range" min="1" max="1000"  value="0" name="price"   class="sliderrange" id="myRange">
+                                        <p class="mt-2">Price to$: <span id="demo" value="@ViewData["PriceFiler"]"></span></p>
                                     </div>
 
 
                                 </div>
                                 
                                 <div class="col-lg-3 col-md-3 col-3 p-0 d-flex justify-content-center align-items-center">
-                                    <button type="submit" href="#" class="border-0 update-btn">Update</button>
+                                    <a type="submit" value="price" asp-action="searchprice" asp-route-price="@ViewData["PriceFiler"]" class="border-0 update-btn">Update</a>
                                 </div>
                             </form>
 
@@ -215,4 +214,7 @@
     slider.oninput = function () {
         output.innerHTML = this.value;
     }
+
+
+    
 </script>

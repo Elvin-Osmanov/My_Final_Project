@@ -48,11 +48,19 @@ namespace Restabook.Controllers
             return View(shopVM);
         }
 
-
-        public IActionResult Search(string search)
+        [Route("/shop/{price}")]
+        public async Task<IActionResult> SearchPrice(int price)
         {
-            var model = _context.Products.Where(c => c.Name.Contains(search)).Take(10).ToList();
-            return PartialView("_SearchProductPartialView", model);
+            ViewData["PriceFiler"] = price;
+
+            if (price != 0)
+            {
+                return View();
+            }
+            List<Product> model = await _context.Products.Include(x => x.ProductPhotos).Include(x => x.Category).Where(x=>x.DiscountedPrice<price).ToListAsync();
+            
+           
+            return View(model);
         }
 
        
