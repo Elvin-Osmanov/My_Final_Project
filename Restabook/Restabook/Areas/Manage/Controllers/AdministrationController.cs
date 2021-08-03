@@ -84,6 +84,8 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> EditRole(string id)
         {
+            ViewBag.role = id;
+
             var existRole = await _roleManager.FindByIdAsync(id);
 
             if (existRole == null)
@@ -137,12 +139,12 @@ namespace Restabook.Areas.Manage.Controllers
         }
 
 
-       
-        public async Task<IActionResult> EditUserInRole(string Id)
+        [HttpGet]
+        public async Task<IActionResult> EditUserInRole(string id)
         {
-            ViewBag.roleId = Id;
+            ViewBag.roleId = id;
 
-            var role = await _roleManager.FindByIdAsync(Id);
+            var role = await _roleManager.FindByIdAsync(id);
 
             if (role == null)
             {
@@ -178,10 +180,10 @@ namespace Restabook.Areas.Manage.Controllers
         [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Route("Manage/administration/editrole/{id}")]
-        public async Task<IActionResult> EditUserInRole(List<UserRoleViewModel> listmodel,string id)
+
+        public async Task<IActionResult> EditUserInRole(List<UserRoleViewModel> listmodel, string id)
         {
-          
+            ViewBag.roleId = id;
 
             var role = await _roleManager.FindByIdAsync(id);
 
@@ -196,11 +198,11 @@ namespace Restabook.Areas.Manage.Controllers
 
                 IdentityResult result = null;
 
-                if (listmodel[i].IsSelected && !(await _userManager.IsInRoleAsync(user,role.Name)))
+                if (listmodel[i].IsSelected && !(await _userManager.IsInRoleAsync(user, role.Name)))
                 {
                     result = await _userManager.AddToRoleAsync(user, role.Name);
                 }
-                else if(!listmodel[i].IsSelected && await _userManager.IsInRoleAsync(user,role.Name))
+                else if (!listmodel[i].IsSelected && await _userManager.IsInRoleAsync(user, role.Name))
                 {
                     result = await _userManager.RemoveFromRoleAsync(user, role.Name);
                 }
@@ -233,10 +235,14 @@ namespace Restabook.Areas.Manage.Controllers
             ViewBag.PageCount = pageCount;
             ViewBag.SelectedPage = page;
 
+            
+
             var users = _userManager.Users;
 
             return View(users);
         }
 
+        
+       
     }
 }

@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "EditRole";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+
+    string roleId = ViewBag.role;
 }
 
 <div class="checkout-area pb-45 pt-65">
@@ -27,6 +29,13 @@
                                                         <span asp-validation-for="@Model.RoleName" class="text-danger"></span>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-12 col-md-12">
+                                                    <div class="billing-info">
+                                                        <label class="form-label" asp-for="@Model.Id">Role Id</label>
+                                                        <input class="form-control" readonly style="background-color:antiquewhite" asp-for="@Model.Id" type="text">
+                                                        <span asp-validation-for="@Model.Id" class="text-danger"></span>
+                                                    </div>
+                                                </div>
 
                                                 <div asp-validation-summary="All"></div>
 
@@ -47,16 +56,17 @@
 
                                                         }
                                                     </ul>
+                                                    <div class="mt-3">
+                                                        <a asp-action="edituserinrole" asp-controller="administration" asp-route-id="@roleId" class=" btn btn-primary">Add or remove user for this role</a>
+                                                        <a asp-action="index" asp-controller="administration" class="btn btn-danger">Back</a>
+                                                    </div>
                                                 </div>
                                             }
                                             else
                                             {
-
+                                                <a asp-action="edituserinrole" asp-controller="administration" asp-route-id="@roleId" class="mt-2 btn btn-primary">Add  user to this role</a>
                                             }
-                                            <div class="mt-3">
-                                                <a asp-action="EditUserInRole" asp-controller="administration" asp-route-Id="@Model.Id" class=" btn btn-primary">Add or remove user to this role</a>
-                                                <a asp-action="index" asp-controller="administration" class="btn btn-danger">Back</a>
-                                            </div>
+
                                         </form>
                                         
                                        

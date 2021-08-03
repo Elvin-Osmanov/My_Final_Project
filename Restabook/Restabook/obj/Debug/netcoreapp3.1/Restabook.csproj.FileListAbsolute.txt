@@ -441,3 +441,4 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Create.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\EditUser.cshtml.g.cs

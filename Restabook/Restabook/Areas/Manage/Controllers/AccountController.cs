@@ -38,7 +38,7 @@ namespace Restabook.Areas.Manage.Controllers
         [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> CreateAsync(UserRegisterViewModel userRegister)
+        public async Task<IActionResult> Create(UserRegisterViewModel userRegister)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -99,6 +99,91 @@ namespace Restabook.Areas.Manage.Controllers
 
 
            
+        }
+
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+                return NotFound();
+
+           
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var model = new EditUserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                PhoneNumber = user.PhoneNumber,
+              
+                Roles = userRoles
+            };
+
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(EditUserViewModel editUser)
+        {
+            var user = await _userManager.FindByIdAsync(editUser.Id);
+
+            if (user == null) { 
+                return NotFound(); 
+            }
+            else
+            {
+                user.Email = editUser.Email;
+                user.UserName = editUser.UserName;
+                user.PhoneNumber = editUser.PhoneNumber;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("listusers", "administration");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(editUser);
+            }
+
+        }
+
+
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            AppUser user = await _userManager.FindByIdAsync(id);
+
+             if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+              
+
+                var result = await _userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("listusers", "administration");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return RedirectToAction("listusers", "administration");
+            }
         }
 
         public IActionResult Login()
