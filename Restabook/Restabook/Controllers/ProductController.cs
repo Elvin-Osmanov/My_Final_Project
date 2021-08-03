@@ -19,9 +19,9 @@ namespace Restabook.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index(int id, int?categoryId=null)
         {
-           
+            ViewBag.CategoryId = categoryId;
 
             Product product = await _context.Products
                    .Include(x => x.ProductPhotos)
@@ -83,6 +83,8 @@ namespace Restabook.Controllers
 
             return Ok();
         }
+
+        
 
 
         [HttpPost]

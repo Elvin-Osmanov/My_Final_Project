@@ -1,0 +1,38 @@
+﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
+@model List<Product>
+@{
+            AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
+ }
+@foreach (var item in Model)
+{
+            var poster = item.ProductPhotos.FirstOrDefault(x => x.Order == 1);
+            <div class="col-lg-6 col-md-6">
+                <div class="item">
+                    <div class="image">
+                        <div class="overlay">
+                            <a class="image-link" href="">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+                        <img src="./uploads/products/@poster.Name" class="img-fluid">
+
+
+                    </div>
+                    <div class="item-detail">
+                        <div class="top">
+                            <a asp-action="index" asp-controller="product" asp-route-id="@item.Id" asp-route-categoryId="@item.Category.Id">@item.Name</a>
+
+                            <span><span class=" @(item.DiscountPercent>0?"d-block":"d-none")">Sale - @item.DiscountPercent%</span><span class="@(item.IsChefSelecetion==true?"d-block":"d-none")">Chef Selected</span></span>
+                        </div>
+                        <p>@item.SmallDesc</p>
+                        <div class="bottom">
+                            <span class="price">$@item.Price</span>
+                            @if (user != null)
+                            {
+                                <a asp-action="addbasket" asp-controller="cart" asp-route-id="@item.Id" class="add-btn">Add to Cart</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+ }

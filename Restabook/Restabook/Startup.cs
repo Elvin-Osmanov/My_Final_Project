@@ -60,6 +60,11 @@ namespace Restabook
                 options.LoginPath = "/account/login";
                 options.AccessDeniedPath = "/account/login";
             })
+            .AddCookie("Moderator_Auth", options =>
+            {
+                options.LoginPath = "/manage/account/login";
+                options.AccessDeniedPath = "/manage/account/login";
+            })
            .AddCookie("Admin_Auth", options =>
            {
                options.LoginPath = "/manage/account/login";
@@ -81,7 +86,7 @@ namespace Restabook
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

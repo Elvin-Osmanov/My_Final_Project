@@ -428,8 +428,16 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.pdb
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.genruntimeconfig.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Order\Edit.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Error.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\ProfileReservation.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Reservation\Index.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Reservation\Edit.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Subscribe\Index.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.csprojAssemblyReference.cache
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\CreateRole.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\Index.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\EditRole.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\EditUserInRole.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\ListUsers.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\Create.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs

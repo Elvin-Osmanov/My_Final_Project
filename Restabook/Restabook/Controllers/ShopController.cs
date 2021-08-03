@@ -31,9 +31,9 @@ namespace Restabook.Controllers
             ViewBag.SelectedPage = page;
             ViewBag.CategoryId = categoryId;
             ViewBag.AllProducts = _context.Products.Count();
-            
 
-           
+
+
 
 
 
@@ -43,9 +43,8 @@ namespace Restabook.Controllers
                 Categories = _context.Categories.ToList(),
                 Tags = _context.Tags.ToList(),
                 PopularProducts = _context.Products.Include(x => x.ProductReviews).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).Take(3).ToList(),
-                
-
-        };
+              
+            };
             return View(shopVM);
         }
 
@@ -55,6 +54,8 @@ namespace Restabook.Controllers
             var model = _context.Products.Where(c => c.Name.Contains(search)).Take(10).ToList();
             return PartialView("_SearchProductPartialView", model);
         }
+
+       
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]

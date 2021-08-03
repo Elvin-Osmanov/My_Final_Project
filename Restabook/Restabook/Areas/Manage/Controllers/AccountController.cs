@@ -29,6 +29,78 @@ namespace Restabook.Areas.Manage.Controllers
             _context = context;
         }
 
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> CreateAsync(UserRegisterViewModel userRegister)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            AppUser member = await _userManager.FindByEmailAsync(userRegister.Email);
+
+            if (member != null)
+            {
+                ModelState.AddModelError("", "Email already used");
+                return View();
+            }
+            else
+            {
+                member = await _userManager.FindByNameAsync(userRegister.UserName);
+
+                if (member != null)
+                {
+                    ModelState.AddModelError("", "Username already used");
+                    return View();
+                }
+            }
+
+            member = new AppUser
+            {
+                UserName = userRegister.UserName,
+                Email = userRegister.Email,
+                FullName = userRegister.FullName,
+              
+                PhoneNumber = userRegister.PhoneNumber,
+              
+            };
+
+            var result = await _userManager.CreateAsync(member, userRegister.Password);
+
+            if (!result.Succeeded)
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError("", item.Description);
+                }
+                return View();
+            }
+
+            await _userManager.AddToRoleAsync(member, "Moderator");
+
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Name,member.UserName),
+                new Claim(ClaimTypes.Email, member.Email),
+                new Claim(ClaimTypes.Role,"Moderator")
+            }, "Moderator_Auth");
+            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            await HttpContext.SignInAsync("Moderator_Auth", claimsPrincipal);
+
+            return RedirectToAction("listusers", "administration");
+
+
+           
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -81,21 +153,13 @@ namespace Restabook.Areas.Manage.Controllers
 
 
 
-        //    await _userManager.CreateAsync(user, "admin123");
+        //    await _userManager.CreateAsync(user, "admin666");
 
         //    await _userManager.AddToRoleAsync(user, "Admin");
 
         //}
 
-        //public async Task CreateRole()
-        //{
-
-        //    await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-
-
-
-
-        //}
+ 
 
 
         public async Task<IActionResult> Profile()

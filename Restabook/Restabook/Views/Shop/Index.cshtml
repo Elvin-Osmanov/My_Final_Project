@@ -63,40 +63,8 @@
                 </div>
                 <div class="list">
                     <div class="row">
-                        @foreach (var item in Model.Products)
-                        {
-                            var poster = item.ProductPhotos.FirstOrDefault(x => x.Order == 1);
-                            <div class="col-lg-6 col-md-6">
-                                <div class="item">
-                                    <div class="image">
-                                        <div class="overlay">
-                                            <a class="image-link" href="">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </div>
-                                        <img src="./uploads/products/@poster.Name" class="img-fluid">
 
-
-                                    </div>
-                                    <div class="item-detail">
-                                        <div class="top">
-                                            <a asp-action="index" asp-controller="product" asp-route-id="@item.Id" asp-route-categoryId="@item.Category.Id">@item.Name</a>
-
-                                            <span><span class=" @(item.DiscountPercent>0?"d-block":"d-none")">Sale - @item.DiscountPercent%</span><span class="@(item.IsChefSelecetion==true?"d-block":"d-none")">Chef Selected</span></span>
-                                        </div>
-                                        <p>@item.SmallDesc</p>
-                                        <div class="bottom">
-                                            <span class="price">$@item.Price</span>
-                                            @if (user != null)
-                                            {
-                                                <a asp-action="addbasket" asp-controller="cart" asp-route-id="@item.Id" class="add-btn">Add to Cart</a>
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-
+                        @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId })
 
                     </div>
                     <div class="row">
@@ -147,7 +115,18 @@
                                     <input type="text" class="form-control" id="searching" placeholder="Search...">
                                    
                                 </div>
-                                <button type="submit" value="Search" style="border:none" class="search-btn"><i class="text-white fas fa-search"></i></button>
+                                <button type="submit" value="Search" style="padding: 11px 28px;
+        background: #C19D60;
+        border: 1px solid #C19D60;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        border-radius: 0;
+        outline: 0;
+    " class="search-btn"><i class="text-white fas fa-search"></i></button>
                             </div>
 
 
@@ -215,7 +194,7 @@
                         <ul class="list-unstyled mt-3 ">
                             @foreach (var item in Model.Tags)
                             {
-                                <li class="taglink"><a asp-controller="product" asp-action="index" asp-route-categoryId="@item.Id">@item.Name</a></li>
+                                <li class="taglink"><a asp-controller="product" asp-action="index" asp-route-tagId="@item.Id">@item.Name</a></li>
                             }
 
 
