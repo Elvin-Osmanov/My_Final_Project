@@ -51,15 +51,13 @@ namespace Restabook.Data
 
         public DbSet<Reservation> Reservations { get; set; }
 
-        public DbSet<Time> Times { get; set; }
-
-        public DbSet<TimeTable> TimeTables { get; set; }
+        public DbSet<Checkout> Checkouts { get; set; }
 
         public DbSet<Order> Orders { get; set; }
 
-        
+        public DbSet<OrderItem> OrderItems { get; set; }
 
-        
+
 
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Order
+﻿<!--
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
@@ -7,10 +7,10 @@
 <div class="container-fluid">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">User: @Model.AppUser.FullName</h5>
-            <a class="card-title" asp-action="edit" asp-controller="product" asp-route-id="@Model.ProductId">Product: @Model.Product.Name</a>
+            <h5 class="card-title">User: @Model.AppUser.FullName</h5>-->
+            @*<a class="card-title" asp-action="edit" asp-controller="product" asp-route-id="@Model.">Product: @Model.Product.Name</a>*@
 
-            <p class="card-text">Price: @Model.Price</p>
+            <!--<p class="card-text">Price: @Model.Price</p>
 
             <p class="card-text">Total Price: @(Model.Price)</p>
             <p class="card-text">Date: @(Model.CreatedDate.AddHours(4).ToString("HH:mm dd MMMM yyy"))</p>
@@ -29,4 +29,4 @@
 
         </div>
     </div>
-</div>
+</div>-->

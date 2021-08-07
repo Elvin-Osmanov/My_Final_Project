@@ -24,23 +24,49 @@ namespace Restabook.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var PersonQuantity = new List<SelectListItem>();
 
-            var time = new List<SelectListItem>();
+            List<Table> alltables = _context.Tables.Include(x => x.Reservation).ToList();
+            List<Table> booked = new List<Table>();
 
-            foreach (var item in _context.Times)
+            foreach (var item in _context.Reservations)
             {
-                time.Add(new SelectListItem
+                if (item.TableId != 0)
                 {
-                    Value = item.ToString(),
-                    Text = item.StartTime.ToString("HH:mm")
+                    Table bookedTable = await _context.Tables.FirstOrDefaultAsync(x => x.Id == item.TableId);
 
-                });
+                    booked.Add(bookedTable);
+                }
             }
 
-            ViewBag.Times = time;
+            List<Table> notboked = alltables.Except(booked).ToList();
+
+            if (booked.Count != 0)
+            {
+                ViewBag.times = notboked.Select(x => x.StartTime).ToList();
+                ViewBag.dates = notboked.Select(x => x.Date).ToList();
+
+            }
+            else
+            {
+                ViewBag.times = _context.Tables.Select(x => x.StartTime).ToList();
+                ViewBag.dates = _context.Tables.Select(x => x.Date).ToList();
+
+            }
+
+
+            Table table = new Table();
+            foreach (var item in alltables)
+            {
+                if (item.Reservation.TableId == 0)
+                {
+                    table = item;
+                }
+            }
+
+           
 
 
             foreach (var item in Enum.GetValues(typeof(PersonCount)))
@@ -58,54 +84,37 @@ namespace Restabook.Controllers
 
 
 
-            return View();
+            return View(table);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Reserve(Reservation reservation)
+        public async Task<IActionResult> Reserve(Reservation reservation,int id)
         {
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            Table table = await _context.Tables.FirstOrDefaultAsync();
 
-            try
-            {
-                Table table = await _context.Tables.FirstOrDefaultAsync(x => x.Date == reservation.ReservationDate);
-
-
-            table.Reservations = new List<Reservation>();
-
-
-
-            
 
             Reservation reservationmodel = new Reservation();
 
-            reservationmodel.AppUserId = user.Id;
-            reservationmodel.CreatedDate = DateTime.UtcNow;
-            reservationmodel.PersonCount = reservation.PersonCount;
-            reservationmodel.Message = reservation.Message;
-            reservationmodel.CustomerName = reservation.CustomerName;
-            reservationmodel.EmailAddress = reservation.EmailAddress;
-            reservationmodel.PhoneNumber = reservation.PhoneNumber;
-            reservationmodel.ReservationDate = reservation.ReservationDate;
-            reservationmodel.Status = ReservationStatus.Pending;
-            reservationmodel.ReservationTime = reservation.ReservationTime;
+                reservationmodel.AppUserId = user.Id;
+                reservationmodel.TableId = reservation.TableId;
+                reservationmodel.CreatedDate = DateTime.UtcNow;
+                reservationmodel.PersonCount = reservation.PersonCount;
+                reservationmodel.Message = reservation.Message;
+                reservationmodel.CustomerName = reservation.CustomerName;
+                reservationmodel.EmailAddress = reservation.EmailAddress;
+                reservationmodel.PhoneNumber = reservation.PhoneNumber;
+                reservationmodel.ReservationDate = reservation.ReservationDate;
+                reservationmodel.Status = ReservationStatus.Pending;
+                reservationmodel.ReservationTime = reservation.ReservationTime;
 
 
-           
-                table.Reservations.Add(reservationmodel);
-                await _context.SaveChangesAsync();
-            }
-            catch
-            {
-                return View("Error");
-            }
-           
+            await _context.Reservations.AddAsync(reservationmodel);
+            await _context.SaveChangesAsync();
 
-
-
-            return RedirectToAction("index","home");
+            return RedirectToAction("profile", "account");
         }
         
 

@@ -505,14 +505,9 @@ header {
 }
 
 #modal {
-  background-color: rgba(0, 0, 0, 0.7);
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2100;
-  display: none;
+ 
+  height: 100vh;
+ 
 }
 
 #modal .reservation {
@@ -652,7 +647,8 @@ header {
   font-family: "Poppins", sans-serif;
   color: #C19D60;
   font-weight: 500;
-  display: none;
+  display:none
+  
 }
 
 #intro {
@@ -5445,6 +5441,37 @@ header {
             box-shadow: none !important;
         }
 
+.submit-cart-btn{
+    padding: 13px 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #C19D60;
+    color: #fff;
+    margin-top: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    border-radius: 0;
+    outline: 0;
+    background-color: #232323;
+    border-color: #232323;
+    margin-top: 0;
+}
+
+    .submit-cart-btn:hover {
+        background-color: #C19D60;
+        border-color: #C19D60;
+        color: white;
+    }
+
+    .submit-cart-btn:focus {
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+
+
 button.sign-in-btn {
     padding: 13px 28px;
     background: rgba(255, 255, 255, 0.1);
@@ -5538,6 +5565,21 @@ button.sign-in-btn {
   #single-item .search {
     margin-top: 15px;
   }
+
+    #menus .menu-tabs::after {
+        display: none;
+    }
+
+    #menus .menu-tabs .tab-link .top .inner-link {
+        font-size: 11px;
+    }
+
+    #modal .reservation {
+        padding: 15px;
+        background-color: #fff;
+        margin-top: 23%;
+        position: relative;
+    }
 }
 
 @media only screen and (max-width: 567px) {
@@ -5549,5 +5591,11 @@ button.sign-in-btn {
     width: 300px;
     height: 300px;
   }
+
+#menus .menu-tabs::after {
+        display:none;
+}
+
+
 }
 /*# sourceMappingURL=style.css.map */

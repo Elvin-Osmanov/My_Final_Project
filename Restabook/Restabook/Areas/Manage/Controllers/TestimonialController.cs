@@ -44,7 +44,7 @@ namespace Restabook.Areas.Manage.Controllers
             return View(testmonialVm);
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
 
             return View();

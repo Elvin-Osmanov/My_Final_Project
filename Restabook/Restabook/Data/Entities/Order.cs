@@ -8,22 +8,22 @@ namespace Restabook.Data.Entities
 {
     public class Order:BaseEntity
     {
+        public Order()
+        {
+            OrderItems = new List<OrderItem>();
+        }
         public string AppUserId { get; set; }
 
         public int Count { get; set; }
-
-        public double Price { get; set; }
-
-        public double ShippingPrice { get; set; }
 
         public double TotalPrice { get; set; }
 
         public AppUser AppUser { get; set; }
 
-        public Product Product { get; set; }
-
-        public int ProductId { get; set; }
+        public bool IsCouponApplied { get; set; }
 
         public OrderStatus OrderStatus { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; }
     }
 }

@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="txt d-lg-flex d-md-flex d-block justify-content-between">
-                    <p>Showing <span>@Model.Products.Take(6).Count()</span> of @allproducts results </p>
+                    <p>Showing <span>@Model.Products.Take(8).Count()</span> of @allproducts results </p>
                     <div class="form-group col-md-4 col-7 p-0">
 
                         <select id="inputState" class="form-control">
@@ -182,7 +182,7 @@
                         <ul class="list-unstyled mt-3">
                             @foreach (var item in Model.Categories)
                             {
-                                <li class="category-link"><a asp-controller="product" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
+                                <li class="category-link"><a asp-controller="shop" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
                             }
                         </ul>
                     </div>

@@ -65,6 +65,10 @@ namespace Restabook.Controllers
             if (product == null)
                 return NotFound();
 
+            if (review == null)
+            {
+                return NoContent();
+            }
 
             ProductReview productReview = new ProductReview
             {
@@ -81,29 +85,40 @@ namespace Restabook.Controllers
 
             await _context.SaveChangesAsync();
 
-            return Ok();
+            return RedirectToAction("index",new { product.Id,product.CategoryId});
         }
 
-        
+
 
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Subscribe(Subscriber subscriber)
         {
-
-
-            Subscriber sub = new Subscriber
+            if (subscriber.Email != null)
             {
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow,
-                Email = subscriber.Email
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
 
-            };
 
-            _context.Subscribers.Add(sub);
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
 
-            await _context.SaveChangesAsync();
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
+
 
             return RedirectToAction("index");
         }

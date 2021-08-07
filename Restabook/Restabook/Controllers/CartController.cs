@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Restabook.Data;
@@ -21,11 +22,15 @@ namespace Restabook.Controllers
     {
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IHttpContextAccessor _contextAccessor;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public CartController(AppDbContext context, UserManager<AppUser> userManager)
+        public CartController(AppDbContext context, UserManager<AppUser> userManager, IHttpContextAccessor contextAccessor, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _userManager = userManager;
+            _contextAccessor = contextAccessor;
+            _hubContext = hubContext;
         }
 
         [Authorize(Roles = "Member", AuthenticationSchemes = "Member_Auth")]
@@ -33,50 +38,19 @@ namespace Restabook.Controllers
         {
             string userId = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier).Value;
 
-            List<Order> orders = await _context.Orders.Include(x => x.Product).ThenInclude(x => x.ProductPhotos)
-                .Where(x => x.AppUserId == userId).OrderByDescending(x => x.CreatedDate).ToListAsync();
+            Order order = await _context.Orders.Include(x => x.OrderItems).ThenInclude(x=>x.Product).ThenInclude(x => x.ProductPhotos)
+                .Where(x => x.AppUserId == userId).OrderByDescending(x => x.CreatedDate).FirstOrDefaultAsync();
 
-            return View(orders);
+            ViewBag.orderId = order.Id;
+
+            return View(order);
         }
 
-        public async Task<IActionResult> Remove(Order order)
-        {
-            Order orderExist = await _context.Orders.FirstOrDefaultAsync(x => x.Id == order.Id);
-
-            if (order == null)
-            {
-                NotFound();
-            }
-
-            _context.Orders.Remove(orderExist);
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction("index");
-        }
-
-        public async Task<IActionResult> AddBasket(int id,Order order)
+        public async Task<IActionResult> AddBasket(int id)
         {
             Product product = _context.Products.FirstOrDefault(b => b.Id == id);
-            //Product productOrder = _context.Products.FirstOrDefault(p => p.Id == order.ProductId);
 
-            //if (product == null)
-            //{
-            //    return RedirectToAction("index");
-            //}
-
-            //if (productOrder == null)
-            //    return NotFound();
-
-            //AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            //order.AppUserId = user.Id;
-            //order.Price = product.DiscountedPrice;
             
-            //order.TotalPrice = order.Price*order.Count;
-            //order.OrderStatus = Data.Enums.OrderStatus.Pending;
-            //order.CreatedDate = DateTime.UtcNow;
-            //order.ModifiedDate = DateTime.UtcNow;
-
             List<BasketCardItemModel> baskets = new List<BasketCardItemModel>();
 
             if (Request.Cookies["basket"] == null)
@@ -112,8 +86,7 @@ namespace Restabook.Controllers
             }
 
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(baskets), new CookieOptions { MaxAge = TimeSpan.FromDays(1) });
-            //await _context.Orders.AddAsync(order);
-            //await _context.SaveChangesAsync();
+            
 
             return RedirectToAction("index","shop");
         }
@@ -131,46 +104,173 @@ namespace Restabook.Controllers
             return Json(baskets);
         }
 
-        public IActionResult RemoveBasket(int id,Order order)
+        public IActionResult RemoveBasket(int id)
         {
             List<BasketCardItemModel> baskets = new List<BasketCardItemModel>();
 
-            //Order orderExist =  _context.Orders.FirstOrDefault(x => x.Id == order.Id);
-
-            //if (order == null)
-            //{
-            //    NotFound();
-            //}
-
-            //_context.Orders.Remove(orderExist);
-            // _context.SaveChanges();
+            
 
             if (Request.Cookies["basket"] != null)
             {
+
                 baskets = JsonConvert.DeserializeObject<List<BasketCardItemModel>>(Request.Cookies["basket"]);
+                
                 if (baskets.Any(b => b.Id == id))
                 {
+                   
+                   
                     BasketCardItemModel basketItem = baskets.FirstOrDefault(b => b.Id == id);
                     if (basketItem.Count > 1)
                     {
                         basketItem.Count -= 1;
-
+                      
                     }
                     else
                     {
                         baskets.Remove(basketItem);
+                        
                     }
                 }
 
+
             }
 
+
+            _context.SaveChangesAsync();
+
+
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(baskets), new CookieOptions { MaxAge = TimeSpan.FromDays(2) });
+
+          
 
             return RedirectToAction("index");
         }
 
 
-        
+        [HttpPost]
+        [Authorize(Roles = "Member", AuthenticationSchemes = "Member_Auth")]
+        public async Task<IActionResult> Create()
+        {
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            double productPrice = 0;
+            Order order = new Order();
+            List<OrderItem> orderItems = new List<OrderItem>();
+
+
+
+            var orderCookies = _contextAccessor.HttpContext.Request.Cookies["basket"];
+
+            orderItems = JsonConvert.DeserializeObject<List<OrderItem>>(orderCookies);
+
+            foreach (var item in orderItems)
+            {
+                Product product = _context.Products.Include(x => x.ProductPhotos).FirstOrDefault(x => x.Id == item.Id);
+
+                product.HasShopped++;
+                if (product == null)
+                {
+                    continue;
+                }
+
+                OrderItem orderItem = new OrderItem
+                {
+                   
+                    Count = item.Count,
+                    Product = product,
+                    CreatedDate=DateTime.UtcNow,
+                    ModifiedDate=DateTime.UtcNow
+                    
+
+
+                };
+
+                productPrice += item.Count  * product.DiscountedPrice;
+                order.OrderItems.Add(orderItem);
+            }
+
+            
+
+            order.TotalPrice = productPrice;
+            order.CreatedDate = DateTime.UtcNow;
+            order.ModifiedDate = DateTime.UtcNow;
+            user.Orders.Add(order);
+
+            Order orderin = new Order();
+            await _context.Orders.AddAsync(order);
+            if (_context.Orders.Count() > 0)
+            {
+                orderin = _context.Orders.First();
+
+                _context.Orders.Remove(orderin);
+            }
+           
+
+
+            await _context.SaveChangesAsync();
+            List<string> adminConIds = _context.Users.Where(u => !u.IsMember).Select(x => x.ConnectionId).ToList();
+            await _hubContext.Clients.Clients(adminConIds).SendAsync("OrderCreated", user.FullName,  order.CreatedDate.ToString("dd.MMMM.yyyy"));
+
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
+        {
+            if (subscriber.Email != null)
+            {
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
+
+
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
+
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
+
+
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Discount(string couponName,int Id)
+        {
+            Coupon coupon = await _context.Coupons.Where(x => x.CouponName.ToUpper() == couponName.ToUpper()).FirstOrDefaultAsync();
+
+            if (coupon == null)
+            {
+                return NotFound();
+            }
+            
+            Order order = await _context.Orders.FirstOrDefaultAsync(x => x.Id == Id);
+            if (!order.IsCouponApplied)
+            {
+               
+                double discounted = order.TotalPrice * (Convert.ToDouble(coupon.CouponDiscount) / 100);
+                double result = order.TotalPrice - Math.Round(discounted);
+                order.IsCouponApplied = true;
+                order.TotalPrice = result;
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("index");
+        }
+
 
     }
 }

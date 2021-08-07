@@ -23,9 +23,7 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Order> orders = await _context.Orders.Include(x => x.AppUser)
-                 .Include(x => x.Product)
-                .ToListAsync();
+            List<Order> orders = await _context.Orders.Include(x => x.AppUser).ToListAsync();
 
             return View(orders);
         }
@@ -34,7 +32,6 @@ namespace Restabook.Areas.Manage.Controllers
         {
             Order order = await _context.Orders
                 .Include(x => x.AppUser)
-                .Include(x=>x.Product)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (order == null)

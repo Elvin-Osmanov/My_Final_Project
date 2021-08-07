@@ -21,12 +21,12 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="col-4 offset-4">
+                        <div class="col-md-4 offset-md-4">
                             <input class="form-control" asp-for="@Model.Password" placeholder="Password">
                             <span class="text-danger" asp-validation-for="@Model.Password"></span>
                         </div>
                     </div>
-                    <div class="row mb-3">
+                    @*<div class="row mb-3">
                         <div class="col-4 offset-4 text-center">
                             <div class="form-check">
                                 <input class="form-check-input" asp-for="RememberMe">
@@ -35,9 +35,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                     <div class="row mb-3">
-                        <div class="col-4 offset-4 ">
+                        <div class="col-md-4 offset-md-4 ">
                             <div class="sign d-flex justify-content-between">
                                 <button type="submit" class="sign-in-btn btn-primary">Sign In</button>
                                 <a asp-action="register" class="sign-up-btn">Sign Up</a>

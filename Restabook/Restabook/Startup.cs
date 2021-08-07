@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Restabook.Data;
 using Restabook.Data.Entities;
 using Restabook.Services;
+using Stripe;
 
 namespace Restabook
 {
@@ -49,6 +50,7 @@ namespace Restabook
 
             services.AddTransient<LayoutViewModelService>();
             services.AddControllersWithViews();
+            
             services.AddHttpContextAccessor();
             services.AddAuthentication(options =>
             {
@@ -75,17 +77,21 @@ namespace Restabook
                 options.IdleTimeout = TimeSpan.FromMinutes(5);
                 
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+               
                 app.UseStatusCodePagesWithRedirects("/Error/{0}");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
@@ -101,7 +107,17 @@ namespace Restabook
             {
                 var area = context.Request.RouteValues["area"];
                 string scheme = null;
-
+                if (context.Request.Path.ToString().Contains("hub"))
+                {
+                    foreach (var item in context.Request.Cookies)
+                    {
+                        if (item.Key.Contains("Auth"))
+                        {
+                            scheme = item.Key.Substring(item.Key.LastIndexOf('.') + 1);
+                            break;
+                        }
+                    }
+                }
                 if (area == null)
                 {
                     foreach (var item in context.Request.Cookies)
@@ -148,6 +164,8 @@ namespace Restabook
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapHub<NotificationHub>("/hub");
             });
         }
     }

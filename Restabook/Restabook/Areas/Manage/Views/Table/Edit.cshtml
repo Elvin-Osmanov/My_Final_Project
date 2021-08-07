@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
-    List<Time> times = ViewBag.Times;
+  
 }
 
 <div class="container-fluid">
@@ -14,27 +14,18 @@
                 <input type="date" class="form-control" asp-for="@Model.Date">
                 <span asp-validation-for="@Model.Date" class="text-danger"></span>
             </div>
-           
-        </div>
-       
 
+        </div>
+        <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="TimeIds">Time</label>
-                <select name="TimeIds" multiple class="form-control">
-                    @foreach (var time in times)
-                    {
-                        if (Model.TimeTables.Any(x => x.TimeId == time.Id))
-                        {
-                    <option selected value="@time.Id">@time.StartTime.ToString("HH:mm")</option>
-                        }
-                        else
-                        {
-                    <option value="@time.Id">@time.StartTime.ToString("HH:mm")</option>
-                        }
-                    }
-                </select>
+                <label asp-for="@Model.StartTime"></label>
+                <input type="time" class="form-control" asp-for="@Model.StartTime">
+                <span asp-validation-for="@Model.StartTime" class="text-danger"></span>
             </div>
-       
+
+        </div>
+
+
 
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>

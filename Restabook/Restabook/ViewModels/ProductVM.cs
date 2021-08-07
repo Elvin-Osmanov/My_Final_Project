@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Restabook.Areas.Manage.ViewModels
+namespace Restabook.ViewModels
 {
-    public class TimeViewModel
+    public class ProductVM
     {
-        public List<Time> Times { get; set; }
+        public int Count { get; set; }
+
+        public Product Product { get; set; }
     }
 }

@@ -14,37 +14,32 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Fullname</th>
-                <th scope="col">ReservationDate</th>
-                <th scope="col">ReservationTime</th>
-                <th scope="col">PhoneNumber</th>
-                <th scope="col">EmailAddress</th>
-                <th scope="col">Status</th>
+                <th class="col-md-1">#</th>
+                <th class="col-md-2">Fullname</th>
+                <th class="col-md-2">ReservationDate</th>
+                <th class="col-md-2">ReservationTime</th>
+                <th class="col-md-2">PhoneNumber</th>
+                <th class="col-md-2">Status</th>
+                <th class="col-md-1"></th>
 
 
 
-                <th scope="col"></th>
+               
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Reservations)
             {
             <tr>
-                <th scope="row">@counter</th>
-                <td>@item.CustomerName</td>
-                <td>@item.ReservationDate.ToString("dd.MM.yyyy")</td>
-                <td>@item.ReservationTime.ToString("HH:mm")</td>
-                <td>@item.PhoneNumber</td>
-                <td>@item.EmailAddress</td>
-                <td>@item.Status</td>
+                <th  class="col-md-1">@counter</th>
+                <td  class="col-md-2">@item.CustomerName</td>
+                <td  class="col-md-2">@item.ReservationDate.ToString("dd.MM.yyyy")</td>
+                <td  class="col-md-2">@item.ReservationTime.ToString("HH:mm")</td>
+                <td  class="col-md-2">@item.PhoneNumber</td>
+                <td  class="col-md-2">@item.Status</td>
+                <td class="col-md-1">  <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a></td>
 
 
-                <td>
-
-                    <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
-
-                </td>
             </tr>
                 counter++;
             }

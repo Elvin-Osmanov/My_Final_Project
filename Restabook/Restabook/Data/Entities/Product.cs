@@ -10,6 +10,10 @@ namespace Restabook.Data.Entities
 {
     public class Product:BaseEntity
     {
+        public Product()
+        {
+            ProductReviews = new List<ProductReview>();
+        }
         [Required(ErrorMessage ="Obligatory!!!")]
         [StringLength(maximumLength: 100, ErrorMessage = "Lenght should be no more than 100 characters!!!")]
         public string Name { get; set; }
@@ -32,8 +36,8 @@ namespace Restabook.Data.Entities
 
         [Range(0, double.MaxValue)]
         public double DiscountedPrice { get; set; }
-        
-        
+
+        public List<OrderItem> OrderItems { get; set; }
         [Range(0, 100)]
         public double DiscountPercent { get; set; }
 

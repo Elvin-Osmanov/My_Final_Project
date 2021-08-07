@@ -11,6 +11,13 @@ namespace Restabook.Data.Entities
 {
     public class AppUser:IdentityUser
     {
+
+        public AppUser()
+        {
+            Orders = new List<Order>();
+            Reservations = new List<Reservation>();
+        }
+
         [StringLength(maximumLength: 50)]
         public string FullName { get; set; }
 
@@ -20,12 +27,18 @@ namespace Restabook.Data.Entities
 
         public List<Order> Orders { get; set; }
 
-        public virtual Reservation Reservation { get; set; }
+        public List<Checkout> Checkouts { get; set; }
+
+        public List<Reservation> Reservations { get; set; }
 
 
         public Gender Gender { get; set; }
 
-     
+
+        public string ConnectionId { get; set; }
+
+        public bool IsConnected { get; set; }
+
         public DateTime Birthdate { get; set; }
 
         [NotMapped]

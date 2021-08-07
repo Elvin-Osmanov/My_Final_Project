@@ -37,6 +37,27 @@ namespace Restabook.Services
 
         public Subscriber Subscriber { get; set; }
 
+        public Contact GetContacts()
+        {
+            return _context.Contacts.Include(x=>x.ContactMessages).FirstOrDefault();
+        }
+
+        public List<Order> GetOrders()
+        {
+            return _context.Orders.Include(x => x.OrderItems).ToList();
+        }
+
+        public List<Subscriber> GetSubs()
+        {
+            return _context.Subscribers.ToList();
+        }
+
+        public Coupon GetCoupon()
+        {
+            return _context.Coupons.FirstOrDefault();
+        }
+
+
         public BasketCardViewModel GetBasket()
         {
             BasketCardViewModel basketVM = new BasketCardViewModel();
@@ -73,7 +94,7 @@ namespace Restabook.Services
 
                 };
 
-                basketVM.TotalPrice += product.Price * basketItem.Count;
+                basketVM.TotalPrice += product.Price * Convert.ToDouble(basketItem.Count);
                 basketVM.BasketProductItems.Add(basketItemVM);
             }
 

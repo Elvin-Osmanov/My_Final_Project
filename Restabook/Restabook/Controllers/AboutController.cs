@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Restabook.Data;
 using Restabook.Data.Entities;
 using Restabook.ViewModels;
@@ -34,19 +35,30 @@ namespace Restabook.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Subscribe(Subscriber subscriber)
         {
-
-
-            Subscriber sub = new Subscriber
+            if (subscriber.Email != null)
             {
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow,
-                Email = subscriber.Email
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
 
-            };
 
-            _context.Subscribers.Add(sub);
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
 
-            await _context.SaveChangesAsync();
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
+
 
             return RedirectToAction("index");
         }

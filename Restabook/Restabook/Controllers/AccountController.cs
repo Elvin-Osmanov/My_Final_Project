@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Restabook.Data;
 using Restabook.Data.Entities;
 using Restabook.Data.Enums;
@@ -172,7 +173,7 @@ namespace Restabook.Controllers
         {
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            Reservation reservation = _context.Reservations.FirstOrDefault(x => x.AppUserId == user.Id);
+            List<Reservation> reservation = _context.Reservations.Include(x=>x.Table).Where(x=>x.AppUserId==user.Id).ToList();
 
             ViewBag.reservation=reservation;
             

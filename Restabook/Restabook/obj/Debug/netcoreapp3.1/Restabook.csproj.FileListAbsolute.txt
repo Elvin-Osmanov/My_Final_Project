@@ -328,8 +328,6 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.AssemblyInfoInputs.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.AssemblyInfo.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.csproj.CoreCompileInputs.cache
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.RazorAssemblyInfo.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.RazorAssemblyInfo.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.TagHelpers.input.cache
@@ -396,11 +394,6 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Testimonial\Detail.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Testimonial\Edit.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Testimonial\Index.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Time\Create.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Time\Delete.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Time\Detail.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Time\Edit.cshtml.g.cs
-C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Time\Index.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\_ViewImports.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\_ViewStart.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
@@ -442,3 +435,12 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Account\EditUser.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shared\Error.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Table\Reservations.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Reservation\Index.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1\Stripe.net.dll
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1\CryptoHelper.dll
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.csproj.CoreCompileInputs.cache
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Checkout\Checkout.cshtml.g.cs

@@ -5,6 +5,7 @@
 @{
     AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
     Setting setting = service.GetSettings();
+   
     var basketItems = service.GetBasket();
     Subscriber subscriber = service.Subscriber;
 
@@ -43,8 +44,7 @@
             <div class="prenavbar">
                 <div class="d-flex languages">
                     <a class="first-language">En</a>
-                    <span class="mx-2">/</span>
-                    <a class="second-language">Fr</a>
+                  
 
                 </div>
                 <div class="d-flex ml-auto info">
@@ -95,8 +95,13 @@
                                         </div>
                                         <ol style="padding-inline-start: 15px;" class=" middle mt-3">
 
+                                         
+
+                                           
+
                                             @foreach (var item in basketItems.BasketProductItems)
                                             {
+
                                                 <li>
                                                     <div class="d-flex justify-content-between cart-order">
                                                         <div class="wrap d-flex justify-content-between">
@@ -114,7 +119,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="remove-icon">
-                                                           <a asp-controller="cart" asp-action="removebasket" asp-route-id="@item.Id" > <i style="font-size:15px;font-weight:300" class="fas fa-times"></i></a>
+                                                            <a asp-controller="cart" asp-action="removebasket" asp-route-id="@item.Id"   > <i style="font-size:15px;font-weight:300" class="fas fa-times"></i></a>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -130,7 +135,14 @@
                                                 </div>
                                             </div>
                                             <div class="checkout pt-2">
-                                                <a asp-controller="cart" asp-action="index">View Cart</a> <span>/</span> <a asp-controller="checkout" asp-action="index">Checkout</a>
+
+                                                <form method="post" class="text-center" asp-action="create" asp-controller="cart">
+
+                                                    <button type="submit" class="submit-cart-btn">View Cart</button>
+
+                                                </form>
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -144,13 +156,13 @@
                                 <div class="dropdown-menu account-box" aria-labelledby="navbarDropdownMenuLink">
                                     <div class="account">
                                         <div class="login">
-                                           
+
                                             <div class="sign d-flex justify-content-between">
                                                 <a asp-action="profile" asp-controller="account" class="btn btn-primary">Profile</a>
                                                 <a asp-action="logout" asp-controller="account" class="btn btn-primary">Log Out</a>
-                                                
+
                                             </div>
-                                            
+
                                         </div>
                                     </div>
 
@@ -167,13 +179,13 @@
                         }
                         else
                         {
-                    <li class="nav-item account">
-                        <a  asp-controller="account" asp-action="login" >
-                           
-                            <i class="fal fa-user-alt" style="font-size:33px;"></i>
-                        </a>
-                      
-                    </li>
+                            <li class="nav-item account">
+                                <a asp-controller="account" asp-action="login">
+
+                                    <i class="fal fa-user-alt" style="font-size:33px;"></i>
+                                </a>
+
+                            </li>
                         }
 
 
@@ -185,7 +197,7 @@
             </nav>
         </div>
 
-       
+
     </header>
 
     <main>
@@ -196,12 +208,10 @@
         <section id="footer-top">
             <div class="container">
                 <div class="row inner">
-                    <div class="col-lg-3 col-md-6 p-0 d-flex outer">
-                        <img src="~/uploads/setting/@setting.FooterLogo">
-                        <div class="d-flex languages">
-                            <a class="first-language">En</a>
-                            <span class="mx-2">/</span>
-                            <a class="second-language">Fr</a>
+                    <div class="col-lg-3 col-md-6 d-flex p-0 ">
+                        <img class="ml-3 ml-lg-0 ml-md-0"  src="~/uploads/setting/@setting.FooterLogo">
+                        <div class=" languages">
+                            <a class="ml-2 first-language">En</a>
 
                         </div>
                     </div>
@@ -264,10 +274,10 @@
                                 Want to be notified when we launch a new template or an udpate. Just sign up and we'll send you a
                                 notification by email.
                             </p>
-                            <form asp-action="subscribe"  method="post">
+                            <form asp-action="subscribe" method="post">
                                 <div class="form-row">
                                     <div class="col-8 col-md-9">
-                                        <input type="email" asp-for="@subscriber.Email" name="Email" id="Email" class="form-control" placeholder="Your Email">
+                                        <input asp-for="@subscriber.Email" name="Email" id="Email" class="form-control" placeholder="Your Email">
                                         <small class="subsuccess">subscription is pending...</small>
                                     </div>
                                     <div class="col-4 col-md-3">
@@ -307,7 +317,12 @@
             crossorigin="anonymous"></script>
 
     <script src="~/assets/js/main.js"></script>
+
+
     @RenderSection("Scripts", required: false)
+
+   
+
 </body>
 
 </html>

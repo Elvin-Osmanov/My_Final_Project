@@ -8,15 +8,20 @@ namespace Restabook.Data.Entities
 {
     public class Table:BaseEntity
     {
-        public int No { get; set; }
+
+        public Table()
+        {
+            Reservation = new Reservation();
+        }
+      
 
         public DateTime Date { get; set; }
 
-        public List<TimeTable> TimeTables { get; set; }
+        public DateTime StartTime { get; set; }
 
-        [NotMapped]
-        public int[] TimeIds { get; set; }
+        public DateTime EndTime { get; set; }
 
-        public List<Reservation> Reservations { get; set; }
+
+        public virtual Reservation Reservation { get; set; }
     }
 }

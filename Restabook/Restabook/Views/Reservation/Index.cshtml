@@ -1,0 +1,109 @@
+﻿@model Table
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    List<DateTime> time = ViewBag.times;
+    List<DateTime> date = ViewBag.dates;
+}
+
+<section id="modal" style="background-image: url(~/../../assets/images/intro/error.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="reservation">
+                  
+                    <div class="reservation-inner p-lg-3 p-md-0" style="background-image: url(./assets/images/modal/reservation-bg.png);">
+                        <div class="title text-center">
+                            <p>Don't forget to book a table</p>
+                            <h1 class="text-dark">Table Reservations</h1>
+                            <div class="dots">
+                                <ul class="list-unstyled justify-content-center">
+                                    <li>.</li>
+                                    <li>.</li>
+                                    <li>.</li>
+                                    <li>.</li>
+                                    <li>.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <form asp-action="reserve" method="post">
+                                <input type="hidden" name="tableId" value="@Model.Id" />
+                                <div class="form-row">
+                                    <div class="form-group col-md-5 offset-md-1 col-6">
+
+                                        <input type="text" class="form-control modal-name" name="CustomerName" id="CustomerName" placeholder="Your Name">
+                                    </div>
+                                    <div class="form-group col-md-5 col-6">
+
+                                        <input type="email" class="form-control modal-email" name="EmailAddress" id="EmailAddress" placeholder="Email Address*">
+                                    </div>
+                                    <div class="form-group col-md-5 offset-md-1 col-6">
+
+                                        <input type="number" min="0" step="1" class="form-control modal-phone" name="PhoneNumber" id="PhoneNumber" placeholder="Phone*">
+                                    </div>
+                                    <div class="form-group col-md-5 col-6">
+
+                                        <select id="person" class="form-control" required asp-items="ViewBag.personquantity" name="PersonCount">
+                                            <option selected disabled>Persons</option>
+
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-5 offset-md-1 col-6 ">
+
+                                        <select id="time" class="form-control"  name="ReservationDate" asp-items="@(new SelectList( date,"Date"))" required>
+                                            <option disabled selected>Date</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-5 col-6 ">
+
+                                        <select id="time" class="form-control"  name="ReservationTime" asp-items="@(new SelectList( time,"StartTime"))" required>
+                                            <option disabled selected>Time</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-10 offset-md-1">
+
+                                        <textarea class="form-control modal-message" id="Message" name="Message" rows="3" placeholder="Your Message:"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12 text-center">
+
+                                        <span class="success">Reservation is sent</span>
+                                    </div>
+                                    <div class="form-group col-md-12 text-center">
+
+                                        <div class="reserve d-flex justify-content-center ">
+                                            <button type="submit" class="text-center btn reserve-btn" style="padding: 11px 28px;
+        background: #C19D60;
+        border: 1px solid #C19D60;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+        margin-top:20px;
+        border-radius: 0;
+        outline: 0;
+    ">
+                                                Reserve Table<i class="icon fal fa-long-arrow-right"></i>
+                                            </button>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

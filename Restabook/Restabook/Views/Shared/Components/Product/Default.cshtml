@@ -1,8 +1,8 @@
 ﻿@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
 @model List<Product>
 @{
-            AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
- }
+   AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
+}
 @foreach (var item in Model)
 {
             var poster = item.ProductPhotos.FirstOrDefault(x => x.Order == 1);

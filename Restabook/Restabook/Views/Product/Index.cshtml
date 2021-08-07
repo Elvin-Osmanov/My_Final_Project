@@ -84,9 +84,9 @@
                         </div>
                         <div style="padding-top:10px;" class="quantity-cart d-lg-flex d-md-flex d-block justify-content-between align-items-baseline">
                             <div class="quantity d-flex  align-items-baseline">
-                                <form method="post" asp-action="create" asp-controller="order">
+                                <form method="post" asp-action="addbasket" asp-controller="cart" asp-route-id="@Model.Product.Id">
                                     <input type="hidden" name="ProductId" value="@Model.Product.Id" />
-                                    <input type="text" name="count" value="1" class="form-control col-md-2 col-2">
+                                    @*<input asp-for="@Model.OrderItem.Count" name="count" class="form-control col-md-4 col-4">*@
 
                                     @if (user != null)
                                     {

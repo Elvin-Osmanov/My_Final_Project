@@ -43,45 +43,42 @@ namespace Restabook.Controllers
                 Categories = _context.Categories.ToList(),
                 Tags = _context.Tags.ToList(),
                 PopularProducts = _context.Products.Include(x => x.ProductReviews).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).Take(3).ToList(),
-              
+                Searched = _context.Products.Include(x=>x.ProductPhotos).Where(x=>x.CategoryId==categoryId).ToList()
             };
             return View(shopVM);
         }
 
-        [Route("/shop/{price}")]
-        public async Task<IActionResult> SearchPrice(int price)
-        {
-            ViewData["PriceFiler"] = price;
 
-            if (price != 0)
-            {
-                return View();
-            }
-            List<Product> model = await _context.Products.Include(x => x.ProductPhotos).Include(x => x.Category).Where(x=>x.DiscountedPrice<price).ToListAsync();
-            
-           
-            return View(model);
-        }
 
-       
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Subscribe(Subscriber subscriber)
         {
-
-
-            Subscriber sub = new Subscriber
+            if (subscriber.Email != null)
             {
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow,
-                Email = subscriber.Email
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
 
-            };
 
-            _context.Subscribers.Add(sub);
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
 
-            await _context.SaveChangesAsync();
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
+
 
             return RedirectToAction("index");
         }

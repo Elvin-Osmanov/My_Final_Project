@@ -7,17 +7,27 @@ using Microsoft.EntityFrameworkCore;
 using Restabook.ViewModels;
 using Restabook.Data;
 using Restabook.Data.Entities;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Identity;
 
 namespace Restabook.Controllers
 {
     public class ContactController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public ContactController(AppDbContext context)
+        public ContactController(AppDbContext context, UserManager<AppUser> userManager, IHubContext<NotificationHub> hubContext)
         {
             _context = context;
+           _userManager = userManager;
+            _hubContext = hubContext;
+           
         }
+
+      
+
         public IActionResult Index()
         {
 
@@ -32,6 +42,7 @@ namespace Restabook.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Message(ContactMessage message1)
         {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             Contact contact = await _context.Contacts.Include(x => x.ContactMessages).FirstOrDefaultAsync(x => x.Id == message1.ContactId);
 
             if (contact == null)
@@ -40,8 +51,8 @@ namespace Restabook.Controllers
 
             ContactMessage contactMessage = new ContactMessage
             {
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate  = DateTime.UtcNow,
+                CreatedDate = DateTime.Now,
+                ModifiedDate  = DateTime.Now,
                 Email = message1.Email,
                 PhoneNumber=message1.PhoneNumber,
                 FullName = message1.FullName,
@@ -53,6 +64,8 @@ namespace Restabook.Controllers
             contact.ContactMessages.Add(contactMessage);
 
             await _context.SaveChangesAsync();
+            List<string> adminConIds = _context.Users.Where(u => !u.IsMember).Select(x => x.ConnectionId).ToList();
+            await _hubContext.Clients.Clients(adminConIds).SendAsync("MessageSent", user.FullName, message1.Message.Substring(0,10), message1.CreatedDate.ToString("dd.MMMM.yyyy"));
 
             return RedirectToAction("index");
         }
@@ -61,19 +74,30 @@ namespace Restabook.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Subscribe(Subscriber subscriber)
         {
-
-
-            Subscriber sub = new Subscriber
+            if (subscriber.Email != null)
             {
-                CreatedDate = DateTime.UtcNow,
-                ModifiedDate = DateTime.UtcNow,
-                Email = subscriber.Email
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
 
-            };
 
-            _context.Subscribers.Add(sub);
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
 
-            await _context.SaveChangesAsync();
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+           
+           
+           
+
 
             return RedirectToAction("index");
         }

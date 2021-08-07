@@ -1,18 +1,19 @@
-﻿@model List<Order>
+﻿@model Order
 @inject Microsoft.AspNetCore.Identity.UserManager<AppUser> usermanager
 @inject Restabook.Services.LayoutViewModelService service
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    Setting setting = service.GetSettings();
+    Setting setting = service.GetSettings(); Coupon coupon = service.GetCoupon();
     double subtotal = 0;
     double finaltotal = 0;
     double shipping = 0;
-    int Id = 0;
+    int Id = ViewBag.orderId;
+  
 }
 
 <!-- section intro starts -->
-<section id="cart-intro" style="        background-image: url(~/../assets/images/cart/bg.jpg)">
+<section id="cart-intro" style="        background-image: url(~/../../assets/images/cart/bg.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
@@ -46,7 +47,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="table">
-                    <p>Your Cart <span>@Model.Count() items</span></p>
+                    <p>Your Cart <span>@Model.OrderItems.Count() items</span></p>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -56,56 +57,68 @@
                                 <th scope="col">Count</th>
                                 <th scope="col" class="bg-light">Status</th>
                                 <th scope="col" class="bg-light">Total</th>
-                                <th scope="col"></th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
-                            {
-                                var fullprice = item.Product.Price * item.Count;
                             
-                                <tr>
-                                    <th scope="row" class="p-1 text-center bg-light">
-                                        <img src="~/uploads/products/poster/@item.Product.PosterPhoto"
-                                             class="img-fluid" style="width: 50px; height: auto;" alt="">
-                                    </th>
-                                    <td>@item.Product.Name</td>
-                                    <td class="bg-light">
-                                        $@item.Product.DiscountedPrice
-                                    </td>
-                                    <td>@item.Count</td>
-                                    <td>@(item.OrderStatus == OrderStatus.Pending?"pending":(item.OrderStatus == OrderStatus.Accepted?"accepted":"rejected"))</td>
-                                    <td class="bg-light">$@fullprice</td>
-                                    <td >
-                                        <form method="post" asp-action="remove">
-                                            <button type="submit" class="border-0" style="background-color:#FFFFFF">
-                                                <input name="id" value="@item.Id" hidden />
-                                                <i class="fas fa-times remove-btn"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-
-
-                                if (item.OrderStatus != OrderStatus.Rejected)
+                                @foreach (var item in Model.OrderItems)
                                 {
-                                    subtotal += (item.Price * item.Count);
-                                }
+                                    double fullprice = item.Product.DiscountedPrice * item.Count;
 
-                                item.Id = Id;
-                            }
+                                    <tr>
+                                        <th scope="row" class="p-1 text-center bg-light">
+                                            <img src="~/uploads/products/poster/@item.Product.PosterPhoto"
+                                                 class="img-fluid" style="width: 50px; height: auto;" alt="">
+                                        </th>
+                                        <td>@item.Product.Name</td>
+                                        <td class="bg-light">
+                                            $@item.Product.DiscountedPrice
+                                        </td>
+                                        <td>@item.Count</td>
+                                        <td>@(item.Order.OrderStatus == OrderStatus.Pending?"pending":(Model.OrderStatus == OrderStatus.Accepted?"accepted":"rejected"))</td>
+                                        <td class="bg-light">$@fullprice</td>
+                                     
+                                    </tr>
+
+
+                                    if (Model.OrderStatus != OrderStatus.Rejected)
+                                    {
+                                        subtotal = Model.TotalPrice;
+                                    }
+
+                                   
+                                }
+                            
 
 
                         </tbody>
                     </table>
                 </div>
-                @*<div class="apply d-flex justify-content-between mt-5">
-                        <div class="coupon d-flex">
-                            <input class="form-control" type="text" placeholder="Coupon code"> <a href="#"
-                                                                                                  class="apply-btn btn">Apply</a>
-                        </div>
-                        <a href="#" class="update-btn btn">Update Cart</a>
-                    </div>*@
+                <div class="apply d-flex justify-content-between mt-5">
+                    <div class="coupon d-flex">
+                        <form method="post" class="d-flex" asp-action="discount" asp-controller="cart">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <div class="d-flex flex-column">
+                                <input name="CouponName" class="form-control" style=" padding: 22px 0; text-indent: 10px; " type="text" placeholder="Coupon code">
+                                @if (Model.IsCouponApplied)
+                                {
+                                    <small style="color:#C19D60;font-size:10px;">Coupon is Applied!!!</small>
+                                }
+                               
+                            </div>
+                            <button type="submit" style="line-height:25px" class="apply-btn btn">Apply</button>
+
+
+                        </form>
+                    </div>
+                    <form method="post" asp-action="create" asp-controller="cart">
+
+                        <button type="submit" class="submit-cart-btn">Update Cart</button>
+                       
+                    </form>
+                    
+                </div>
             </div>
             <div class="col-lg-4">
                 <div class="totals">
@@ -157,4 +170,5 @@
     <div class="section-footer" style="background-image: url(~/../assets/images/section-footer/brush-dec_2.png);">
     </div>
 </section>
+
 <!-- section cart ends -->

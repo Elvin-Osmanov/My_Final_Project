@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Detail";
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
-    List<Time> times = ViewBag.Times;
+   
 }
 
 <div class="container-fluid">
@@ -11,23 +11,13 @@
         <div class="card pl-3">
            
             <div class="card-body">
-                <h5 class="card-title">Title: @Model.Date.ToString("dd MM yyyy")</h5>
-                
-                    Time:
+                <h5 class="card-title">Date: @Model.Date.ToString("dd MM yyyy")</h5>
+                <h5 class="card-title">StartTime: @Model.StartTime.ToString("HH:mm")</h5>
+                <h5 class="card-title">EndTime: @Model.EndTime.ToString("HH:mm")</h5>
 
-                    @foreach (var item in times)
-                    {
-                        if (times[times.Count - 1] != item)
-                        {
-                            <p class="d-inline">@item.StartTime.ToString("HH:mm")</p> 
-                        }
-                        else
-                        {
-                            <p class="d-inline">@item.StartTime.ToString("HH:mm")</p>
-                        }
 
-                    }
-              
+
+
 
             </div>
         </div>

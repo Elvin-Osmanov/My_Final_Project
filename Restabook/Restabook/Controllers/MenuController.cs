@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restabook.Data;
+using Restabook.Data.Entities;
 using Restabook.ViewModels;
 
 namespace Restabook.Controllers
@@ -27,6 +28,39 @@ namespace Restabook.Controllers
             };
 
             return View(menuVM);
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Subscribe(Subscriber subscriber)
+        {
+            if (subscriber.Email != null)
+            {
+                Subscriber sub = new Subscriber();
+                if (!await _context.Subscribers.AnyAsync(x => x.Email == subscriber.Email))
+                {
+
+
+                    sub.CreatedDate = DateTime.UtcNow;
+                    sub.ModifiedDate = DateTime.UtcNow;
+                    sub.Email = subscriber.Email;
+
+
+                }
+
+
+
+                _context.Subscribers.Add(sub);
+
+                await _context.SaveChangesAsync();
+            }
+
+
+
+
+
+            return RedirectToAction("index");
         }
     }
 }

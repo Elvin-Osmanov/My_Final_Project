@@ -209,11 +209,11 @@ $(document).ready(function () {
   // back to top ends
   // review validation starts
   $("#single-item .add-review .add-review-btn").click(function (e){
-    e.preventDefault();
+    //e.preventDefault();
 
-    var name = $("#review-name");
-    var email = $("#review-email");
-    var message = $("#review-message");
+    var name = $(".review-name");
+    var email = $(".review-email");
+    var message = $(".review-message");
 
     if (email.val() == "") {
       email.css("border-color", "red");
@@ -290,21 +290,21 @@ $(document).ready(function () {
 
   // checkout validation starts
   $(".pay .pay-btn").click(function (e) {
-    e.preventDefault();
+    //e.preventDefault();
 
-    var name = $("#check-name");
-    var email = $("#check-email");
-    var postcode = $("#check-code");
-    var phone = $("#check-phone");
-    var city = $("#check-city");
-    var country = $("#check-country");
-    var phone = $("#check-phone");
-    var cardName = $("#card-name");
-    var cardNumber = $("#card-number");
-    var cardMM = $("#card-mm");
-    var cardYY = $("#card-yy");
-    var cardCVV = $("#card-cvv");
-    var message = $("#card-text");
+    var name = $(".check-name");
+    var email = $(".check-email");
+    var postcode = $(".check-code");
+    var phone = $(".check-phone");
+    var city = $(".check-city");
+    var country = $(".check-country");
+    var phone = $(".check-phone");
+    var cardName = $(".card-name");
+    var cardNumber = $(".card-number");
+    var cardMM = $(".card-mm");
+    var cardYY = $(".card-yy");
+    var cardCVV = $(".card-cvv");
+    var message = $(".card-text");
 
     if (email.val() == "") {
       email.css("border-color", "red");
@@ -686,10 +686,10 @@ $(document).ready(function () {
   $("#modal .reserve-btn").click(function (e) {
     //e.preventDefault();
 
-    var name = $("#modal #modal-name");
-    var email = $("#modal #modal-email");
+    var name = $("#modal .modal-name");
+    var email = $("#modal .modal-email");
 
-    var phone = $("#modal #modal-phone");
+    var phone = $("#modal .modal-phone");
 
     if (email.val() == "") {
       email.css("border-color", "red");

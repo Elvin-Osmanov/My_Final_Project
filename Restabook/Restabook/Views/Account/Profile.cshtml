@@ -3,7 +3,8 @@
     ViewData["Title"] = "Profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var res = ViewBag.reservation;
+    List<Reservation> res = ViewBag.reservation;
+    var counter = 1;
 }
 
 <section id="signupIntro" style="        background-image: url(~/../../assets/images/opening/plate.jpg);">
@@ -35,7 +36,7 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-6 offset-lg-3">
+            <div class="col-lg-6 ">
                 <div class="registration-form">
                     <h4 class="text-center">Personal Info</h4>
                     <form method="post">
@@ -86,19 +87,48 @@
                                 <span class="text-danger" asp-validation-for="@Model.ConfirmPassword"></span>
                             </div>
 
-                            <div class="form-group col-md-6 offset-lg-3">
+                            <div class="form-group col-md-6 offset-md-3">
 
                                 <div class="registration-button text-center mt-5">
                                     <button type="submit">Update</button>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6 ">
-
-                               
-                            </div>
+                           
                         </div>
 
                     </form>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-8 offset-lg-0 offset-md-2 col-6 offset-3">
+                <div class="reservations" >
+                    <h4 class="text-center">Reservations</h4>
+                    <table class="table">
+                        <thead>
+                            <tr class="row">
+                                <th class="col-md-4">#</th>
+                                <th class="col-md-4">Date</th>
+                                <th class="col-md-4">Time</th>
+                              
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in res.Where(x=>x.Status==ReservationStatus.Accepted))
+                            {
+                                <tr class="row">
+                                    <th class="col-md-4">@counter</th>
+                                    <td class="col-md-4">@item.ReservationDate.ToString("dd.MM.yyyy")</td>
+                                    <td class="col-md-4">@item.ReservationTime.ToString("HH:mm")</td>
+                                   
+
+                                  
+                                </tr>
+
+                                counter++;
+                            }
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
 

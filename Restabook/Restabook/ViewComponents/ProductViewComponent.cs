@@ -21,10 +21,10 @@ namespace Restabook.ViewComponents
         {
             List<Product> products = _context.Products
                 .Where(x => (categoryId != null ? x.CategoryId == categoryId : true))
-                .Include(x => x.Category).Include(x=>x.ProductPhotos)
+                .Include(x => x.Category).Include(x=>x.ProductPhotos).Include(x=>x.ProductReviews)
                 .Include(x => x.ProductTags).ThenInclude(x => x.Tag)
                 .OrderByDescending(x => x.CreatedDate)
-                .Skip((page - 1) * 9).Take(9).ToList();
+                .Skip((page - 1) * 6).Take(6).ToList();
             return await Task.FromResult((IViewComponentResult)View("Default", products));
         }
     }

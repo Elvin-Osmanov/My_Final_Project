@@ -40,10 +40,10 @@ namespace Restabook.Areas.Manage.Controllers
             return View(tableViewModel);
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
 
-            ViewBag.Times = await _context.Times.ToListAsync();
+           
             return View();
         }
 
@@ -54,32 +54,50 @@ namespace Restabook.Areas.Manage.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            var counterofmatches = 0;
 
+            table.CreatedDate = DateTime.UtcNow;
+            table.ModifiedDate = DateTime.UtcNow;
+            table.EndTime = table.StartTime.AddHours(2);
+
+           
+            int counterofmatches = 0;
+            int counterofwatches = 0;
+           
             foreach (var item in _context.Tables)
             {
+                var time = item.StartTime.TimeOfDay;
+                var end = item.EndTime.TimeOfDay;
                 if (table.Date == item.Date)
                 {
-                    if (counterofmatches == 5)
+                    counterofmatches++;
+
+
+                    //Number of tables that available for a day
+                    if (counterofmatches == 35)
                     {
                         ModelState.AddModelError("Table", "No more tables for this span");
                         return View();
                     }
-                    counterofmatches++;
+
+
+                    if ((table.StartTime.Hour == item.StartTime.Hour))
+                    {
+                        counterofwatches++;
+                        if (counterofwatches == 5)
+                        {
+                            if (time <= table.StartTime.TimeOfDay && end <= table.EndTime.TimeOfDay)
+                            {
+                                ModelState.AddModelError("Table", "No more tables for this span");
+                                return View();
+                            }
+
+                            
+                        }
+
+                    }
                 }
+                              
             }
-
-
-
-            table.TimeTables = await _createProductTimes(table.TimeIds);
-            table.CreatedDate = DateTime.UtcNow;
-            table.ModifiedDate = DateTime.UtcNow;
-
-            Table lastTable = await _context.Tables.OrderByDescending(x => x.No).FirstOrDefaultAsync();
-            table.No = lastTable == null ? 101 : (lastTable.No + 1);
-
-            var tt = _context.Tables.Include(x => x.TimeTables).ThenInclude(p => p.Time);
-
 
 
 
@@ -92,13 +110,13 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            Table table = await _context.Tables.Include(x => x.TimeTables).FirstOrDefaultAsync(x => x.Id == id);
+            Table table = await _context.Tables.FirstOrDefaultAsync(x => x.Id == id);
 
             if (table == null)
             {
                 return NotFound();
             }
-            ViewBag.Times = await _context.Times.ToListAsync();
+           
             return View(table);
         }
 
@@ -107,7 +125,7 @@ namespace Restabook.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Table table)
         {
-            Table tableExist = await _context.Tables.Include(x => x.TimeTables).FirstOrDefaultAsync(x => x.Id == table.Id);
+            Table tableExist = await _context.Tables.FirstOrDefaultAsync(x => x.Id == table.Id);
 
             if (tableExist == null)
             {
@@ -117,25 +135,53 @@ namespace Restabook.Areas.Manage.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            var counterofmatches = 0;
+
+            int counterofmatches = 0;
+            int counterofwatches = 0;
+
             foreach (var item in _context.Tables)
             {
-                if (item.Date == table.Date)
+                var time = item.StartTime.TimeOfDay;
+              
+                if (table.Date == item.Date)
                 {
-                    if (counterofmatches == 5)
+                    counterofmatches++;
+
+
+                    //Number of tables that available for a day
+                    if (counterofmatches == 35)
                     {
                         ModelState.AddModelError("Table", "No more tables for this span");
                         return View();
                     }
-                    counterofmatches++;
+
+
+                    if ((table.StartTime.Hour == item.StartTime.Hour))
+                    {
+                        counterofwatches++;
+                        if (counterofwatches == 5)
+                        {
+                            if (time <= table.StartTime.TimeOfDay)
+                            {
+                                ModelState.AddModelError("Table", "No more tables for this span");
+                                return View();
+                            }
+
+
+                        }
+
+                    }
                 }
+
             }
 
-            tableExist.TimeTables = await _getUpdatedProductTimesAsync(tableExist.TimeTables, table.TimeIds, table.Id);
 
             tableExist.Date = table.Date;
-
+            tableExist.StartTime = table.StartTime;
+            tableExist.EndTime = tableExist.StartTime.AddHours(2);
             tableExist.ModifiedDate = DateTime.UtcNow;
+
+
             await _context.SaveChangesAsync();
 
             return RedirectToAction("index");
@@ -143,25 +189,25 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-            Table table = await _context.Tables.Include(x => x.TimeTables).ThenInclude(t => t.Time).FirstOrDefaultAsync(x => x.Id == id);
+            Table table = await _context.Tables.FirstOrDefaultAsync(x => x.Id == id);
 
             if (table == null)
             {
                 return NotFound();
             }
-            ViewBag.Times = await _context.Times.ToListAsync();
+          
             return View(table);
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            Table table = await _context.Tables.Include(x => x.TimeTables).ThenInclude(t => t.Time).FirstOrDefaultAsync(x => x.Id == id);
+            Table table = await _context.Tables.FirstOrDefaultAsync(x => x.Id == id);
 
             if (table == null)
             {
                 return NotFound();
             }
-            ViewBag.Times = await _context.Times.ToListAsync();
+           
             return View(table);
         }
 
@@ -169,7 +215,7 @@ namespace Restabook.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Table table)
         {
-            Table tableExist = await _context.Tables.Include(x => x.TimeTables).ThenInclude(t => t.Time).FirstOrDefaultAsync(x => x.Id == table.Id);
+            Table tableExist = await _context.Tables.FirstOrDefaultAsync(x => x.Id == table.Id);
 
             if (tableExist == null)
             {
@@ -182,60 +228,25 @@ namespace Restabook.Areas.Manage.Controllers
             return RedirectToAction("index");
         }
 
-        private async Task<List<TimeTable>> _getUpdatedProductTimesAsync(List<TimeTable> timeTables, int[] timeIds, int tableId)
+        public async Task<IActionResult> Reservations(int id, int page = 1)
         {
-            List<TimeTable> removableTimes = new List<TimeTable>();
-            removableTimes.AddRange(timeTables);
+            double totalCount = await _context.Tables.CountAsync();
+            int pageCount = (int)Math.Ceiling(totalCount / 5);
 
-            foreach (var timeId in timeIds)
+            if (page < 1) page = 1;
+            else if (page > pageCount) page = pageCount;
+
+            ViewBag.PageCount = pageCount;
+            ViewBag.SelectedPage = page;
+            Table table = await _context.Tables.Include(x=>x.Reservation).FirstOrDefaultAsync(x => x.Id == id);
+
+
+            if (table == null)
             {
-                TimeTable time = timeTables.FirstOrDefault(x => x.TimeId == timeId);
-
-                if (time != null)
-                {
-                    removableTimes.Remove(time);
-                }
-                else
-                {
-                    if (!await _context.Times.AnyAsync(x => x.Id == timeId))
-                    {
-                        throw new Exception("Time not found!");
-                    }
-
-                    time = new TimeTable
-                    {
-                        TimeId = timeId,
-                        TableId = tableId
-                    };
-
-                    timeTables.Add(time);
-                }
+                return NotFound();
             }
 
-            timeTables = timeTables.Except(removableTimes).ToList();
-
-            return timeTables;
-        }
-        private async Task<List<TimeTable>> _createProductTimes(int[] timeIds)
-        {
-
-            List<TimeTable> timeTables = new List<TimeTable>();
-            foreach (var timeId in timeIds)
-            {
-                if (!await _context.Times.AnyAsync(x => x.Id == timeId))
-                {
-                    throw new Exception("Time not found!");
-                }
-
-                TimeTable timeTable = new TimeTable
-                {
-                    TimeId = timeId
-                };
-
-                timeTables.Add(timeTable);
-            }
-
-            return timeTables;
+            return View(table);
         }
     }
 }
