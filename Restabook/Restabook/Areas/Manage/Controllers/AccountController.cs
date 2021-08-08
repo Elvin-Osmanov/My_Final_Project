@@ -232,7 +232,7 @@ namespace Restabook.Areas.Manage.Controllers
         //{
         //    AppUser user = new AppUser
         //    {
-        //        UserName = "SuperAdmin",
+        //        UserName = "Admin",
         //        FullName = "Supern Admin",
         //    };
 

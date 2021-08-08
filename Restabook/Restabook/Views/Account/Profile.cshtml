@@ -13,7 +13,7 @@
             <div class="col-lg-6 offset-lg-3">
                 <div class="title text-center">
                     <p class="text-white">Profile Page</p>
-                    <h1 class="text-white">Hi @Model.UserName.ToUpper()</h1>
+                    @*<h1 class="text-white">Hi @Model.UserName.ToUpper()</h1>*@
                 </div>
                 <div class="dots">
                     <ul class="list-unstyled justify-content-center">
@@ -76,9 +76,15 @@
                                 <input class="form-control" asp-for="@Model.Birthdate" placeholder="Birth date">
                                 <span class="text-danger" asp-validation-for="@Model.Birthdate"></span>
                             </div>
+                            <div class="form-group col-md-10 offset-md-1 ">
+
+                                <input class="form-control" asp-for="@Model.CurrentPassword" placeholder="CurrentPassword">
+                                <span asp-validation-for="@Model.CurrentPassword" class="text-danger"></span>
+                            </div>
+                           
                             <div class="form-group col-md-5 offset-md-1">
 
-                                <input class="form-control" asp-for="@Model.Password" placeholder="Password">
+                                <input class="form-control" asp-for="@Model.Password" placeholder="New Password">
                                 <span class="text-danger" asp-validation-for="@Model.Password"></span>
                             </div>
                             <div class="form-group col-md-5 ">
@@ -93,7 +99,7 @@
                                     <button type="submit">Update</button>
                                 </div>
                             </div>
-                           
+
                         </div>
 
                     </form>
@@ -113,6 +119,7 @@
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach (var item in res.Where(x=>x.Status==ReservationStatus.Accepted))
                             {
                                 <tr class="row">

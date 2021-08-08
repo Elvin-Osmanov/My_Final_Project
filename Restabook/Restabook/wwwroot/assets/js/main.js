@@ -907,11 +907,11 @@ $(document).ready(function () {
   });
 
   //filter starts
-  $("#range").ionRangeSlider({
-    min: 0,
-    max: 1000,
-    from: 0,
-  });
+  //$("#range").ionRangeSlider({
+  //  min: 0,
+  //  max: 1000,
+  //  from: 0,
+  //});
   //filter sends
 
   //fancybox starts

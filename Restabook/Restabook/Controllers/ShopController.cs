@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Restabook.Data;
 using Restabook.Data.Entities;
+using Restabook.Data.Enums;
 using Restabook.ViewModels;
 
 namespace Restabook.Controllers
@@ -19,8 +21,9 @@ namespace Restabook.Controllers
             _context = context;
         }
 
-        public IActionResult Index (int page = 1,  int? categoryId = null)
+        public IActionResult Index(int page = 1, int? categoryId = null, int? price = null, string? str = null, string? option=null)
         {
+          
             double totalCount = _context.Products.Where(x => (categoryId != null ? x.CategoryId == categoryId : true)).Count();
             int pageCount = (int)Math.Ceiling(totalCount / 6);
 
@@ -31,7 +34,13 @@ namespace Restabook.Controllers
             ViewBag.SelectedPage = page;
             ViewBag.CategoryId = categoryId;
             ViewBag.AllProducts = _context.Products.Count();
+            ViewBag.products = _context.Products.ToList();
+            ViewBag.price = price;
+            ViewBag.search = str;
+            ViewBag.option = option;
 
+
+            
 
 
 
@@ -39,7 +48,10 @@ namespace Restabook.Controllers
 
             ShopViewModel shopVM = new ShopViewModel
             {
-                Products = _context.Products.Include(x => x.ProductPhotos).Skip((page - 1) * 6).Take(6).ToList(),
+                
+
+                Products = _context.Products.Include(x => x.ProductPhotos)
+                .Skip((page - 1) * 6).Take(6).ToList(),
                 Categories = _context.Categories.ToList(),
                 Tags = _context.Tags.ToList(),
                 PopularProducts = _context.Products.Include(x => x.ProductReviews).Where(x => x.ProductReviews.Count >= 7 && x.Rate >= 4).Take(3).ToList(),
@@ -48,7 +60,7 @@ namespace Restabook.Controllers
             return View(shopVM);
         }
 
-
+        
 
 
         [HttpPost]
@@ -77,11 +89,13 @@ namespace Restabook.Controllers
             }
 
 
-
-
-
             return RedirectToAction("index");
         }
+
+
+        
+
+       
     }
 }
 

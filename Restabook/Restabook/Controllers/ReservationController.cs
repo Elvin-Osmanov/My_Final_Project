@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using Restabook.Data.Enums;
 
 namespace Restabook.Controllers
 {
+    [Authorize(Roles = "Member", AuthenticationSchemes = "Member_Auth")]
     public class ReservationController : Controller
     {
         private readonly AppDbContext _context;

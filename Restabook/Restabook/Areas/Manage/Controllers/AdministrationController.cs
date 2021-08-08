@@ -82,6 +82,7 @@ namespace Restabook.Areas.Manage.Controllers
                 return RedirectToAction("index");
         }
 
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
         public async Task<IActionResult> EditRole(string id)
         {
             ViewBag.role = id;

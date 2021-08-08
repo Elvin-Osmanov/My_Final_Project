@@ -7,10 +7,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     AppUser user = User.Identity.IsAuthenticated ? await usermanager.FindByNameAsync(User.Identity.Name) : null;
     int allproducts = ViewBag.AllProducts;
-   
     int pageCount = ViewBag.PageCount;
     int selectedPage = ViewBag.SelectedPage;
     int? categoryId = ViewBag.CategoryId;
+    int? price = ViewBag.price;
+    string? str = ViewBag.search;
+    string? opt = ViewBag.option ;
 }
 
 
@@ -51,20 +53,41 @@
                 <div class="txt d-lg-flex d-md-flex d-block justify-content-between">
                     <p>Showing <span>@Model.Products.Take(8).Count()</span> of @allproducts results </p>
                     <div class="form-group col-md-4 col-7 p-0">
-
-                        <select id="inputState" class="form-control">
-                            <option selected>Popularity</option>
-                            <option>Average rating</option>
-                            <option>Price:low to high</option>
-                            <option>Price:high to low</option>
-                        </select>
+                        <form method="get" asp-action="index">
+                            <select id="option" class="form-control" name="option" onchange="this.form.submit()">
+                                <option selected>Option to Filter</option>
+                                <option value="AverageRating">Average Rating</option>
+                                <option value="PriceHighToLow">Price: High To Low</option>
+                                <option value="PriceLowToHigh">Price: Low To High</option>
+                            </select>
+                            
+                            
+                        </form>
                     </div>
 
                 </div>
                 <div class="list">
                     <div class="row">
 
-                        @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId })
+                        @if (price != null)
+                        {
+                            @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId, price = price })
+
+
+                        }
+                        else if (str != null)
+                        {
+                            @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId, str = str })
+                        }
+                        else if (opt != null)
+                        {
+                            @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId, option = opt })
+                        }
+                        else
+                        {
+                            @await Component.InvokeAsync("Product", new { page = selectedPage, categoryId = categoryId })
+
+                        }
 
                     </div>
                     <div class="row">
@@ -106,15 +129,16 @@
                 </div>
             </div>
             <div class="col-lg-4 ">
+               
                 <div class="sidebar">
                    
-                        <form class="search" asp-action="search" method="get">
-                            <div class="col-md-12 justify-content-center d-flex align-items-center">
-                                <div class="searhed-box">
-                                    <input type="text" name="search" value="@ViewData["Filter"]" class="form-control" id="searching" placeholder="Search...">
-                                   
-                                </div>
-                                <button type="submit" value="Search" style="padding: 11px 28px;
+                      <form method="get" asp-action="index"> 
+                            <div class="col-md-12 p-0">
+                                <div class="search justify-content-center d-flex align-items-center">
+                                    <input type="text" style="box-shadow:none ;border: 1px solid #e1e1e1; background: white; font-size: 14px; color: #666666; font-family:Poppins, sans-serif; padding: 21px; outline: none; border-radius: 0; font-weight: 500;" class="form-control" value="@ViewBag.search" id="str" name="str" placeholder="Search...">
+
+
+                                    <button type="submit" style="padding: 11px 28px;
         background: #C19D60;
         border: 1px solid #C19D60;
         color: #fff;
@@ -125,30 +149,33 @@
         transition: all .3s;
         border-radius: 0;
         outline: 0;
-    " class="search-btn"><i class="text-white fas fa-search"></i></button>
+    " class="search-btn">
+                                        <i class="text-white fas fa-search"></i>
+                                    </button>
+                                </div>
                             </div>
+                          </form>
 
-
-                        </form>
+                       
                     
-                    <form class="filter">
+                    <form method="get" asp-action="index"  class="filter">
                         <p>Price Filter</p>
                         <div class="row mt-3">
-                            <form method="get" asp-action="SearchPrice">
+                            
                                 <div class="col-lg-9 ">
 
                                     <div class="slidecontainer">
-                                        <input  type="range" min="1" max="1000"  value="0" name="price"   class="sliderrange" id="myRange">
-                                        <p class="mt-2">Price to$: <span id="demo" value="@ViewData["PriceFiler"]"></span></p>
+                                        <input  type="range" min="1" max="1000"  value="@ViewBag.price" name="price"  class="sliderrange" id="myRange">
+                                        <p class="mt-2">Price to $: <span id="demo" ></span></p>
                                     </div>
 
 
                                 </div>
                                 
                                 <div class="col-lg-3 col-md-3 col-3 p-0 d-flex justify-content-center align-items-center">
-                                    <a type="submit" value="price" asp-action="searchprice" asp-route-price="@ViewData["PriceFiler"]" class="border-0 update-btn">Update</a>
+                                    <button type="submit"  class="border-0 update-btn">Update</button>
                                 </div>
-                            </form>
+                           
 
                         </div>
                     </form>

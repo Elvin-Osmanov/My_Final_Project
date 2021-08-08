@@ -3,25 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Restabook.Data;
+using Restabook.Data.Entities;
+using Restabook.ViewModels;
 
 namespace Restabook.Controllers
 {
     public class SearchController : Controller
     {
-        //public IActionResult Index()
-        //{
+        private readonly AppDbContext _context;
 
-        //    ViewData["PriceFiler"] = price;
+        public SearchController(AppDbContext context)
+        {
+            _context = context;
+        }
 
-        //    if (price != 0)
-        //    {
-        //        return View();
-        //    }
-        //    List<Product> model = await _context.Products.Include(x => x.ProductPhotos).Include(x => x.Category).Where(x => x.DiscountedPrice < price).ToListAsync();
+        public IActionResult Search(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+            {
+                return View();
+            }
+
+            ShopViewModel shopView = new ShopViewModel
+            {
+                Products = _context.Products.Include(x => x.ProductPhotos)
+                .Include(x => x.Category).Include(x => x.ProductTags).ThenInclude(x => x.Tag).
+                Where(x => x.Name.ToLower().Contains(str.ToLower())).ToList()
+            };
+
+            return View(shopView);
+        }
+
+           
+
+            
 
 
-        //    return RedirectToAction("index", "shop");
-
-        //}
+        
     }
 }
