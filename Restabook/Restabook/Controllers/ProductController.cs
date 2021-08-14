@@ -60,7 +60,14 @@ namespace Restabook.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Review(ProductReview review)
         {
+           
+
             Product product = await _context.Products.Include(x => x.ProductReviews).FirstOrDefaultAsync(x => x.Id == review.ProductId);
+
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("index", new { product.Id, product.CategoryId });
+            }
 
             if (product == null)
                 return NotFound();

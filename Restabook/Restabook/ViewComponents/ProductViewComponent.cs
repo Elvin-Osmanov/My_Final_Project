@@ -35,7 +35,7 @@ namespace Restabook.ViewComponents
                 case "AverageRating":
                     products = _context.Products
               .Where(x => (categoryId != null ? x.CategoryId == categoryId : true)).Where(x => (str != null ? x.Name.ToLower().Contains(str.ToLower()) : true))
-              .Where(x => (price != null ? x.Price < price : true)).Where(x => x.ProductReviews.Count == 3)
+              .Where(x => (price != null ? x.Price < price : true)).Where(x => x.Rate == 3)
               .Include(x => x.Category).Include(x => x.ProductPhotos).Include(x => x.ProductReviews)
               .Include(x => x.ProductTags).ThenInclude(x => x.Tag)
               .Skip((page - 1) * 6).Take(6).ToList();

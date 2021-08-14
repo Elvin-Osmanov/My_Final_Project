@@ -230,7 +230,7 @@ namespace Restabook.Areas.Manage.Controllers
 
         public async Task<IActionResult> Reservations(int id, int page = 1)
         {
-            double totalCount = await _context.Tables.CountAsync();
+            double totalCount = await _context.Reservations.CountAsync();
             int pageCount = (int)Math.Ceiling(totalCount / 5);
 
             if (page < 1) page = 1;

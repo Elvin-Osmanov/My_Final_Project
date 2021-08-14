@@ -93,7 +93,10 @@ namespace Restabook.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Reserve(Reservation reservation,int id)
         {
-
+            if (!ModelState.IsValid)
+            {
+                return View("index");
+            }
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             Table table = await _context.Tables.FirstOrDefaultAsync();
 
@@ -115,8 +118,9 @@ namespace Restabook.Controllers
 
             await _context.Reservations.AddAsync(reservationmodel);
             await _context.SaveChangesAsync();
-
+            
             return RedirectToAction("profile", "account");
+            
         }
         
 

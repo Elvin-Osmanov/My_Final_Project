@@ -31,7 +31,7 @@ namespace Restabook.Areas.Manage.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             Order order = await _context.Orders
-                .Include(x => x.AppUser)
+                .Include(x => x.AppUser).Include(x=>x.OrderItems)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if (order == null)

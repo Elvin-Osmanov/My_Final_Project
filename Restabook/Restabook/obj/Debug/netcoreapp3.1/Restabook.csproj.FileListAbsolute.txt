@@ -444,3 +444,4 @@ C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\bin\Debug\netcoreapp3.1
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.csproj.CoreCompileInputs.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Restabook.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Views\Checkout\Checkout.cshtml.g.cs
+C:\Users\Elvin\Desktop\Final Project\Restabook\Restabook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Administration\DeleteRole.cshtml.g.cs

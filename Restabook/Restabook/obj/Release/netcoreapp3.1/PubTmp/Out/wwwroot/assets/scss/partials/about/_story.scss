@@ -1,0 +1,110 @@
+#story{
+
+    
+    a[data-fancybox] img {
+        cursor: zoom-in;
+      }
+      
+      .fancybox__container {
+        --fancybox-bg: rgba(17, 6, 25, 0.85);
+      }
+      
+      .fancybox__container .fancybox__content {
+        padding: 1rem;
+        border-radius: 6px;
+        color: #374151;
+        background: #fff;
+        box-shadow: 0 8px 23px rgba(0, 0, 0, 0.5);
+      }
+      
+      .fancybox__content > .carousel__button.is-close {
+        top: 0;
+        right: -38px;
+      }
+      
+      .fancybox__caption {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.25rem;
+        width: 100%;
+        border-top: 1px solid #ccc;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      
+        /* Prevent opacity change when dragging up/down */
+        --fancybox-opacity: 1;
+      }
+
+      .slick-dots li.slick-active button{
+
+        background: $mainColor;
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: -5px;
+            left: -5px;
+            border: 1px solid #ccc;
+            transition: all 300ms ease-out;
+        }
+    }
+
+    .slick-dots li button {
+        opacity: 1;
+        background: white;
+        margin: 0 10px;
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        position: relative;
+        border-radius: 100%;
+        transition: all 300ms ease-out;
+
+       &::before{
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        top: -5px;
+        left: -5px;
+        border: white;
+        transition: all 300ms ease-out;
+       }
+
+        
+    }
+
+    .slick-next{
+        width: 30px;
+        height: 30px;
+        line-height: 52px;
+        text-align: center;
+        border-radius: 50%;
+        right: 5px;
+
+
+        &::before{
+          color: $mainColor;
+        }
+
+        background: black;
+    }
+
+    .slick-prev{
+        width: 30px;
+        height: 30px;
+        line-height: 52px;
+        text-align: center;
+        border-radius: 50%;
+        left: 5px;
+        z-index: 10;
+
+
+        &::before{
+          color: $mainColor;
+        }
+
+        background: black;
+    }
+}

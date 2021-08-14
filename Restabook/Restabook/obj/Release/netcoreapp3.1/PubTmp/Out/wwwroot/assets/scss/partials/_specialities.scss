@@ -1,0 +1,218 @@
+#specialities{
+    padding: 105px 0;
+    overflow: hidden;
+    position: relative;
+
+
+    &::before{
+        content: "";
+        background-color: rgba(0, 0, 0, 0.708);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .dots{
+        color: $mainColor;
+    }
+
+    .section-header-special{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: -5px;
+        
+    }
+
+    .section-footer-special{
+        height: 40px;
+        position: absolute;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .menu-link{
+
+        a.menubtn{
+            @extend %mainbtn
+        }
+    }
+
+    .pdf{
+        a.pdfbtn{
+            font-size: 14px;
+            margin-top: 6px;
+            position: relative;
+            border-bottom: 1px dotted rgba(255,255,255,0.3);
+            padding-bottom: 4px;
+            transition: all 200ms linear;
+            color: $mainColor;
+            text-decoration: none;
+
+            &:hover{
+                color: white;
+                transition: all 200ms linear;
+            }
+        }
+    }
+
+    .menu-tabs{
+        border-right: 1px solid rgba(255,255,255,0.3);
+        padding: 25px  20px 25px  0px;
+        .tabs{
+
+
+            li{
+                cursor: pointer;
+                a{
+                    font-size: 20px;
+                    color: white;
+                    text-decoration: none;
+                    
+                }
+              
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+                .menu-order{
+
+                    font-size: 12px;
+                    color: white;
+                    margin-right: 10px;
+                }
+
+                i{
+
+                    color: $mainColor;
+                    margin-left: 50px;
+                    display: none;
+                }
+
+                &:hover{
+                    .menu-order{
+                        color: $mainColor;
+                    }
+
+                    a{
+                        color: $mainColor;
+                    }
+                }
+            }
+
+            li.active{
+                .menu-order{
+                    color: $mainColor;
+                }
+
+                i{
+                    display: inline;
+                }
+
+                a{
+                    color: $mainColor;
+                }
+            }
+        }
+    }
+
+    .menus{
+        padding-top: 27px;
+
+        ul{
+            display: none;
+
+            li{
+                span{
+                    color: $mainColor;
+                    margin-right: 40px;
+                    margin-top:-5px;
+                }
+
+                .item{
+                     
+                    h6{
+                        font-family: $secondaryFont;
+                    }
+
+                    p{
+                        font-family: $secondaryFont;
+                        font-weight: 200;
+                        font-size: 13px;
+                    }
+                }
+
+                .price{
+                    color: $mainColor;
+                }
+
+                .details{
+                    position: relative;
+
+                    &::after{
+                        content: "";
+                        width: 600px;
+                        height: 1px;
+                        position: absolute;
+                        border-bottom: 1px dotted rgba(204, 204, 204, 0.2);
+                        top: 10px;
+                        left: 245px;
+                    }
+                }
+
+                
+            }
+
+           
+        }
+
+        ul#sea{
+            padding-bottom: 134.8px
+        }
+
+        .show{
+            display:block
+        }
+    }
+}
+
+@media only screen and (max-width:770px){
+
+    #specialities{
+
+        .menu-tabs{
+            border-right: none;
+
+            .tabs{
+                display: flex;
+                justify-content: space-evenly;
+                
+                li{
+                    i{
+                        display: none;
+                    }
+                }
+
+                li.active{
+
+                    i{
+                        display: none;
+                    }
+                }
+               
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:576px){
+    #specialities .menu-tabs .tabs li a {
+        font-size: 10px;
+       
+    }
+
+}

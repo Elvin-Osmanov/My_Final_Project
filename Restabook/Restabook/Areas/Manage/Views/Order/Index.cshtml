@@ -16,10 +16,10 @@
                 <th scope="col">User</th>
                
 
-                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
 
                 <th scope="col">Date</th>
-                <th scope="col">Total</th>
+               
                 <th scope="col">Status</th>
 
                 <th scope="col"></th>
@@ -36,7 +36,7 @@
                     <td>@item.TotalPrice</td>
 
                     <td>@item.CreatedDate.ToString("dd.MM.yyyy")</td>
-                    <td>@(item.TotalPrice)</td>
+                  
                     <td>@(item.OrderStatus == OrderStatus.Pending ? "pending":(item.OrderStatus == OrderStatus.Accepted?"accepted":"rejected"))</td>
                     <td>
                         <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>

@@ -140,6 +140,62 @@ namespace Restabook.Areas.Manage.Controllers
         }
 
 
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
+        public async Task<IActionResult> DeleteRole(string id)
+        {
+            ViewBag.role = id;
+
+            var existrole = await _roleManager.FindByIdAsync(id);
+
+            if (existrole == null)
+            {
+                return NotFound();
+            }
+
+            var delRole = new DeleteRoleViewModel
+            {
+                RoleName = existrole.Name
+            };
+
+            return View(delRole);
+            
+
+
+
+        }
+
+
+        [Authorize(Roles = "Admin", AuthenticationSchemes = "Admin_Auth")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteRole(DeleteRoleViewModel delete)
+        {
+            var existrole = await _roleManager.FindByIdAsync(delete.Id);
+
+            if (existrole == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var result = await _roleManager.DeleteAsync(existrole);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("index");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("index");
+            }
+
+            
+
+        }
         [HttpGet]
         public async Task<IActionResult> EditUserInRole(string id)
         {

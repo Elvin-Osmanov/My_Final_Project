@@ -33,19 +33,19 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-5 offset-md-1 col-6">
 
-                                        <input type="text" class="form-control modal-name" name="CustomerName" id="CustomerName" placeholder="Your Name">
+                                        <input type="text" class="form-control modal-name" name="CustomerName" id="CustomerName" placeholder="Your Name" required>
                                     </div>
                                     <div class="form-group col-md-5 col-6">
 
-                                        <input type="email" class="form-control modal-email" name="EmailAddress" id="EmailAddress" placeholder="Email Address*">
+                                        <input type="email" class="form-control modal-email" name="EmailAddress" id="EmailAddress" placeholder="Email Address*" required>
                                     </div>
                                     <div class="form-group col-md-5 offset-md-1 col-6">
 
-                                        <input type="number" min="0" step="1" class="form-control modal-phone" name="PhoneNumber" id="PhoneNumber" placeholder="Phone*">
+                                        <input type="number" min="0" step="1" class="form-control modal-phone" name="PhoneNumber" id="PhoneNumber" placeholder="Phone*" required>
                                     </div>
                                     <div class="form-group col-md-5 col-6">
 
-                                        <select id="person" class="form-control" required asp-items="ViewBag.personquantity" name="PersonCount">
+                                        <select id="person" class="form-control" required asp-items="ViewBag.personquantity" name="PersonCount" required>
                                             <option selected disabled>Persons</option>
 
 

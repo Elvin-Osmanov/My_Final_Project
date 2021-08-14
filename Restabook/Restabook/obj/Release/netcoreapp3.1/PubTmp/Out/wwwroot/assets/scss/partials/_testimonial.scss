@@ -1,0 +1,172 @@
+#testimonial{
+    overflow: hidden;
+    padding: 25px 0;
+  
+    
+    .carousel{
+
+        padding: 50px 0;
+    }
+
+    .slick-next{
+        width: 30px;
+        height: 30px;
+        line-height: 52px;
+        text-align: center;
+        border-radius: 50%;
+        right: 5px;
+
+
+        &::before{
+          color: $mainColor;
+        }
+
+        background: black;
+    }
+
+    .slick-prev{
+        width: 30px;
+        height: 30px;
+        line-height: 52px;
+        text-align: center;
+        border-radius: 50%;
+        left: 5px;
+        z-index: 10;
+
+
+        &::before{
+          color: $mainColor;
+        }
+
+        background: black;
+    }
+
+      .slider {
+        padding: 25px ;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #eee;
+        margin:0 20px;
+        @include transition(.5s);
+      
+      
+        
+        i{
+            color: $mainColor;
+            font-size: 25px;
+
+        }
+
+        .rating{
+
+            i{
+
+                font-size: 15px;
+                margin-top: 15px;
+            }
+        }
+
+        
+
+        p{
+            color: #878C9F;
+            font-size: 14px;
+            font-style: italic;
+           margin: 25px 0;
+            padding-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .image-box{
+
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border: 1px solid #eee;
+            border-radius: 50%;
+
+            img{
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                line-height: 60px;
+              
+                border-radius: 50%;
+            }
+
+        }
+
+        .footer{
+            display: flex;
+            justify-content: space-between;
+          
+            .dots{
+                color: $mainColor;
+                margin: 0 150px;
+            }
+
+            span{
+                color: $mainColor;
+            }
+        }
+      }
+
+      
+      .onscreen{
+
+        background-color: #f9f9f9;
+        transform: scale(1.0);
+        @include transition(.5s);
+
+      }
+
+      .slick-dots {
+       
+        bottom: -10px;
+    }
+
+    .slick-dots li.slick-active button{
+
+        background: $mainColor;
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            top: -5px;
+            left: -5px;
+            border: 1px solid #ccc;
+            transition: all 300ms ease-out;
+        }
+    }
+
+    .slick-dots li button {
+        opacity: 1;
+        background: #ccc;
+        margin: 0 10px;
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        position: relative;
+        border-radius: 100%;
+        transition: all 300ms ease-out;
+
+       &::before{
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        top: -5px;
+        left: -5px;
+        border: white;
+        transition: all 300ms ease-out;
+       }
+
+        
+    }
+
+    
+    
+    
+}

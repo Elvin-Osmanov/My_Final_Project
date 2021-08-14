@@ -209,7 +209,7 @@
                         <ul class="list-unstyled mt-3">
                             @foreach (var item in Model.Categories)
                             {
-                                <li class="category-link"><a asp-controller="shop" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Name == item.Name).Count()</span></li>
+                                <li class="category-link"><a asp-controller="shop" asp-action="index" asp-route-categoryId="@item.Id" class="category-btn">@item.Name</a> <span>@Model.Products.Where(c => c.Category.Id == item.Id).Count()</span></li>
                             }
                         </ul>
                     </div>

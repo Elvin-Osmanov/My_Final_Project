@@ -1,0 +1,30 @@
+﻿@model DeleteRoleViewModel
+@{
+    ViewData["Title"] = "DeleteRole";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+
+    string roleId = ViewBag.role;
+}
+
+<div class="container-fluid">
+    <h2>Detail</h2>
+    <div class="card-group">
+        <div class="card pl-3">
+
+            <div class="card-body">
+                <h5 class="card-title">Role: @Model.RoleName</h5>
+
+                
+
+
+
+            </div>
+        </div>
+    </div>
+    <form method="post" asp-action="deleterole" asp-controller="administration" class="mt-2">
+        <input name="id" value="@roleId" hidden />
+        <button type="submit" class="btn btn-outline-danger"> Delete</button>
+    </form>
+</div>
+
+
